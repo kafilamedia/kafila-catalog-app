@@ -31,6 +31,12 @@ public class WelcomingScreenActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finishActivity(1);
+        System.exit(1);
+    }
+
     private void goToHomePage() {
         new GoHome().execute(this);
     }
