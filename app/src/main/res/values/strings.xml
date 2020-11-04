@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MPI App</string>
+    <string name="app_name">Kafila</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -8,4 +8,5 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_sop">SOPActivity</string>
+    <string name="splash_screen_label">Kafila International Islamic School</string>
 </resources>

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import id.sch.kafila.catalog.util.LoggingUtil;
 import id.sch.kafila.catalog.util.Navigate;
-import sop.mpimedia.net.catalog.R;
+import id.sch.kafila.catalog.R;
 
 public class WelcomingScreenActivity extends BaseActivity {
 

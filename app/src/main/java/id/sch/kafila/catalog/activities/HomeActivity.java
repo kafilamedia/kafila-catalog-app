@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import id.sch.kafila.catalog.util.Navigate;
-import sop.mpimedia.net.catalog.R;
+import id.sch.kafila.catalog.R;
 
 public class HomeActivity extends BaseActivity {
 

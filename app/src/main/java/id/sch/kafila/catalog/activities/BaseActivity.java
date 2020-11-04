@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import id.sch.kafila.catalog.util.Navigate;
-import sop.mpimedia.net.catalog.R;
+import id.sch.kafila.catalog.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
