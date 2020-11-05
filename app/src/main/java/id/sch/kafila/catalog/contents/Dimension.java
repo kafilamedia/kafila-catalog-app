@@ -3,6 +3,7 @@ package id.sch.kafila.catalog.contents;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -24,6 +25,8 @@ public class Dimension implements Serializable {
     private int x, y, height, width;
     private int allMargin, marginTop, marginBottom, marginLeft, marginRight;
     private int allPadding, paddingLeft, paddingRight, paddingTop, paddingBottom;
+    @Builder.Default
+    private int gravity = Gravity.NO_GRAVITY;
 
     public  Dimension(int w, int h){
         width = w;
@@ -47,7 +50,8 @@ public class Dimension implements Serializable {
     }
 
     public static LinearLayout setLinearLayoutParamsPercentage(LinearLayout View, double w, double h) {
-
+        w = w <1?100.0:w;
+        h = h <1?100.0:h;
         int ScreenWidth = getScreenWidth(View.getContext());
         int ScreenHeight = getScreenHeight(View.getContext());
 
@@ -55,7 +59,10 @@ public class Dimension implements Serializable {
     }
 
     public static <T extends View>  T  setViewLayoutParams(View View, int w, int h) {
-        View.setLayoutParams(new LinearLayout.LayoutParams(w, h));
+        LinearLayout.LayoutParams lp = View.getLayoutParams() == null? new LinearLayout.LayoutParams(w, h) : (LinearLayout.LayoutParams) View.getLayoutParams();
+        lp.width = w;
+        lp.height = h;
+        View.setLayoutParams( lp);
         View.requestLayout();
         return (T)View;
     }

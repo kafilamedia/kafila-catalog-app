@@ -41,7 +41,6 @@ public class CommonContent extends BaseActivity {
 
         mainLayout.addView(view);
         mainLayout.setLayoutParams(new FrameLayout.LayoutParams( Dimension.WRAP_CONTENT, Dimension.WRAP_CONTENT));
-        Logs.log("mainLayout.getChildCount(): ", mainLayout.getChildCount());
     }
 
     @Override

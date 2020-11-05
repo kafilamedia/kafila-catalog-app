@@ -1,5 +1,6 @@
 package id.sch.kafila.catalog.contents;
 
+import android.graphics.Color;
 import android.view.View;
 
 import java.io.Serializable;
@@ -33,6 +34,8 @@ public class Content implements Serializable{
     @Setter(value= AccessLevel.NONE)
     @Getter(value= AccessLevel.NONE)
     private Map<Integer, List<Content>> children = new HashMap<>();
+    @Builder.Default
+    private int textColor = Color.BLACK;
 
     public boolean isWrappedByLayout(){
         return children.isEmpty() == false;

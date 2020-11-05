@@ -1,7 +1,9 @@
 package id.sch.kafila.catalog.builder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.Set;
 
 import id.sch.kafila.catalog.contents.Content;
 import id.sch.kafila.catalog.contents.Dimension;
+
+import static id.sch.kafila.catalog.builder.ViewBuilder.addPhysicalLogInfo;
 
 public class ContentBuilder {
 
@@ -30,9 +34,13 @@ public class ContentBuilder {
         initialize();
     }
 
+    @SuppressLint("ResourceType")
     private void initialize() {
         if(content.isWrappedByLayout()) {
-            mainLayout = ContentHelper.buildVerticalLayout(content.getDimension().getWidth(), context);
+            mainLayout = ViewBuilder.verticalWrapContenLinearLayout(context);
+            mainLayout.setId(112345);
+            mainLayout.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+            addPhysicalLogInfo(mainLayout);
         }
     }
 
@@ -54,16 +62,20 @@ public class ContentBuilder {
         Set<Integer> rows = content.getChildrenRows();
         for (Integer row : rows) {
             List<Content> contentEachRows = content.getChildernAtRow(row);
+
+            LinearLayout horizontalLayout = ViewBuilder.horizontalWrapContenLinearLayout(context);
+            horizontalLayout.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            addPhysicalLogInfo(horizontalLayout);
+
             View[] rowViews = new View[contentEachRows.size()];
             for (int i = 0; i < contentEachRows.size(); i++) {
                 Content _content = contentEachRows.get(i);
                 ContentBuilder builder = new ContentBuilder(_content, context);
                 rowViews[i] = builder.buildContent();
+                horizontalLayout.addView(rowViews[i]);
             }
-            int height = content.getMaxHeightAtRow(row);
-            LinearLayout horizontalLayout = ContentHelper.buildHorizontalLayout(height, context, rowViews);
-
             mainLayout.addView(horizontalLayout);
+
         }
     }
 }

@@ -6,12 +6,14 @@ import android.graphics.Color;
 import android.text.Html;
 import android.text.InputType;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Random;
 
+import id.sch.kafila.catalog.contents.Content;
 import id.sch.kafila.catalog.contents.Dimension;
 import id.sch.kafila.catalog.util.Logs;
 
@@ -34,7 +36,7 @@ public final class ContentHelper {
                 mainLayout.addView(view);
             }
         }
-        mainLayout = setLinearLayoutParamsPercentage(mainLayout, width > 0 ? width : 100.0, WRAP_CONTENT);
+        mainLayout = setLinearLayoutParamsPercentage(mainLayout, 100.0, 100.0);
         mainLayout.requestLayout();
 
         return mainLayout;
@@ -50,7 +52,7 @@ public final class ContentHelper {
                 mainLayout.addView(view);
             }
         }
-        mainLayout = setLinearLayoutParamsPercentage(mainLayout, WRAP_CONTENT, height > 0 ? height : 100.0);
+        mainLayout = setLinearLayoutParamsPercentage(mainLayout, 100.0, height > 0 ? height : 100.0);
         mainLayout.requestLayout();
 
         return mainLayout;
@@ -72,13 +74,15 @@ public final class ContentHelper {
     }
 
 
-    public static TextView buildTextView(Object content, Dimension dimension, Context context) {
+
+    public static TextView buildTextView(Object content, int color, float fontSize, boolean singleLine, Dimension dimension, Context context) {
         String text = String .valueOf(content);
         Logs.log("Building textView with value: ", text);
 
         TextView textView = new TextView(context);
-        textView.setId(rand.nextInt(999999999) + 19999999);
-        textView.setTextColor(Color.BLACK);
+        textView.setId(randomId());
+        textView.setTextColor(color);
+        textView.setTextSize(fontSize);
         textView.setText(Html.fromHtml(text));
 
         if (null != dimension) {
@@ -86,8 +90,8 @@ public final class ContentHelper {
             /**
              * position
              */
-            textView.setX(dimension.getX());
-            textView.setY(textView.getY());
+//            textView.setX(dimension.getX());
+//            textView.setY(textView.getY());
             if (dimension.getWidth() > 0) {
                 textView.setWidth(dimension.getWidth());
             }
@@ -103,7 +107,7 @@ public final class ContentHelper {
         }
 
         textView.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE); //must be called FIRST
-        textView.setSingleLine(false);
+        textView.setSingleLine(singleLine);
         textView.setHorizontallyScrolling(false);
         textView.requestLayout();
 
@@ -133,7 +137,10 @@ public final class ContentHelper {
         Logs.log("Will set layout param");
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+                dimension.getWidth()>0?dimension.getWidth():
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                dimension.getHeight()>0?dimension.getHeight():
+                        LinearLayout.LayoutParams.WRAP_CONTENT
         );
 
 
@@ -150,6 +157,7 @@ public final class ContentHelper {
                     dimension.getAllMargin(),
                     dimension.getAllMargin());
         }
+        layoutParams.gravity = dimension.getGravity();
         view.setLayoutParams(layoutParams);
 
         Logs.log("success set layout param");
