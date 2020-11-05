@@ -23,14 +23,14 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <fragment
+            <FrameLayout
                 android:name="id.sch.kafila.catalog.activities.fragments.BaseFragment"
                 android:id="@+id/common_content_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            </fragment>
+            </FrameLayout>
 
         </ScrollView>  </LinearLayout>
 </FrameLayout>

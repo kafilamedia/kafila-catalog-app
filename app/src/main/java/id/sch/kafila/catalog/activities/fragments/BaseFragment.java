@@ -29,7 +29,7 @@ public class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Logs.log("BaseFragment fragmentId: ", fragmentId);
-        return inflater.inflate(fragmentId == null ? R.layout.fragment_base:fragmentId, container, false);
+        return inflater.inflate(fragmentId == null ? R.layout.fragment, container, false);
     }
 
 }
