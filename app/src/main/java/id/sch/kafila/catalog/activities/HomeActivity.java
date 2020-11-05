@@ -57,8 +57,8 @@ public class HomeActivity extends BaseActivity {
         navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
         navigateNilaiUnggul.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
         navigateSebaranAlumni.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
-        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
-        navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
+        navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_fasilitas));
         navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
     }
     private OnClickListener gotoMenu(final int fragmentId) {

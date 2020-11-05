@@ -12,4 +12,38 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="splash_screen_ayah">Dialah yang mengutus kepada kaum yang buta huruf seorang rasul
+        diantara mereka, yang membacakan ayat-ayat Nya kepada mereka,
+        mensucikan mereka dan mengajarkan mereka kitab dan hikmah
+        (sunnah)</string>
+
+    <!-- Fragments -->
+    <string name="program_pendidikan_1">Program pendidikan di unit pesantren ditempuh dalam
+            waktu 6 (enam) tahun dalam jenjang Madrasah Tsanawiyah
+            (MTs) dan Madrasah Aliyah (MA). Pembinaan para santri
+            dicakupkan dalam tiga proses utama (core process), yakni :
+            akademik, keasramaan dan tahfidzul Qur an. Kurikulum
+            akademik yang diterapkan adalah Kurikulum 2013 yang
+            disesusaikan dengan kebutuhan masyarakat serta kurikulum
+            khas pesantren.</string>
+    <string name="program_pendidikan_2">Di lingkungan asrama, para santri mendapat pembinaan
+            karakter berdasarkan prinsip 10 Kepribadian Muslim dan
+            pembiasaan berbahasa internasional (Arab dan Inggris). Di
+            samping itu para santri mendapat pendampingan dalam
+            kegiatan tahfidz Al-Qur an bersama musyrif agar tercapai
+            minimal 20 juz sebagai syarat kelulusan.</string>
+
+    <string name="program_pengembangan_1">Ekstrakurikuler: Bela diri Thifan, Kepanduan/Pramuka,
+            panahan, futsal, renang, KINEMATIKA (Komunitas Studi Sains
+            dan Matematika), IT Club (programming dan desain grafis),
+            dan sebagainya.</string>
+    <string name="program_pengembangan_2">Muhadharah (pidato bahasa Arab/Inggris), Outbound, Studi
+            Ekskursi, PDPU (Praktik Dakwah dan Pengembangan Ummat),
+            LDKS (Latihan Dasar Kepemimpinan Santri), Outing class, dan
+            sebagainya.</string>
+    <string name="fasilitas">Asrama , Ruang Kelas ber-AC, Perpustakaan,
+            Laboratorium IPA, Laboratorium Bahasa, Laboratorium
+            Komputer, Kantin, UKS, Lapangan Olahraga.</string>
+
 </resources>

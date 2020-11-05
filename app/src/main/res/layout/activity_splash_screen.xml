@@ -11,14 +11,33 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="299dp"
+        android:layout_height="237dp"
         android:layout_marginTop="100dp"
         app:srcCompat="@drawable/whatsapp" />
 
     <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/splash_screen_ayah"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Q.S. Al-Jumuah: 2" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/splash_screen_label"
         android:textSize="20sp"

@@ -19,19 +19,19 @@
         android:layout_height="match_parent"
         android:background="@drawable/home_bg"
         android:orientation="vertical"
-        >
-        <ScrollView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <FrameLayout
+            android:id="@+id/common_content_container"
+            android:name="id.sch.kafila.catalog.activities.fragments.BaseFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <FrameLayout
-                android:name="id.sch.kafila.catalog.activities.fragments.BaseFragment"
-                android:id="@+id/common_content_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            </FrameLayout>
+        </FrameLayout>
 
-        </ScrollView>  </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
 

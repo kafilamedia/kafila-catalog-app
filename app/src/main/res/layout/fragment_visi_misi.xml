@@ -10,31 +10,37 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="Visi"
-        android:textColor="#cccccc"
+        android:textColor="#ffffff"
         android:textSize="30sp"></TextView>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#cccccc"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
         android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="Misi"
-        android:textColor="#cccccc"
+        android:textColor="#ffffff"
         android:textSize="30sp"></TextView>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#cccccc"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
         android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global" />
 
 </LinearLayout>
