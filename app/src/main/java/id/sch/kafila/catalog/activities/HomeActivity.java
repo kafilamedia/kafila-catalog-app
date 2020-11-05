@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.contents.Content;
 import id.sch.kafila.catalog.contents.data.ContentData;
@@ -29,7 +30,7 @@ public class HomeActivity extends BaseActivity {
     private Button navigateProgramPendidikan;
     private Button navigateProgramPengembangan;
     private Button navigateNilaiUnggul;
-    private Button navigateSebaranAlumni;
+    private MenuButton navigateSebaranAlumni;
     private Button navigateFasilitas;
     private Button navigateBiayaPendidikan;
     public HomeActivity(){
@@ -80,17 +81,13 @@ public class HomeActivity extends BaseActivity {
         final Context ctx = this;
         return new OnClickListener(){
 
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 DialogInterface.OnClickListener callback = new DialogInterface.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        android.os.Process.killProcess(android.os.Process.myPid());
-                        try {
-                            finishAffinity();
-                        }catch (Exception e){ }
-                        System.exit(1);
+                        exitApplication();
                     }
                 };
                 AlertUtil.confirm(ctx, "Exit?", callback);
@@ -98,6 +95,16 @@ public class HomeActivity extends BaseActivity {
             }
         };
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    private void exitApplication(){
+        android.os.Process.killProcess(android.os.Process.myPid());
+        try {
+            finishAffinity();
+        }catch (Exception e){ }
+        System.exit(1);
+    }
+
     @Override
     public void onBackPressed() {
         return;

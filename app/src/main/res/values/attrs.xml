@@ -9,4 +9,9 @@
         <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="MenuButton">
+        <attr name="drawableId" format="integer" />
+        <attr name="buttonLabel" format="string" />
+    </declare-styleable>
+
 </resources>
