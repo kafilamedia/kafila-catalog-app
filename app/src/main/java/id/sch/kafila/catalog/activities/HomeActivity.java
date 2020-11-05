@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
@@ -33,6 +34,9 @@ public class HomeActivity extends BaseActivity {
     private MenuButton navigateSebaranAlumni;
     private MenuButton navigateFasilitas;
     private MenuButton navigateBiayaPendidikan;
+
+    private LinearLayout prefaceContent;
+
     public HomeActivity(){
         super(R.layout.activity_home);
     }
@@ -50,6 +54,8 @@ public class HomeActivity extends BaseActivity {
         navigateSebaranAlumni= findViewById(R.id.home_btn_sebaran_alumni);
         navigateFasilitas= findViewById(R.id.home_btn_fasilitas);
         navigateBiayaPendidikan= findViewById(R.id.home_btn_biaya_pendidikan);
+        prefaceContent= findViewById(R.id.preface_content);
+
     }
     @Override
     protected void initEvent(){
