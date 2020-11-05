@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.util.Logs;
 
 public class MenuButton extends RelativeLayout {
     @StyleableRes
@@ -26,16 +27,25 @@ public class MenuButton extends RelativeLayout {
 
     private void init(Context context, AttributeSet attrs) {
         inflate(context, R.layout.image_button, this);
-
+        initComponents();
         int[] sets = {R.attr.drawableId, R.attr.buttonLabel};
         TypedArray typedArray = context.obtainStyledAttributes(attrs, sets);
-        int drawableId = typedArray.getResourceId(index0, R.drawable.ic_home_black_24dp);
-        CharSequence labelText = typedArray.getText(index1);
-        typedArray.recycle();
+        for (int i = 0; i< attrs.getAttributeCount(); i++){
+            String attributeName = attrs.getAttributeName(i);
+            switch (attributeName){
+                case "drawableId":
+                    int value = attrs.getAttributeResourceValue(i, R.drawable.ic_home_black_24dp);
+                    imageView.setImageResource( value);
+                    break;
+                case "buttonLabel":
+                    String labelText = attrs.getAttributeValue(i);
+                    label.setText(labelText);
+                    break;
+            }
+            Logs.log(i," attr: ", attrs.getAttributeName(i),"=",attrs.getAttributeValue(i));
+        }
 
-        initComponents();
-        imageView.setImageResource( drawableId);
-        label.setText(labelText);
+        typedArray.recycle();
     }
 
     public void setOnClickListener(OnClickListener listener){

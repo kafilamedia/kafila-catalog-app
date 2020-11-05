@@ -128,7 +128,6 @@
                         android:id="@+id/btn_home_exit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         app:buttonLabel="Exit"
                         app:drawableId="@drawable/exit" />
 
