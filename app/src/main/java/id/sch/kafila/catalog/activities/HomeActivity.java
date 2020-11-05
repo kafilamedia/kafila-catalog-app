@@ -2,6 +2,7 @@ package id.sch.kafila.catalog.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.contents.Content;
 import id.sch.kafila.catalog.contents.data.ContentData;
+import id.sch.kafila.catalog.util.AlertUtil;
 import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.Navigate;
 import id.sch.kafila.catalog.R;
@@ -75,16 +77,24 @@ public class HomeActivity extends BaseActivity {
         };
     }
     private OnClickListener exit() {
+        final Context ctx = this;
         return new OnClickListener(){
 
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
-                android.os.Process.killProcess(android.os.Process.myPid());
-                try {
-                    finishAffinity();
-                }catch (Exception e){ }
-                System.exit(1);
+                DialogInterface.OnClickListener callback = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                        try {
+                            finishAffinity();
+                        }catch (Exception e){ }
+                        System.exit(1);
+                    }
+                };
+                AlertUtil.confirm(ctx, "Exit?", callback);
+
             }
         };
     }
