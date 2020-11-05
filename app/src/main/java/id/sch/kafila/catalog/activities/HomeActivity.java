@@ -35,7 +35,6 @@ public class HomeActivity extends BaseActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
     }
     @Override
@@ -55,11 +54,11 @@ public class HomeActivity extends BaseActivity {
         navigateVisiMisi.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
         navigateProgramPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_program_pendidikan));
         navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
-        navigateNilaiUnggul.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
-        navigateSebaranAlumni.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateNilaiUnggul.setOnClickListener(gotoMenu(R.layout.fragment_nilai_unggul));
+        navigateSebaranAlumni.setOnClickListener(gotoMenu(R.layout.fragment_sebaran_alumni));
         navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
         navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_fasilitas));
-        navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_biaya_pendidikan));
     }
     private OnClickListener gotoMenu(final int fragmentId) {
         final Context context = this;

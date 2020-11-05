@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kafila</string>
     <string name="title_home">Home</string>
@@ -12,6 +13,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_preface1">Pendidikan adalah misi kerasulan menuju visi pembentukan
+        manusia pembelajar. Dalam prosesnya, Rasul, Sang Guru mendidik
+        melalui metode mengajar (ta\'lim) dengan membangun afeksi
+        melalui keagungan ayat-Nya (tilawah) dan menyingkirkan karakter
+        buruk manusia (tazkiyah)</string>
+    <string name="home_preface2">Sebagai alur teladan, manusia dengan jiwa dan jati diri mulia yang
+        terasah hatinya dengan firman Allah akan mengolah pengetahuan
+            menjadi karya yang bernilai bagi Allah dan semesta-Nya.</string>
+    <string name="home_preface3">Saatnya kita membuktikan kepada dunia, bahwa Al Qur\'an dan
+        Sunnah adalah instruksi kerja yang rapi dan sempurna. Induk dari
+        segala kualitas. Yang terpancar dalam jaminan mutu pendidikan di
+        Kafila International Islamic School</string>
+
 
     <string name="splash_screen_ayah">Dialah yang mengutus kepada kaum yang buta huruf seorang rasul
         diantara mereka, yang membacakan ayat-ayat Nya kepada mereka,
@@ -45,5 +59,10 @@
     <string name="fasilitas">Asrama , Ruang Kelas ber-AC, Perpustakaan,
             Laboratorium IPA, Laboratorium Bahasa, Laboratorium
             Komputer, Kantin, UKS, Lapangan Olahraga.</string>
+    <string name="alumni_dalam_negeri">Institut Teknologi Bandung (ITB), Univ. Indonesia (UI), Univ. Gadjah Mada (UGM), Institut Pertanian Bogor (IPB), Univ. Diponegoro
+        (UNDIP), Universitas Sebelas Maret (UNS), Univ. Brawijaya (UB), Institut Teknologi Sepuluh Nopember (ITS), Univ. Airlangga (UNAIR),
+        Universitas Islam Negeri Syarif Hidayatullah, STAN, Univ. Telkom, Univ. PERTAMINA, LIPIA dan sebagainya.</string>
+    <string name="alumni_luar_negeri">Univ. Islam Madinah, Univ. Ummul Qura Makkah, Univ. Al Azhar Kairo, Eskisehir Osmangazi Universitasi Turki, Fatih Sultan Mehmet
+        Universitesi Turki, International University of Africa Khartoum Sudan, International Islamic University of Malaysia (IIUM)</string>
 
 </resources>
