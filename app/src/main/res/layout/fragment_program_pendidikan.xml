@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.fragments.BaseFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,5 +15,29 @@
         android:text="Program Pendidikan"
         android:textColor="#cccccc"
         android:textSize="30sp"></TextView>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#cccccc"
+        android:text="Program pendidikan di unit pesantren ditempuh dalam
+            waktu 6 (enam) tahun dalam jenjang Madrasah Tsanawiyah
+            (MTs) dan Madrasah Aliyah (MA). Pembinaan para santri
+            dicakupkan dalam tiga proses utama (core process), yakni :
+            akademik, keasramaan dan tahfidzul Qur'an. Kurikulum
+            akademik yang diterapkan adalah Kurikulum 2013 yang
+            disesusaikan dengan kebutuhan masyarakat serta kurikulum
+            khas pesantren." />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#cccccc"
+        android:text="Di lingkungan asrama, para santri mendapat pembinaan
+            karakter berdasarkan prinsip 10 Kepribadian Muslim dan
+            pembiasaan berbahasa internasional (Arab dan Inggris). Di
+            samping itu para santri mendapat pendampingan dalam
+            kegiatan tahfidz Al-Qur'an bersama musyrif agar tercapai
+            minimal 20 juz sebagai syarat kelulusan." />
 
-</FrameLayout>
+</LinearLayout>

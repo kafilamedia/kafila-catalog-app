@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.fragments.BaseFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,6 +13,25 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Program Pengembangan"
+        android:textColor="#cccccc"
         android:textSize="30sp"></TextView>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#cccccc"
+        android:text="Ekstrakurikuler: Bela diri Thifan, Kepanduan/Pramuka,
+            panahan, futsal, renang, KINEMATIKA (Komunitas Studi Sains
+            dan Matematika), IT Club (programming dan desain grafis),
+            dan sebagainya." />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#cccccc"
+        android:text="Muhadharah (pidato bahasa Arab/Inggris), Outbound, Studi
+            Ekskursi, PDPU (Praktik Dakwah dan Pengembangan Ummat),
+            LDKS (Latihan Dasar Kepemimpinan Santri), Outing class, dan
+            sebagainya." />
 
-</FrameLayout>
+</LinearLayout>
