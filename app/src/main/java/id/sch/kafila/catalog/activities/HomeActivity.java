@@ -25,14 +25,14 @@ import static android.view.View.*;
 
 public class HomeActivity extends BaseActivity {
 
-    private Button exitButton;
-    private Button navigateVisiMisi;
-    private Button navigateProgramPendidikan;
-    private Button navigateProgramPengembangan;
-    private Button navigateNilaiUnggul;
+    private MenuButton exitButton;
+    private MenuButton navigateVisiMisi;
+    private MenuButton navigateProgramPendidikan;
+    private MenuButton navigateProgramPengembangan;
+    private MenuButton navigateNilaiUnggul;
     private MenuButton navigateSebaranAlumni;
-    private Button navigateFasilitas;
-    private Button navigateBiayaPendidikan;
+    private MenuButton navigateFasilitas;
+    private MenuButton navigateBiayaPendidikan;
     public HomeActivity(){
         super(R.layout.activity_home);
     }
