@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,41 +24,44 @@ public class HomeActivity extends BaseActivity {
 
     private Button exitButton;
     private Button navigateVisiMisi;
+    private Button navigateProgramPendidikan;
+    private Button navigateProgramPengembangan;
     public HomeActivity(){
         super(R.layout.activity_home);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
-
     @Override
     protected void initComponent() {
         exitButton = findViewById(R.id.btn_home_exit);
         navigateVisiMisi = findViewById(R.id.home_btn_visi_misi);
+        navigateProgramPendidikan = findViewById(R.id.home_btn_program_pendidikan);
+        navigateProgramPengembangan = findViewById(R.id.home_btn_program_pengembangan);
     }
     @Override
     protected void initEvent(){
         exitButton.setOnClickListener(exit());
-        navigateVisiMisi.setOnClickListener(gotoMenu(ContentData.VISI_MISI));
+        navigateVisiMisi.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateProgramPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_program_pendidikan));
+        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
     }
-
-    private OnClickListener gotoMenu(final String contentDataKey) {
+    private OnClickListener gotoMenu(final int fragmentId) {
         final Context context = this;
         return new OnClickListener(){
             @Override
             public void onClick(View v) {
+                Logs.log("gotoMenu fragmentId: ", fragmentId);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(SharedPreferencesConstants.KEY_CONTENT, contentDataKey);
+                editor.putString(SharedPreferencesConstants.KEY_CONTENT, String.valueOf(fragmentId));
 
                 editor.commit();
                 Navigate.navigate(context ,CommonContent.class);
             }
         };
-
     }
-
     private OnClickListener exit() {
         return new OnClickListener(){
 
@@ -72,7 +76,6 @@ public class HomeActivity extends BaseActivity {
             }
         };
     }
-
     @Override
     public void onBackPressed() {
         return;

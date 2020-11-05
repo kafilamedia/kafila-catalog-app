@@ -34,12 +34,10 @@ public class ContentBuilder {
         initialize();
     }
 
-    @SuppressLint("ResourceType")
     private void initialize() {
         if(content.isWrappedByLayout()) {
             mainLayout = ViewBuilder.verticalWrapContenLinearLayout(context);
-            mainLayout.setId(112345);
-            mainLayout.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+            mainLayout.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
             addPhysicalLogInfo(mainLayout);
         }
     }

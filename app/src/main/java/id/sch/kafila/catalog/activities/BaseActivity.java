@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
+import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.Navigate;
 import id.sch.kafila.catalog.R;
 
@@ -23,10 +24,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedpreferences = getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, MODE_PRIVATE);
-        setContentView(LAYOUT_ID);
-        initComponent();
-        initEvent();
+        Logs.log("Super onCreate LAYOUT_ID: ", LAYOUT_ID);
+        try {
+
+
+            setContentView(LAYOUT_ID);
+            sharedpreferences = getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, MODE_PRIVATE);
+
+            initComponent();
+            initEvent();
+        }catch (Exception e){
+            Logs.log("ERROR : ", e);
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     protected View.OnClickListener navigate(final Class<? extends Activity>  activityClass) {

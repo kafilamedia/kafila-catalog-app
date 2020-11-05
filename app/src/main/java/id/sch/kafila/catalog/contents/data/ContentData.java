@@ -22,11 +22,22 @@ public class ContentData {
                     {
                         {
                             put(1, CollectionUtil.arrayToList(
-                                    Content.builder().body("Content Visi").textColor(Color.WHITE)// .dimension(new Dimension(300,100))
-                                            .build(),
-                                    Content.builder().body("Content Misi").textColor(Color.WHITE) //.dimension(new Dimension(300,100))
-                                            .build()
-                            ));
+                                    Content.builder().body("Visi").textColor(Color.WHITE)// .dimension(new Dimension(300,100))
+                                            .build()));
+//                                    Content.builder().body("Content Misi").textColor(Color.WHITE) //.dimension(new Dimension(300,100))
+//                                            .build()
+                            put(2, CollectionUtil.arrayToList(
+                                    Content.builder().body("Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang").textColor(Color.WHITE)// .dimension(new Dimension(300,100))
+                                            .build()));
+                            put(3, CollectionUtil.arrayToList(
+                                    Content.builder().body("Misi").textColor(Color.WHITE)// .dimension(new Dimension(300,100))
+                                            .build()));
+//                                    Content.builder().body("Content Misi").textColor(Color.WHITE) //.dimension(new Dimension(300,100))
+//                                            .build()
+                            put(4, CollectionUtil.arrayToList(
+                                    Content.builder().body("Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global").textColor(Color.WHITE)// .dimension(new Dimension(300,100))
+                                            .build()));
+
                         }
                     }).build()
             );

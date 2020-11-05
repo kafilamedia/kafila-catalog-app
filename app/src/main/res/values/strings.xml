@@ -9,4 +9,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_sop">SOPActivity</string>
     <string name="splash_screen_label">Kafila International Islamic School</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
