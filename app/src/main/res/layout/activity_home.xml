@@ -19,89 +19,128 @@
         tools:context="id.sch.kafila.catalog.activities.HomeActivity">
 
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="167dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/kiis_stroke" />
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_page_sop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:autoText="true"
-            android:background="#cccccc"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Visi dan Misi"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btn_page_sop2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:autoText="true"
-            android:background="#cccccc"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Nilai-Nilai Unggul"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="167dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/kiis_stroke" />
 
-        <Button
-            android:id="@+id/btn_page_sop3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:autoText="true"
-            android:background="#cccccc"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Program Pendidikan"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/home_btn_visi_misi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Visi dan Misi"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_page_sop4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:autoText="true"
-            android:background="#cccccc"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Program Pengembangan"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btn_page_sop2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Nilai-Nilai Unggul"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_page_sop5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:autoText="true"
-            android:background="#cccccc"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Sebaran Alumni"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btn_page_sop3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Program Pendidikan"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_home_exit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:autoText="true"
-            android:background="#cccccc"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Exit"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btn_page_sop4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Program Pengembangan"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_page_sop6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Fasilitas"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_page_sop7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Biaya Pendidikan"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_page_sop5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Sebaran Alumni"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_home_exit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:autoText="true"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Exit"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout></FrameLayout>

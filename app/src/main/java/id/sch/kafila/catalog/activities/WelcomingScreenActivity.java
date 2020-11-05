@@ -3,9 +3,7 @@ package id.sch.kafila.catalog.activities;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import id.sch.kafila.catalog.util.LoggingUtil;
 import id.sch.kafila.catalog.util.Navigate;
 import id.sch.kafila.catalog.R;
 

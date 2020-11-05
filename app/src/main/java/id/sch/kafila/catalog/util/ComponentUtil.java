@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import id.sch.kafila.catalog.contents.Dimension;
+
 public class ComponentUtil {
 
     static final Random rand = new Random();
@@ -65,7 +67,7 @@ public class ComponentUtil {
 
     public static TextView buildTextView(String text, Dimension dimension, Context context) {
 
-        LoggingUtil.log("Building textView with value: ", text);
+        Logs.log("Building textView with value: ", text);
 
         TextView textView = new TextView(context);
         textView.setId(rand.nextInt(999999999) + 19999999);
@@ -101,7 +103,7 @@ public class ComponentUtil {
 
     public static View setMargin(View view, Dimension dimension) {
 
-        LoggingUtil.log("Will set layout param");
+        Logs.log("Will set layout param");
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
@@ -123,7 +125,7 @@ public class ComponentUtil {
         }
         view.setLayoutParams(layoutParams);
 
-        LoggingUtil.log("success set layout param");
+        Logs.log("success set layout param");
         return view;
     }
 

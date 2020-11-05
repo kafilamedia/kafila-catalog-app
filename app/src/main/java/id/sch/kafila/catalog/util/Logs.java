@@ -2,7 +2,7 @@ package id.sch.kafila.catalog.util;
 
 import android.util.Log;
 
-public class LoggingUtil {
+public class Logs {
 
     static final String LOG_INFO = "app_info";
 
