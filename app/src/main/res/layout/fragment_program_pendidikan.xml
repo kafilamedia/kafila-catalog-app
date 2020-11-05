@@ -8,10 +8,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:text="Program Pendidikan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="30sp"/>
+        android:text="Program Pendidikan"
+        android:textColor="#cccccc"
+        android:textSize="30sp"></TextView>
 
 </FrameLayout>

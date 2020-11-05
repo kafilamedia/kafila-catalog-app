@@ -11,6 +11,15 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textSize="30sp"
-        android:text="VISI MISI" />
+        android:textColor="#cccccc"
+        android:text="Visi"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
+        android:textColor="#cccccc"
+        android:text="Misi"></TextView>
 
 </FrameLayout>

@@ -26,6 +26,10 @@ public class HomeActivity extends BaseActivity {
     private Button navigateVisiMisi;
     private Button navigateProgramPendidikan;
     private Button navigateProgramPengembangan;
+    private Button navigateNilaiUnggul;
+    private Button navigateSebaranAlumni;
+    private Button navigateFasilitas;
+    private Button navigateBiayaPendidikan;
     public HomeActivity(){
         super(R.layout.activity_home);
     }
@@ -40,13 +44,22 @@ public class HomeActivity extends BaseActivity {
         navigateVisiMisi = findViewById(R.id.home_btn_visi_misi);
         navigateProgramPendidikan = findViewById(R.id.home_btn_program_pendidikan);
         navigateProgramPengembangan = findViewById(R.id.home_btn_program_pengembangan);
+        navigateNilaiUnggul = findViewById(R.id.home_btn_nilai_unggul);
+        navigateSebaranAlumni= findViewById(R.id.home_btn_sebaran_alumni);
+        navigateFasilitas= findViewById(R.id.home_btn_fasilitas);
+        navigateBiayaPendidikan= findViewById(R.id.home_btn_biaya_pendidikan);
     }
     @Override
     protected void initEvent(){
         exitButton.setOnClickListener(exit());
         navigateVisiMisi.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
         navigateProgramPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_program_pendidikan));
+        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
+        navigateNilaiUnggul.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateSebaranAlumni.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
         navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
+        navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
     }
     private OnClickListener gotoMenu(final int fragmentId) {
         final Context context = this;
