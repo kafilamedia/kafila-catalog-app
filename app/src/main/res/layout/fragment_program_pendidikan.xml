@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="10dp"
     tools:context=".activities.fragments.BaseFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="Program Pendidikan"
-        android:layout_marginBottom="20dp"
         android:textColor="#4d454f"
         android:textSize="30sp"></TextView>
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#4d454f"
-        android:textSize="20sp"
         android:layout_marginBottom="5dp"
-        android:text="@string/program_pendidikan_1" />
+        android:text="@string/program_pendidikan_1"
+        android:textColor="#4d454f"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#4d454f"
-        android:textSize="20sp"
         android:layout_marginBottom="5dp"
-        android:text="@string/program_pendidikan_2" />
+        android:text="@string/program_pendidikan_2"
+        android:textColor="#4d454f"
+        android:textSize="20sp" />
 
 </LinearLayout>

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,12 +91,14 @@ public class CatalogFragment extends BaseFragment{
         return new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Logs.log("gotoMenu fragmentId: ", fragmentId);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(SharedPreferencesConstants.KEY_CONTENT, String.valueOf(fragmentId));
-
-                editor.commit();
-                Navigate.navigate(context ,CommonContent.class);
+                switchFragment(fragmentId);
+//
+//                Logs.log("gotoMenu fragmentId: ", fragmentId);
+//                SharedPreferences.Editor editor = sharedpreferences.edit();
+//                editor.putString(SharedPreferencesConstants.KEY_CONTENT, String.valueOf(fragmentId));
+//
+//                editor.commit();
+//                Navigate.navigate(context ,CommonContent.class);
             }
         };
     }
@@ -123,5 +127,17 @@ public class CatalogFragment extends BaseFragment{
             getActivity().finishAffinity();
         }catch (Exception e){ }
         System.exit(1);
+    }
+
+    private void switchFragment(int fragmentId){
+        Logs.log("switchFragment: ", fragmentId);
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        BaseFragment fragment = BaseFragment.newInstance( fragmentId);
+
+        fragmentTransaction.replace(R.id.home_common_content_container, fragment);
+        fragmentTransaction.commit();
+
     }
 }

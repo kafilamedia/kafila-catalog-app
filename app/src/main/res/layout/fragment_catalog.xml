@@ -6,12 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <id.sch.kafila.catalog.components.KafilaHeader
-        android:id="@+id/kafilaHeaderCatalog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="57dp" />
-
     <LinearLayout
 
         android:id="@+id/linearLayout"
@@ -24,7 +18,6 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kafilaHeaderCatalog"
         tools:context=".activities.fragments.CatalogFragment">
 
         <LinearLayout

@@ -1,6 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@android:color/holo_blue_dark"
@@ -18,14 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="35dp">
 
-            <android.support.v7.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/footer_email_icon"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_margin="5dp"
                 android:layout_weight="7"
                 android:padding="0dp"
-                app:srcCompat="@android:drawable/ic_dialog_email" />
+                android:src="@android:drawable/ic_dialog_email" />
 
             <TextView
                 android:id="@+id/footer_email_label"
@@ -42,13 +41,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/footer_web_icon"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_margin="5dp"
                 android:layout_weight="7"
-                app:srcCompat="@drawable/web" />
+                android:src="@drawable/web" />
 
             <TextView
                 android:id="@+id/footer_web_label"
@@ -66,13 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/footer_phone_icon"
                 android:layout_width="55dp"
                 android:layout_height="20dp"
                 android:layout_margin="5dp"
                 android:layout_weight="9"
-                app:srcCompat="@android:drawable/stat_sys_phone_call" />
+                android:src="@android:drawable/stat_sys_phone_call" />
 
             <TextView
                 android:id="@+id/footer_phone_label"
@@ -88,14 +87,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/footer_address_icon"
                 android:layout_width="55dp"
                 android:layout_height="20dp"
                 android:layout_margin="5dp"
                 android:layout_weight="9"
 
-                app:srcCompat="@drawable/loc" />
+                android:src="@drawable/loc" />
 
             <TextView
                 android:id="@+id/footer_address_label"

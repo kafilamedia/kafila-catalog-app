@@ -5,47 +5,45 @@
     android:id="@+id/activity_home_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark">
+    android:background="#ffffff">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <id.sch.kafila.catalog.components.KafilaHeader
+        android:id="@+id/kafilaHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/frameLayout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/kafilaHeader"
+        tools:context="id.sch.kafila.catalog.activities.HomeActivity"
+        tools:layout_editor_absoluteX="0dp">
 
-        <!--<ImageView-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="fill_parent"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:src="@drawable/kiis_ceremony" />-->
-        <!-- android:background="@drawable/home_bg"-->
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/container"
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="50dp"
+            android:layout_height="match_parent">
 
-            android:orientation="vertical"
-            tools:context="id.sch.kafila.catalog.activities.HomeActivity">
-
-
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="200dp">
 
                 <FrameLayout
                     android:id="@+id/home_common_content_container"
                     android:name="id.sch.kafila.catalog.activities.fragments.BaseFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"></FrameLayout>
+            </LinearLayout>
+        </ScrollView>
 
-            </ScrollView>
-
-        </LinearLayout>
-
-    </FrameLayout>
+    </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
