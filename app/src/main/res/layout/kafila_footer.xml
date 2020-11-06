@@ -81,6 +81,26 @@
                 android:layout_weight="1"
                 android:text="021 8400762"
                 android:textColor="#ffffff" />
+        </TableRow>  <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/footer_address_icon"
+            android:layout_width="55dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:layout_weight="9"
+            app:srcCompat="@android:drawable/ic_dialog_map" />
+
+            <TextView
+                android:id="@+id/footer_address_label"
+                android:layout_width="312dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="Jl. Raya Bogor Km.22 No.22 Rambutan Ciracas Jakarta Timur 13830"
+                android:textColor="#ffffff" />
         </TableRow>
 
     </TableLayout>
