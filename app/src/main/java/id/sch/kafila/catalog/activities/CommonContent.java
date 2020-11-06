@@ -24,21 +24,11 @@ public class CommonContent extends  FragmentActivity {
 //
     SharedPreferences sharedpreferences;
 
-
-
     public CommonContent(){
         super();
         Logs.log("Constructor CommonContent...");
     }
 
-
-
-
-
-    //    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-//        super.onCreate(savedInstanceState, persistentState);
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

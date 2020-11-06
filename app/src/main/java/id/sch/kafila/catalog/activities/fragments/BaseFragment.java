@@ -56,6 +56,7 @@ public class BaseFragment extends Fragment {
     private static HashMap<Integer, Class> initCustomFragments() {
         HashMap<Integer, Class> customFragments = new HashMap<Integer, Class>();
         customFragments.put(R.layout.fragment_syarat_pendaftaran, SyaratPendaftaranFragment.class );
+        customFragments.put(R.layout.fragment_catalog, CatalogFragment.class );
 
         return customFragments;
     }
