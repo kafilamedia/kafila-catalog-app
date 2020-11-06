@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.HashMap;
+
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
@@ -21,12 +23,19 @@ import id.sch.kafila.catalog.util.Logs;
 public class CommonContent extends  FragmentActivity {
 //
     SharedPreferences sharedpreferences;
+
+
+
     public CommonContent(){
-    super();
+        super();
         Logs.log("Constructor CommonContent...");
     }
 
-//    @Override
+
+
+
+
+    //    @Override
 //    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
 //        super.onCreate(savedInstanceState, persistentState);
 //    }

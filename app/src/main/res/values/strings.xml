@@ -65,4 +65,12 @@
     <string name="alumni_luar_negeri">Univ. Islam Madinah, Univ. Ummul Qura Makkah, Univ. Al Azhar Kairo, Eskisehir Osmangazi Universitasi Turki, Fatih Sultan Mehmet
         Universitesi Turki, International University of Africa Khartoum Sudan, International Islamic University of Malaysia (IIUM)</string>
 
+
+
+    <string-array name="syarat_pendaftaran_umum">
+        <item>Laki-laki</item>
+        <item>Mengisi pendaftaran online dengan melengkapi data dan berkas berikut.</item>
+        <item>Membayar biaya pendaftaran sebesar Rp 303.000 (Jalur Bea-siswa Mts) atau Rp 606.000 (Jalur MTs Reguler dan MA)</item>
+    </string-array>
+
 </resources>

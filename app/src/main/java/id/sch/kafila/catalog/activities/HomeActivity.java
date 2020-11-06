@@ -34,6 +34,7 @@ public class HomeActivity extends BaseActivity {
     private MenuButton navigateSebaranAlumni;
     private MenuButton navigateFasilitas;
     private MenuButton navigateBiayaPendidikan;
+    private MenuButton navigateSyaratPendaftaran;
 
     private LinearLayout prefaceContent;
 
@@ -55,6 +56,7 @@ public class HomeActivity extends BaseActivity {
         navigateFasilitas= findViewById(R.id.home_btn_fasilitas);
         navigateBiayaPendidikan= findViewById(R.id.home_btn_biaya_pendidikan);
         prefaceContent= findViewById(R.id.preface_content);
+        navigateSyaratPendaftaran= findViewById(R.id.home_btn_syarat_pendaftaran);
 
     }
     @Override
@@ -68,6 +70,7 @@ public class HomeActivity extends BaseActivity {
         navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
         navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_fasilitas));
         navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_biaya_pendidikan));
+        navigateSyaratPendaftaran.setOnClickListener(gotoMenu(R.layout.fragment_syarat_pendaftaran));
     }
     private OnClickListener gotoMenu(final int fragmentId) {
         final Context context = this;
