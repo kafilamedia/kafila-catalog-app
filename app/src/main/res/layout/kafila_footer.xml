@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/footer_email_icon"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="7"
+                app:srcCompat="@android:drawable/ic_dialog_email" />
+
+            <TextView
+                android:id="@+id/footer_email_label"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="info@kafila.sch.id"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/footer_web_icon"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:layout_weight="7"
+                app:srcCompat="@drawable/web" />
+
+            <TextView
+                android:id="@+id/footer_web_label"
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:autoLink="all"
+                android:text="https://kafila.sch.id"
+                android:textColorLink="@android:color/background_light" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/footer_phone_icon"
+                android:layout_width="55dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:layout_weight="9"
+                app:srcCompat="@android:drawable/stat_sys_phone_call" />
+
+            <TextView
+                android:id="@+id/footer_phone_label"
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="021 8400762"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>

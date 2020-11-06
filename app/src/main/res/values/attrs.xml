@@ -13,5 +13,6 @@
         <attr name="drawableId" format="integer" />
         <attr name="buttonLabel" format="string" />
     </declare-styleable>
-
+    <declare-styleable name="KafilaFooter">
+    </declare-styleable>
 </resources>
