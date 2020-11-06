@@ -23,7 +23,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:text="@string/home_preface3"
-            android:textColor="#cccccc" />
+            android:textColor="#ffffff" />
 
         <TextView
             android:id="@+id/preface2"
@@ -33,7 +33,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="@string/home_preface2"
-            android:textColor="#cccccc" />
+            android:textColor="#ffffff" />
 
         <TextView
             android:id="@+id/preface"
@@ -44,7 +44,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:text="@string/home_preface1"
-            android:textColor="#cccccc" />
+            android:textColor="#ffffff" />
     </LinearLayout>
 
     <id.sch.kafila.catalog.components.KafilaFooter
