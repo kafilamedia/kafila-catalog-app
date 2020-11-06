@@ -16,21 +16,10 @@
         android:layout_marginBottom="20dp"
         android:textColor="#4d454f"
         android:textSize="30sp"></TextView>
-    <TextView
-        android:id="@+id/textView3"
+    <ExpandableListView
+        android:id="@+id/list_program_pengembangan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#4d454f"
-        android:layout_marginBottom="5dp"
-        android:text="@string/program_pengembangan_1" />
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#4d454f"
-        android:textSize="20sp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/program_pengembangan_2" />
-
+        android:layout_height="450dp"
+        android:background="#ffffff"
+        tools:listitem="@android:layout/list_content"/>
 </LinearLayout>
