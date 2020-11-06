@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         app:buttonLabel="Fasilitas"
-                        app:drawableId="@drawable/home" />
+                        app:drawableId="@drawable/resources" />
 
                     <id.sch.kafila.catalog.components.MenuButton
                         android:id="@+id/home_btn_program_pengembangan"
@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:buttonLabel="Biaya Pendidikan"
-                        app:drawableId="@drawable/env" />
+                        app:drawableId="@drawable/tuition_fee" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,7 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:buttonLabel="Sebaran Alumni"
-                        app:drawableId="@android:drawable/ic_menu_mapmode" />
+                        app:drawableId="@drawable/alum" />
 
 
                     <id.sch.kafila.catalog.components.MenuButton
