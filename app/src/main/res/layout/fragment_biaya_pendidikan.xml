@@ -15,7 +15,7 @@
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="Biaya Pendidikan"
-        android:textColor="#ffffff"
+        android:textColor="#4d454f"
         android:textSize="30sp"></TextView>
 
     <ImageView
@@ -31,14 +31,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textColor="#ffffff"
+        android:textColor="#4d454f"
         android:text="*Biaya gedung pada tabel di atas adalah untuk 3 tahun" />
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textColor="#ffffff"
+        android:textColor="#4d454f"
         android:text="**Biaya daftar ulang dibayarkan setiap kenaikan kelas (mulai kelas 2 MTs)" />
 
 

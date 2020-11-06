@@ -14,13 +14,13 @@
         android:gravity="center_horizontal"
         android:text="Program Pendidikan"
         android:layout_marginBottom="20dp"
-        android:textColor="#ffffff"
+        android:textColor="#4d454f"
         android:textSize="30sp"></TextView>
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
+        android:textColor="#4d454f"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:text="@string/program_pendidikan_1" />
@@ -28,7 +28,7 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
+        android:textColor="#4d454f"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:text="@string/program_pendidikan_2" />

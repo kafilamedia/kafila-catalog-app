@@ -13,13 +13,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
                 android:text="Sebaran Alumni"
-                android:textColor="#ffffff"
+                android:textColor="#4d454f"
                 android:textSize="30sp"></TextView>
 
             <LinearLayout
