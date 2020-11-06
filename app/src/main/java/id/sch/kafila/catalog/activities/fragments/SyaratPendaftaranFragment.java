@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.adapters.CustomExpandableListAdapter;
+import id.sch.kafila.catalog.contents.Dimension;
 import id.sch.kafila.catalog.models.ListChildInfo;
 import id.sch.kafila.catalog.models.ListGroupInfo;
 
@@ -36,7 +37,8 @@ public class SyaratPendaftaranFragment extends BaseFragment {
         listViewUmum = view.findViewById(R.id.list_syarat_umum);
         
         populateListViews();
-        
+        listViewUmum.getLayoutParams().width = Dimension.getScreenHeight(view.getContext());
+        listViewUmum.requestLayout();
         return view;
     }
 

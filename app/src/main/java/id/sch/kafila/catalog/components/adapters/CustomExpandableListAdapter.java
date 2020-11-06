@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.contents.Dimension;
 import id.sch.kafila.catalog.models.ListChildInfo;
 import id.sch.kafila.catalog.models.ListGroupInfo;
 
@@ -45,9 +46,10 @@ public class CustomExpandableListAdapter<T> extends BaseExpandableListAdapter {
         TextView numbering = (TextView) view.findViewById(R.id.expandable_list_child_item_number);
         TextView childItem = (TextView) view.findViewById(R.id.expandable_list_child_item);
 
-        numbering.setText(detailInfo.getNumber());
+        numbering.setText(String.valueOf(detailInfo.getNumber()));
         childItem.setText(detailInfo.getName().trim());
-
+        childItem.getLayoutParams().width = Dimension.getScreenWidth(context)*4/5;
+        childItem.requestLayout();
         return view;
     }
 
