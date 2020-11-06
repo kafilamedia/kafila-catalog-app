@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import id.sch.kafila.catalog.R;
-import id.sch.kafila.catalog.activities.CommonContent;
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.util.AlertUtil;
