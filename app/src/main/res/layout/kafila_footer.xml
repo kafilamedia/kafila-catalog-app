@@ -15,14 +15,15 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="35dp">
 
             <ImageView
                 android:id="@+id/footer_email_icon"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
                 android:layout_margin="10dp"
                 android:layout_weight="7"
+                android:padding="0dp"
                 app:srcCompat="@android:drawable/ic_dialog_email" />
 
             <TextView
@@ -51,7 +52,7 @@
             <TextView
                 android:id="@+id/footer_web_label"
                 android:layout_width="312dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:autoLink="all"
@@ -75,7 +76,7 @@
             <TextView
                 android:id="@+id/footer_phone_label"
                 android:layout_width="312dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="021 8400762"
