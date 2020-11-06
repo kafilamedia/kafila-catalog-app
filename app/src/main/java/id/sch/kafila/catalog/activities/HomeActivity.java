@@ -6,16 +6,22 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.internal.BottomNavigationMenu;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.contents.Content;
+import id.sch.kafila.catalog.contents.Dimension;
 import id.sch.kafila.catalog.contents.data.ContentData;
 import id.sch.kafila.catalog.util.AlertUtil;
 import id.sch.kafila.catalog.util.Logs;
@@ -35,6 +41,8 @@ public class HomeActivity extends BaseActivity {
     private MenuButton navigateFasilitas;
     private MenuButton navigateBiayaPendidikan;
     private MenuButton navigateSyaratPendaftaran;
+
+    private BottomNavigationView bottomNavigationView;
 
     private LinearLayout prefaceContent;
 
@@ -57,8 +65,16 @@ public class HomeActivity extends BaseActivity {
         navigateBiayaPendidikan= findViewById(R.id.home_btn_biaya_pendidikan);
         prefaceContent= findViewById(R.id.preface_content);
         navigateSyaratPendaftaran= findViewById(R.id.home_btn_syarat_pendaftaran);
+        bottomNavigationView= findViewById(R.id.bottom_navigation);
+
+
+        adjustSize();
+    }
+
+    private void adjustSize() {
 
     }
+
     @Override
     protected void initEvent(){
         exitButton.setOnClickListener(exit());
