@@ -67,14 +67,20 @@
                 android:src="@drawable/kafila_medias" />
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/common_content_container"
-            android:name="id.sch.kafila.catalog.activities.fragments.BaseFragment"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
 
-        </FrameLayout>
+            <FrameLayout
+                android:id="@+id/common_content_container"
+                android:name="id.sch.kafila.catalog.activities.fragments.BaseFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></FrameLayout>
+        </ScrollView>
+
 
     </LinearLayout>
 </FrameLayout>
