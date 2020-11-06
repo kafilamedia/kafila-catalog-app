@@ -20,9 +20,6 @@
         </activity>
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.CommonContent" />
-        <activity
-            android:name=".activities.StaticMenuActivity"
-            android:label="@string/title_activity_static_menu_acitivy"></activity>
     </application>
 
 </manifest>

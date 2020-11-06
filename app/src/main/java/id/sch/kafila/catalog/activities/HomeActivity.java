@@ -71,6 +71,7 @@ public class HomeActivity extends FragmentActivity {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_preface:
                         switchFragment(R.layout.fragment_preface);
@@ -80,9 +81,9 @@ public class HomeActivity extends FragmentActivity {
                         break;
 
                     case R.id.navigation_info:
-
                         break;
                 }
+
                 return false;
 
             }
