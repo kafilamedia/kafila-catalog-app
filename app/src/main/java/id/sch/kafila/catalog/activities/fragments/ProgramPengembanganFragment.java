@@ -40,7 +40,7 @@ public class ProgramPengembanganFragment extends BaseFragment {
     }
 
     private void adjustComponent() {
-        listViewUmum.getLayoutParams().height = Dimension.getScreenHeight(view.getContext())*70/100;
+        listViewUmum.getLayoutParams().height = Dimension.getScreenHeight(view.getContext());
         listViewUmum.requestLayout();
     }
     private void populateListViews() {
