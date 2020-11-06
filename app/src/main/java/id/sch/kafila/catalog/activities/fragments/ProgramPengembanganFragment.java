@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.adapters.CustomExpandableListAdapter;
+import id.sch.kafila.catalog.contents.Dimension;
 import id.sch.kafila.catalog.models.ListChildInfo;
 import id.sch.kafila.catalog.models.ListGroupInfo;
 
@@ -34,11 +35,14 @@ public class ProgramPengembanganFragment extends BaseFragment {
         listViewUmum = view.findViewById(R.id.list_program_pengembangan);
         
         populateListViews();
-//        listViewUmum.getLayoutParams().width = Dimension.getScreenHeight(view.getContext());
-//        listViewUmum.requestLayout();
+        adjustComponent();
         return view;
     }
 
+    private void adjustComponent() {
+        listViewUmum.getLayoutParams().height = Dimension.getScreenHeight(view.getContext())*70/100;
+        listViewUmum.requestLayout();
+    }
     private void populateListViews() {
         populateListByArray(extrakulikuler, contentsEkstakulikuler);
         populateListByArray(kegiatan, contentsKegiatan);

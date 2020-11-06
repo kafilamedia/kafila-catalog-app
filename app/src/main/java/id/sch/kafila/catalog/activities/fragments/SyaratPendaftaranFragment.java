@@ -37,9 +37,15 @@ public class SyaratPendaftaranFragment extends BaseFragment {
         listViewUmum = view.findViewById(R.id.list_syarat_umum);
         
         populateListViews();
+        adjustComponent();
 //        listViewUmum.getLayoutParams().width = Dimension.getScreenHeight(view.getContext());
 //        listViewUmum.requestLayout();
         return view;
+    }
+
+    private void adjustComponent() {
+        listViewUmum.getLayoutParams().height = Dimension.getScreenHeight(view.getContext())*70/100;
+        listViewUmum.requestLayout();
     }
 
     private void populateListViews() {

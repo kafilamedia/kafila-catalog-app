@@ -16,14 +16,19 @@
             android:textColor="#4d454f"
             android:textSize="30sp"></TextView>
 
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
         <ExpandableListView
             android:id="@+id/list_syarat_umum"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="200dp"
             android:background="#ffffff"
             tools:listitem="@android:layout/list_content">
 
         </ExpandableListView>
+
 
 </LinearLayout>
 
