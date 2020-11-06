@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
 
 import java.util.ArrayList;
 
@@ -45,11 +47,12 @@ public class ProgramPengembanganFragment extends BaseFragment {
         listContents.add(ListGroupInfo.builder().name("Kegiatan").childInfos(kegiatan).build());
         setListViewAdapters(view.getContext(), listViewUmum, listContents );
 
-
     }
 
+
+
     private static void setListViewAdapters(Context context, ExpandableListView listView, ArrayList<ListGroupInfo> list){
-        CustomExpandableListAdapter adapter = new CustomExpandableListAdapter(context, list);
+        CustomExpandableListAdapter adapter = new CustomExpandableListAdapter(context, list, listView);
         listView.setAdapter(adapter);
     }
 

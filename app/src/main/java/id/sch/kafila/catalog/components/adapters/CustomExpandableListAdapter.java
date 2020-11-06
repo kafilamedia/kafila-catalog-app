@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,10 +18,23 @@ import id.sch.kafila.catalog.models.ListGroupInfo;
 public class CustomExpandableListAdapter<T> extends BaseExpandableListAdapter {
     private Context context;
     private ArrayList<ListGroupInfo> requirementGroups;
+    private ExpandableListView parent;
+    int lastExpandedGroup = -1;
 
-    public CustomExpandableListAdapter(Context context, ArrayList<ListGroupInfo> requirementGroups) {
+    public CustomExpandableListAdapter(Context context, ArrayList<ListGroupInfo> requirementGroups, ExpandableListView listView) {
         this.context = context;
         this.requirementGroups = requirementGroups;
+        this.parent = listView;
+    }
+
+    @Override
+    public void onGroupExpanded(int groupPosition) {
+        if(lastExpandedGroup!=groupPosition) {
+            parent.collapseGroup(lastExpandedGroup);
+        }
+        lastExpandedGroup = groupPosition;
+        super.onGroupExpanded(groupPosition);
+
     }
 
     @Override
@@ -91,6 +105,7 @@ public class CustomExpandableListAdapter<T> extends BaseExpandableListAdapter {
 
         return view;
     }
+
 
     @Override
     public boolean hasStableIds() {

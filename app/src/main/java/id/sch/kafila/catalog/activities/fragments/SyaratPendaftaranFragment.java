@@ -59,7 +59,7 @@ public class SyaratPendaftaranFragment extends BaseFragment {
     }
 
     private static void setListViewAdapters(Context context, ExpandableListView listView, ArrayList<ListGroupInfo> list){
-        CustomExpandableListAdapter adapter = new CustomExpandableListAdapter(context, list);
+        CustomExpandableListAdapter adapter = new CustomExpandableListAdapter(context, list, listView);
         listView.setAdapter(adapter);
     }
 
