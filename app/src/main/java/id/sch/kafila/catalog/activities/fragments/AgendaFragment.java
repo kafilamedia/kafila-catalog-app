@@ -33,8 +33,6 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
     LinearLayout agendaListLayout, fragmentLayout;
     String buttonLoadLabel = "Muat Agenda";
 
-    private GetPostOperation getPostOperation;
-
     public AgendaFragment(){  }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,12 +66,7 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
 
     private void getAgenda() {
         startLoading();
-
-        if(getPostOperation == null){
-            getPostOperation = new GetPostOperation(this);
-        }
-
-        getPostOperation .execute("");
+        new GetPostOperation(this) .execute("");
     }
 
     private void startLoading(){
