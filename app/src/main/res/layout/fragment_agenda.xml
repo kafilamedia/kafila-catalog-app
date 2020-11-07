@@ -42,11 +42,13 @@
             android:src="?android:attr/alertDialogIcon" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/agenda_info_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:gravity="center_horizontal"
-            android:text="Tidak ada agenda untuk ditampilkan" />
+            android:text="Tidak ada agenda untuk ditampilkan"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/agenda_info"

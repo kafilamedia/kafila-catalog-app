@@ -15,20 +15,25 @@ import java.util.List;
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.LoadingDialog;
 import id.sch.kafila.catalog.components.NewsItem;
+import id.sch.kafila.catalog.service.GetPostOperation;
 import id.sch.kafila.catalog.service.NewsService;
 import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.models.PostResponse;
+import id.sch.kafila.catalog.service.PostContentPage;
 import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.ThreadUtil;
 import lombok.SneakyThrows;
 
-public class AgendaFragment extends BaseFragment {
+public class AgendaFragment extends BaseFragment implements PostContentPage {
 
     private View view;
     private Button buttonLoadAgenda;
     private ProgressBar rollingLoader;
-    private TextView generalInfoLabel;
+    private TextView generalInfoLabel, getGeneralInfoTitle;
     LinearLayout agendaListLayout, fragmentLayout;
+    String buttonLoadLabel = "Muat Agenda";
+
+    private GetPostOperation getPostOperation;
 
     public AgendaFragment(){  }
     @Override
@@ -42,11 +47,33 @@ public class AgendaFragment extends BaseFragment {
         fragmentLayout = view.findViewById(R.id.fragment_agenda_layout);
         rollingLoader = view.findViewById(R.id.agenda_loader);
         generalInfoLabel = view.findViewById(R.id.agenda_info);
+        getGeneralInfoTitle = view.findViewById(R.id.agenda_info_title);
 
         //attributes
         rollingLoader.setVisibility(View.INVISIBLE);
-        buttonLoadAgenda.setOnClickListener(new LoadAgendaListener(this));
+        buttonLoadAgenda.setOnClickListener(loadAgendaListener());
+        buttonLoadAgenda.setText(buttonLoadLabel);
         return view;
+    }
+
+    private View.OnClickListener loadAgendaListener() {
+        return new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                getAgenda();
+            }
+        };
+    }
+
+    private void getAgenda() {
+        startLoading();
+
+        if(getPostOperation == null){
+            getPostOperation = new GetPostOperation(this);
+        }
+
+        getPostOperation .execute("");
     }
 
     private void startLoading(){
@@ -59,21 +86,19 @@ public class AgendaFragment extends BaseFragment {
         buttonLoadAgenda.setVisibility(View.VISIBLE);
     }
 
-    private class LoadAgendaListener implements  View.OnClickListener{
-        final AgendaFragment parent;
-        public LoadAgendaListener(AgendaFragment parent){
-            this.parent = parent;
-        }
-        @Override
-        public void onClick(View v) {
-            Logs.log("CLICK GET AGENDA");
-            parent. buttonLoadAgenda.setText("Loading");
-            parent. startLoading();
-            new GetAgendaOperation(parent).execute("");
-        }
+    @Override
+    public PostResponse getPost() {
+        PostResponse response = NewsService.instance().getAgenda();
+        return response;
     }
 
-    private void handleGetAgenda(PostResponse response){
+    @Override
+    public void handleGetPost(PostResponse response, Exception e){
+        stopLoading();
+        if(null!= e){
+            handleErrorGetAgenda( e);
+            return;
+        }
         List<Post> agendas = response.getAgendas();
         agendaListLayout.removeAllViews();
         for (Post post: agendas) {
@@ -83,40 +108,9 @@ public class AgendaFragment extends BaseFragment {
         //fragmentLayout.removeView(buttonLoadAgenda);
     }
 
-
-    private class GetAgendaOperation extends AsyncTask<String, Void, PostResponse> {
-
-        final AgendaFragment parent;
-        Exception webServiceError;
-        public GetAgendaOperation(AgendaFragment parent){
-            this.parent = parent;
-        }
-
-        @Override
-        protected PostResponse doInBackground(String... strings) {
-            try {
-                PostResponse response = NewsService.instance().getAgenda();
-                return response;
-            }catch (Exception e){
-                webServiceError = e;
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(PostResponse postResponse) {
-            parent.stopLoading();
-            if(null==postResponse){
-                parent.handleErrorGetAgenda(webServiceError);
-                return;
-            }
-            parent.handleGetAgenda(postResponse);
-            super.onPostExecute(postResponse);
-        }
-    }
-
     private void handleErrorGetAgenda(Exception webServiceError) {
         generalInfoLabel.setText(webServiceError.getMessage());
+        getGeneralInfoTitle.setText("Error Saat Memuat Agenda");
     }
 
 
