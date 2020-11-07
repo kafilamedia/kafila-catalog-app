@@ -25,7 +25,7 @@ public class AgendaFragment extends BaseFragment {
     private View view;
     private LoadingDialog loadingDialog;
     private Button buttonLoadAgenda;
-    LinearLayout agendaListLayout;
+    LinearLayout agendaListLayout, fragmentLayout;
 
     public AgendaFragment(){  }
     @Override
@@ -36,20 +36,24 @@ public class AgendaFragment extends BaseFragment {
 
         agendaListLayout = view.findViewById(R.id.agenda_list);
         buttonLoadAgenda = view.findViewById(R.id.agenda_btn_load_agenda);
-        buttonLoadAgenda.setOnClickListener(loadAgendaListener());
+        fragmentLayout = view.findViewById(R.id.fragment_agenda_layout);
+        buttonLoadAgenda.setOnClickListener(new LoadAgendaListener(this));
         return view;
     }
 
-    private View.OnClickListener loadAgendaListener() {
-        buttonLoadAgenda.setText("Loading");
-        Logs.log("loadAgendaListener");
-        return new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                getAgenda();
-            }
-        };
+
+    private class LoadAgendaListener implements  View.OnClickListener{
+        final AgendaFragment parent;
+        public LoadAgendaListener(AgendaFragment parent){
+            this.parent = parent;
+        }
+        @Override
+        public void onClick(View v) {
+            Logs.log("CLICK GET AGENDA");
+            parent. buttonLoadAgenda.setText("Loading");
+            parent.getAgenda();
+        }
     }
 
     private void getAgenda() {
@@ -79,7 +83,7 @@ public class AgendaFragment extends BaseFragment {
             NewsItem title = new NewsItem(getActivity(),post);
             agendaListLayout.addView(title);
         }
-        buttonLoadAgenda.setText("Load Agenda");
+        //fragmentLayout.removeView(buttonLoadAgenda);
     }
 
 
