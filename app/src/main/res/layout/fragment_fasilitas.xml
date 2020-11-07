@@ -34,6 +34,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:imageLabelDrawableId="@drawable/library"
             app:imageLabelText="Perpustakaan"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +60,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:imageLabelDrawableId="@drawable/_class"
             app:imageLabelText="Ruang Kelas Ber-AC"
             app:layout_constraintEnd_toStartOf="@+id/imageLabel3"
@@ -73,6 +75,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:imageLabelDrawableId="@drawable/lab_science"
             app:imageLabelText="Laboratorium IPA"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +90,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:imageLabelDrawableId="@drawable/comp"
             app:imageLabelText="Laboratorium Komputer"
             app:layout_constraintEnd_toStartOf="@+id/imageLabel13"
@@ -97,9 +101,11 @@
             android:id="@+id/imageLabel15"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             app:imageLabelDrawableId="@drawable/sport"
             app:imageLabelText="Lapangan Olah Raga"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageLabel13" />
@@ -109,11 +115,18 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:gravity="center_horizontal"
-        android:text="Selengkapnya silakan kunjungi kafila.sch.id"
+        android:text="Selengkapnya silakan kunjungi"
         android:textColor="#4d454f"
         android:textSize="20sp" />
 
+    <TextView
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:autoLink="all"
+        android:gravity="center_horizontal"
+        android:text="https://kafila.sch.id"
+        android:textColor="@color/colorPrimary" />
 </LinearLayout></ScrollView>

@@ -7,40 +7,69 @@
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
-        android:text="Visi"
-        android:textColor="#4d454f"
-        android:textSize="30sp"></TextView>
+        android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#4d454f"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
-        android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center_horizontal"
+                android:text="Visi"
+                android:textColor="#ffffff"
+                android:textSize="30sp"></TextView>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang"
+                android:textColor="#4d454f"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
-        android:text="Misi"
-        android:textColor="#4d454f"
-        android:textSize="30sp"></TextView>
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center_horizontal"
+                android:text="Misi"
+                android:textColor="#ffffff"
+                android:textSize="30sp"></TextView>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#4d454f"
-        android:textSize="20sp"
         android:gravity="center_horizontal"
-        android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global" />
+        android:padding="5dp"
+        android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global"
+        android:textColor="#4d454f"
+        android:textSize="20sp" />
+        </LinearLayout></androidx.cardview.widget.CardView>
+
 
 </LinearLayout>
