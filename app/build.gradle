@@ -11,6 +11,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "KafilaCatalog")
+        multiDexEnabled true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -73,7 +74,7 @@ dependencies {
     // https://mvnrepository.com/artifact/javax.xml/jaxp-api
     implementation group: 'javax.xml', name: 'jaxp-api', version: '1.4.2'
     implementation 'com.mcxiaoke.volley:library:1.0.19'
-
+    implementation 'com.android.support:multidex:1.0.3'
 // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
 
 }
