@@ -12,8 +12,11 @@
         android:title="Catalog" />
 
     <item
-        android:id="@+id/navigation_info"
+        android:id="@+id/navigation_agenda"
         android:icon="@android:drawable/ic_menu_today"
-        android:title="Info" />
-
+        android:title="Agenda" />
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="Berita" />
 </menu>

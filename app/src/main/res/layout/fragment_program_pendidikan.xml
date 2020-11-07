@@ -30,7 +30,7 @@
             android:layout_margin="10dp"
             android:text="@string/program_pendidikan_1"
             android:textColor="#4d454f"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -46,6 +46,6 @@
             android:layout_margin="10dp"
             android:text="@string/program_pendidikan_2"
             android:textColor="#4d454f"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>
