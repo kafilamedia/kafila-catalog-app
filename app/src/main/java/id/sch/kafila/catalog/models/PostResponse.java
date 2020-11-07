@@ -21,15 +21,15 @@ public class PostResponse implements Serializable{/**
 	private static final long serialVersionUID = -2328541386817117984L;
 	private ResponseCategory category;
 	private int total;
-	@JsonAlias("current_page")
+	@JsonAlias({"current_page", "currentPage"})
 	private int currentPage;
-	@JsonAlias("per_page")
+	@JsonAlias({"perPage","per_page"})
 	private int perPage;
 	
 	private Object posts;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	private List<Post > agendas;
-	@JsonIgnore
+//	@JsonIgnore
 	private NewsPost newsPost;
 }

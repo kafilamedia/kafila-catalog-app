@@ -1,5 +1,7 @@
 package id.sch.kafila.catalog.activities.fragments;
 
+import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,10 +17,12 @@ import java.util.List;
 
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.NewsItem;
+import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.service.GetPostOperation;
 import id.sch.kafila.catalog.service.NewsService;
 import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.models.PostResponse;
+import id.sch.kafila.catalog.service.SharedPreferenceUtil;
 import id.sch.kafila.catalog.util.Logs;
 
 public class AgendaFragment extends BaseFragment implements PostContentPage {
@@ -48,11 +52,19 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
         rollingLoader.setVisibility(View.INVISIBLE);
         buttonLoadAgenda.setOnClickListener(loadAgendaListener());
         buttonLoadAgenda.setText(buttonLoadLabel);
+        checkStoredAgendas();
 
-        populateInfo("Tidak ada agenda untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda" );
     }
 
+    private void checkStoredAgendas() {
+        newsLayoutConstructionOperation().execute("");
+    }
+
+
     private void initComponents(){
+
+        sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, Activity.MODE_PRIVATE);
+
 
         infoLayout = view.findViewById(R.id.agenda_info_wrapper);
         agendaListLayout = view.findViewById(R.id.agenda_list);
@@ -130,8 +142,10 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
             handleErrorGetAgenda( e);
             return;
         }
+        SharedPreferenceUtil.storeAgendaData(sharedpreferences, response);
         List<Post> agendas = response.getAgendas();
         agendaListLayout.removeAllViews();
+        infoLayout.removeAllViews();
         for (Post post: agendas) {
             NewsItem title = new NewsItem(getActivity(),post);
             agendaListLayout.addView(title);
@@ -140,7 +154,32 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
     }
 
     private void handleErrorGetAgenda(Exception webServiceError) {
-        populateInfo("Error", webServiceError.getMessage());
+        populateInfo("Error Saat Memuat Agenda", webServiceError.getMessage());
+    }
+
+    private AsyncTask newsLayoutConstructionOperation() {
+        final AgendaFragment parent = this;
+        return new AsyncTask<String, Void, PostResponse>() {
+            @Override
+            protected PostResponse doInBackground (String...strings){
+                PostResponse agendaData = SharedPreferenceUtil.getAgendaData(sharedpreferences);
+                if(null!=agendaData){
+                    return agendaData;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(PostResponse postResponse) {
+                stopLoading();
+                if(null!=postResponse) {
+                    handleGetPost(postResponse, null);
+                } else {
+                    populateInfo("Tidak ada agenda untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda" );
+                }
+
+            }
+        };
     }
 
 

@@ -1,5 +1,6 @@
 package id.sch.kafila.catalog.activities.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import lombok.Data;
 public class BaseFragment extends Fragment {
 
     protected Integer fragmentId = null;
+    protected SharedPreferences sharedpreferences;
     private static HashMap<Integer, Class> customFragments = initCustomFragments();
     public BaseFragment(){
     }
@@ -42,8 +44,6 @@ public class BaseFragment extends Fragment {
         } catch (java.lang.InstantiationException e) {
             e.printStackTrace();
         }
-
-
         return myFragment;
     }
     @Override

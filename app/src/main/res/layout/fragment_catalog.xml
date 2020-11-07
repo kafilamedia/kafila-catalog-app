@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:buttonLabel="Exit"
-                app:drawableId="@drawable/exit" />
+                app:drawableId="@android:drawable/ic_lock_power_off" />
 
         </LinearLayout>
 
