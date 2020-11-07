@@ -1,40 +1,90 @@
 package id.sch.kafila.catalog.activities.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import id.sch.kafila.catalog.R;
-import id.sch.kafila.catalog.components.adapters.CustomExpandableListAdapter;
-import id.sch.kafila.catalog.contents.Dimension;
-import id.sch.kafila.catalog.models.ListChildInfo;
-import id.sch.kafila.catalog.models.ListGroupInfo;
+import id.sch.kafila.catalog.components.LoadingDialog;
+import id.sch.kafila.catalog.service.NewsService;
+import id.sch.kafila.catalog.models.Post;
+import id.sch.kafila.catalog.models.PostResponse;
+import id.sch.kafila.catalog.util.Logs;
+import id.sch.kafila.catalog.util.ThreadUtil;
+import lombok.SneakyThrows;
 
 public class AgendaFragment extends BaseFragment {
 
     private View view;
+    private NewsService newsService ;
+    private LoadingDialog loadingDialog;
+    private Button buttonLoadAgenda;
+    LinearLayout agendaListLayout;
 
     public AgendaFragment(){  }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Logs.log("layout.fragment_agenda on create view");
         view = inflater.inflate(R.layout.fragment_agenda, container, false);
-        
-        populateListViews();
-        adjustComponent();
+
+        agendaListLayout = view.findViewById(R.id.agenda_list);
+        buttonLoadAgenda = view.findViewById(R.id.agenda_btn_load_agenda);
+        buttonLoadAgenda.setOnClickListener(loadAgendaListener());
         return view;
     }
 
-    private void adjustComponent() {
+    private View.OnClickListener loadAgendaListener() {
+        Logs.log("loadAgendaListener");
+        return new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                getAgenda();
+            }
+        };
     }
-    private void populateListViews() {
+
+    private void getAgenda() {
+        Logs.log("LOAD AGENDA");
+        loadingDialog = LoadingDialog.start(getActivity());
+        ThreadUtil.runAndStart(new Runnable() {
+            @Override
+            public void run() {
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @SneakyThrows
+                    @Override
+                    public void run() {
+                        PostResponse response = NewsService.instance().getAgenda();
+                        handleGetAgenda(response);
+                        loadingDialog.dismiss();
+                    }
+                });
+            }
+        });
+    }
+
+    private void handleGetAgenda(PostResponse response){
+        List<Post> agendas = response.getAgendas();
+        TextView info  = view.findViewById(R.id.agenda_count);
+        info.setText(String.valueOf(agendas.size()));
+        agendaListLayout.removeAllViews();
+        for (Post post:
+             agendas) {
+            TextView title =new TextView(getContext());
+            title.setText(post.getTitle());
+            agendaListLayout.addView(title);
+        }
 
     }
+
 
 
 

@@ -58,6 +58,7 @@ public class BaseFragment extends Fragment {
         customFragments.put(R.layout.fragment_syarat_pendaftaran, SyaratPendaftaranFragment.class );
         customFragments.put(R.layout.fragment_catalog, CatalogFragment.class );
         customFragments.put(R.layout.fragment_program_pengembangan, ProgramPengembanganFragment.class );
+        customFragments.put(R.layout.fragment_agenda, AgendaFragment.class );
 
         return customFragments;
     }

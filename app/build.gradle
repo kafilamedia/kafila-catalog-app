@@ -12,6 +12,10 @@ android {
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "KafilaCatalog")
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -27,6 +31,10 @@ android {
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
         exclude 'META-INF/androidx.cardview_cardview.version'
+        exclude 'META-INF/spring.schemas'
+        exclude 'META-INF/spring.tooling'
+        exclude 'META-INF/spring.handlers'
+        exclude 'META-INF/DEPENDENCIES'
     }
 }
 
@@ -44,4 +52,35 @@ dependencies {
 
     compileOnly "org.projectlombok:lombok:1.18.8"
     annotationProcessor "org.projectlombok:lombok:1.18.8"
+//    implementation group: 'org.springframework', name: 'spring-core', version: '5.0.9.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-web', version: '4.1.3.RELEASE'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.4'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.4'
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.7.0'
+     //https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams
+//    implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.0'
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+    implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.10'
+
+// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
+    implementation group: 'io.projectreactor', name: 'reactor-core', version: '3.0.1.RELEASE'
+    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.17'
+// https://mvnrepository.com/artifact/io.netty/netty-all
+    implementation group: 'io.netty', name: 'netty-all', version: '4.1.19.Final'
+    // https://mvnrepository.com/artifact/javax.xml/jaxp-api
+    implementation group: 'javax.xml', name: 'jaxp-api', version: '1.4.2'
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
+
+// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+
+}
+
+configurations.compile {
+    exclude group:'org.springframework', module: 'spring-context'
+    exclude group:'org.springframework', module: 'spring-aop'
+    exclude group:'org.springframework', module: 'spring-beans'
+    exclude group:'org.springframework', module: 'spring-expression'
 }

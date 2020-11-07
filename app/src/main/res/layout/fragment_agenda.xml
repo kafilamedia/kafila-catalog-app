@@ -14,4 +14,22 @@
         android:text="Agenda"
         android:textColor="#4d454f"
         android:textSize="30sp"></TextView>
+
+    <Button
+        android:id="@+id/agenda_btn_load_agenda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load Agenda" />
+
+    <LinearLayout
+        android:id="@+id/agenda_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"></LinearLayout>
+
+    <TextView
+        android:id="@+id/agenda_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>
