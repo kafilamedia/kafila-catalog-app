@@ -150,8 +150,10 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
         agendaListLayout.removeAllViews();
         infoLayout.removeAllViews();
         for (Post post: agendas) {
-            NewsItem title = new NewsItem(getActivity(),post);
-            agendaListLayout.addView(title);
+            try {
+                NewsItem title = new NewsItem(getActivity(), post);
+                agendaListLayout.addView(title);
+            }catch (Exception ex){  }
         }
         //fragmentLayout.removeView(buttonLoadAgenda);
     }
