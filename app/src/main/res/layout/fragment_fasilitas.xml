@@ -28,8 +28,12 @@
 
         <id.sch.kafila.catalog.components.ImageLabel
             android:id="@+id/imageLabel3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             app:imageLabelDrawableId="@drawable/library"
             app:imageLabelText="Perpustakaan"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,17 +53,26 @@
 
         <id.sch.kafila.catalog.components.ImageLabel
             android:id="@+id/imageLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             app:imageLabelDrawableId="@drawable/_class"
             app:imageLabelText="Ruang Kelas Ber-AC"
+            app:layout_constraintEnd_toStartOf="@+id/imageLabel3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageLabel2" />
 
         <id.sch.kafila.catalog.components.ImageLabel
             android:id="@+id/imageLabel13"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             app:imageLabelDrawableId="@drawable/lab_science"
             app:imageLabelText="Laboratorium IPA"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,10 +81,15 @@
 
         <id.sch.kafila.catalog.components.ImageLabel
             android:id="@+id/imageLabel14"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             app:imageLabelDrawableId="@drawable/comp"
             app:imageLabelText="Laboratorium Komputer"
+            app:layout_constraintEnd_toStartOf="@+id/imageLabel13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageLabel" />
 
@@ -79,6 +97,7 @@
             android:id="@+id/imageLabel15"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:layout_marginTop="8dp"
             app:imageLabelDrawableId="@drawable/sport"
             app:imageLabelText="Lapangan Olah Raga"
             app:layout_constraintEnd_toEndOf="parent"

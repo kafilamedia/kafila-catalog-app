@@ -38,7 +38,7 @@ import static android.view.View.*;
 
 public class HomeActivity extends FragmentActivity {
 
-
+    private int currentFragment;
 
     private BottomNavigationView bottomNavigationView;
     @Override
@@ -100,10 +100,17 @@ public class HomeActivity extends FragmentActivity {
         fragmentTransaction.replace(R.id.home_common_content_container, fragment);
         fragmentTransaction.commit();
 
+        currentFragment = fragmentId;
+
     }
 
     @Override
     public void onBackPressed() {
-        return;
+
+        //if in catalog
+        if(currentFragment == R.layout.fragment_catalog){
+            switchFragment(R.layout.fragment_catalog);
+        }
+
     }
 }
