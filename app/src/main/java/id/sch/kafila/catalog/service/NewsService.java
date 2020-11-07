@@ -67,7 +67,7 @@ public class NewsService {
     }
 
 
-    HttpEntity<String> httpEntity() {
+   private HttpEntity<String> httpEntity() {
         HttpHeaders headers = new HttpHeaders();
         headers.setConnection("close");
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
