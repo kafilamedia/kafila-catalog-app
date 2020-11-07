@@ -1,6 +1,5 @@
 package id.sch.kafila.catalog.activities.fragments;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +12,12 @@ import android.widget.TextView;
 import java.util.List;
 
 import id.sch.kafila.catalog.R;
-import id.sch.kafila.catalog.components.LoadingDialog;
 import id.sch.kafila.catalog.components.NewsItem;
 import id.sch.kafila.catalog.service.GetPostOperation;
 import id.sch.kafila.catalog.service.NewsService;
 import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.models.PostResponse;
-import id.sch.kafila.catalog.service.PostContentPage;
 import id.sch.kafila.catalog.util.Logs;
-import id.sch.kafila.catalog.util.ThreadUtil;
-import lombok.SneakyThrows;
 
 public class AgendaFragment extends BaseFragment implements PostContentPage {
 

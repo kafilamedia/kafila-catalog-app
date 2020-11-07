@@ -1,4 +1,4 @@
-package id.sch.kafila.catalog.service;
+package id.sch.kafila.catalog.activities.fragments;
 
 import id.sch.kafila.catalog.models.PostResponse;
 
