@@ -16,14 +16,22 @@ public class SharedPreferenceUtil {
 
     private static final String SHARED_AGENDA = "shared_agenda";
     private static final String SHARED_NEWS = "shared_news";
+    private static final String IS_EXIST_SHARED_AGENDA = "is_shared_agenda_exist";
+    private static final String IS_EXIST_SHARED_NEWS = "is_shared_news_exist";
+    private static final String EXIST = "EXIST";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     public static void storeAgendaData(SharedPreferences sharedPreferences, PostResponse agendaData){
         try {
             putString(sharedPreferences, SHARED_AGENDA, objectMapper.writeValueAsString(agendaData));
+            putString(sharedPreferences, IS_EXIST_SHARED_AGENDA, EXIST);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean isAgendaExist(SharedPreferences sharedPreferences){
+        return getValue(sharedPreferences, IS_EXIST_SHARED_AGENDA).equals(EXIST);
     }
 
     public static PostResponse getAgendaData(SharedPreferences sharedPreferences){

@@ -40,6 +40,5 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/splash_screen_label"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 </LinearLayout>

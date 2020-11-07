@@ -57,7 +57,10 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
     }
 
     private void checkStoredAgendas() {
-        newsLayoutConstructionOperation().execute("");
+        if(SharedPreferenceUtil.isAgendaExist(sharedpreferences)) {
+            startLoading();
+            newsLayoutConstructionOperation().execute("");
+        }
     }
 
 
@@ -157,7 +160,7 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
         populateInfo("Error Saat Memuat Agenda", webServiceError.getMessage());
     }
 
-    private AsyncTask newsLayoutConstructionOperation() {
+    private AsyncTask<String, Void, PostResponse> newsLayoutConstructionOperation() {
         final AgendaFragment parent = this;
         return new AsyncTask<String, Void, PostResponse>() {
             @Override
