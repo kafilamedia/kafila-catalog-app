@@ -13,6 +13,12 @@
         <attr name="drawableId" format="integer" />
         <attr name="buttonLabel" format="string" />
     </declare-styleable>
+    <declare-styleable name="ImageLabel">
+        <attr name="imageLabelDrawableId" format="integer" />
+        <attr name="imageLabelText" format="string" />
+    </declare-styleable>
     <declare-styleable name="KafilaFooter">
+    </declare-styleable>
+    <declare-styleable name="KafilaHeader">
     </declare-styleable>
 </resources>

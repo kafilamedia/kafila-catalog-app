@@ -22,81 +22,77 @@
         android:textColor="#4d454f"
         android:textSize="30sp"></TextView>
 
-    <ImageView
-        android:id="@+id/imageView11"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dorm" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Asrama" />
-<ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/_class" />
+        <id.sch.kafila.catalog.components.ImageLabel
+            android:id="@+id/imageLabel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageLabelDrawableId="@drawable/library"
+            app:imageLabelText="Perpustakaan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageLabel"
+            app:layout_constraintTop_toBottomOf="@+id/imageLabel2" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Ruang Kelas ber-AC" />
+        <id.sch.kafila.catalog.components.ImageLabel
+            android:id="@+id/imageLabel2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:imageLabelDrawableId="@drawable/dorm"
+            app:imageLabelText="Asrama"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/library" />
+        <id.sch.kafila.catalog.components.ImageLabel
+            android:id="@+id/imageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageLabelDrawableId="@drawable/_class"
+            app:imageLabelText="Ruang Kelas Ber-AC"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageLabel2" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        <id.sch.kafila.catalog.components.ImageLabel
+            android:id="@+id/imageLabel13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageLabelDrawableId="@drawable/lab_science"
+            app:imageLabelText="Laboratorium IPA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageLabel14"
+            app:layout_constraintTop_toBottomOf="@+id/imageLabel3" />
 
-        android:text="Perpustakaan" />
+        <id.sch.kafila.catalog.components.ImageLabel
+            android:id="@+id/imageLabel14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageLabelDrawableId="@drawable/comp"
+            app:imageLabelText="Laboratorium Komputer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageLabel" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:src="@drawable/lab_science" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Laboratorium IPA" />
-    <ImageView
-        android:id="@+id/imageViewLabKom"         android:layout_width="match_parent"        android:layout_height="wrap_content"
-        android:src="@drawable/comp" />
-
-    <TextView
-        android:id="@+id/textViewLabkom"
-        android:layout_width="match_parent"         android:layout_height="wrap_content"         android:gravity="center_horizontal"
-        android:text="Laboratorium Komputer" />
-    <ImageView
-        android:id="@+id/imageView12"         android:layout_width="match_parent"        android:layout_height="wrap_content"
-        android:src="@drawable/sport" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="match_parent"         android:layout_height="wrap_content"         android:gravity="center_horizontal"
-        android:text="Lapangan Olah Raga" />
+        <id.sch.kafila.catalog.components.ImageLabel
+            android:id="@+id/imageLabel15"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:imageLabelDrawableId="@drawable/sport"
+            app:imageLabelText="Lapangan Olah Raga"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageLabel13" />
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/fasilitas"
+        android:gravity="center_horizontal"
+        android:text="Selengkapnya silakan kunjungi kafila.sch.id"
         android:textColor="#4d454f"
         android:textSize="20sp" />
 

@@ -1,9 +1,7 @@
 package id.sch.kafila.catalog.components;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
-import android.support.annotation.StyleableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,7 +26,7 @@ public class KafilaFooter extends RelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        inflate(context, R.layout.kafila_footer, this);
+        inflate(context, R.layout.component_kafila_footer, this);
         initComponents();
         for (int i = 0; i< attrs.getAttributeCount(); i++){
 
