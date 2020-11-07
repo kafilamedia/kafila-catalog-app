@@ -1,10 +1,9 @@
 package id.sch.kafila.catalog.components;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
-import android.support.annotation.StyleableRes;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,12 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.models.Post;
-import id.sch.kafila.catalog.service.ImageViewContents;
+import id.sch.kafila.catalog.service.ImageViewWithURL;
 import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.Navigate;
 
@@ -27,7 +24,7 @@ public class NewsItem extends LinearLayout {
     private ImageView imageThumbnail;
     private TextView newsTitle;
     private TextView newsDate;
-    private  Button buttonNewsLink;
+    private ImageView buttonNewsLink;
     private Post post;
 
     public NewsItem(Context context, @Nullable AttributeSet attrs) {
@@ -78,7 +75,7 @@ public class NewsItem extends LinearLayout {
     }
 
     public void setImageUrl(String url) {
-        ImageViewContents imageViewContents = new ImageViewContents(imageThumbnail, url);
+        ImageViewWithURL imageViewContents = new ImageViewWithURL(imageThumbnail, url);
         imageViewContents.populate();
     }
 
@@ -95,7 +92,7 @@ public class NewsItem extends LinearLayout {
         newsTitle = findViewById(R.id.news_title);
         newsDate = findViewById(R.id.news_date);
         buttonNewsLink = findViewById(R.id.news_item_options);
-
+        buttonNewsLink.setImageResource( (android.R.drawable.ic_menu_info_details));
     }
 
     private void initEvents() {

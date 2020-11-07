@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,21 +22,6 @@
             android:padding="5dp">
 
 
-            <Button
-                android:id="@+id/news_item_options"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
-                android:text="Option"
-                android:textSize="10sp"
-                android:translationZ="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.51"
-                app:srcCompat="@android:drawable/ic_menu_info_details" />
-
             <ImageView
                 android:id="@+id/newsThumbnail"
                 android:layout_width="100dp"
@@ -51,7 +34,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/_class" />
+                app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -86,6 +69,27 @@
                     android:text="7 Nov 2020, 18:53" />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/news_item_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="5dp"
+                android:text="Option"
+                android:textSize="10sp"
+
+                android:translationZ="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.98"
+                app:layout_constraintStart_toEndOf="@+id/newsThumbnail"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_info_details" />
+
 
         </android.support.constraint.ConstraintLayout>
 
