@@ -2,6 +2,7 @@ package id.sch.kafila.catalog.models;
 
 import java.io.Serializable;
 
+import id.sch.kafila.catalog.util.Navigate;
 import lombok.NoArgsConstructor;
 
 import lombok.AllArgsConstructor;
@@ -29,4 +30,9 @@ public class Post implements Serializable{/**
     release;
 	// author_id
 	private PostImage images;
+
+	public String newsLink(){
+		String mainUrl = "https://kafila.sch.id/#!/read/";
+		return mainUrl+getSlug();
+	}
 }

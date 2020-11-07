@@ -20,6 +20,17 @@ public class Navigate {
         }
     }
 
+    public static void shareText(Context c, String content){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, content);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+       c. startActivity(shareIntent);
+
+    }
+
 //    public static void cekLogin(Context c) {
 //        SharedPreferences sharedpreferences = c.getSharedPreferences(Constant.PREF_AKUN, c.MODE_PRIVATE);
 //        String session_guru = sharedpreferences.getString("session", null);

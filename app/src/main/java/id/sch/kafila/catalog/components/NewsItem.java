@@ -117,8 +117,7 @@ public class NewsItem extends LinearLayout {
         if(null == post){
             return;
         }
-        String mainUrl = "https://kafila.sch.id/#!/read/";
-        Navigate.openLink(mainUrl+post.getSlug(), getContext());
+        Navigate.openLink(post.newsLink(), getContext());
     }
 
     private PopupMenu.OnMenuItemClickListener popupMenuOnClick() {
@@ -130,6 +129,7 @@ public class NewsItem extends LinearLayout {
                         openLink();
                         break;
                     case R.id.menu_news_item_share:
+                        shareLink();
                         break;
 
                 }
@@ -137,5 +137,9 @@ public class NewsItem extends LinearLayout {
                 return false;
             }
         };
+    }
+
+    private void shareLink() {
+        Navigate.shareText(this.getContext(), post.getTitle()+" kunjungi link:"+ post.newsLink());
     }
 }

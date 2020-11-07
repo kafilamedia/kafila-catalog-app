@@ -62,7 +62,11 @@ public class ImageViewWithURL {
         }
 
         protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
+            if(null!=result) {
+                bmImage.setImageBitmap(result);
+            }else{
+                bmImage.setImageResource(+android.R.drawable.ic_menu_camera);
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ public class ImageLabel extends ConstraintLayout {
             }
             Logs.log(i," attr: ", attrs.getAttributeName(i),"=",attrs.getAttributeValue(i));
         }
-
+        imageView.setAdjustViewBounds(true);
         typedArray.recycle();
     }
 
