@@ -25,7 +25,7 @@
                 android:gravity="center_horizontal"
                 android:text="Visi"
                 android:textColor="#ffffff"
-                android:textSize="30sp"></TextView>
+                android:textSize="25sp"></TextView>
 
             <TextView
                 android:id="@+id/textView2"
@@ -35,7 +35,7 @@
                 android:padding="5dp"
                 android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang"
                 android:textColor="#4d454f"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -58,17 +58,17 @@
                 android:gravity="center_horizontal"
                 android:text="Misi"
                 android:textColor="#ffffff"
-                android:textSize="30sp"></TextView>
+                android:textSize="25sp"></TextView>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="5dp"
-        android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global"
-        android:textColor="#4d454f"
-        android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global"
+                android:textColor="#4d454f"
+                android:textSize="15sp" />
         </LinearLayout></androidx.cardview.widget.CardView>
 
 
