@@ -12,6 +12,7 @@ import java.util.List;
 
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.LoadingDialog;
+import id.sch.kafila.catalog.components.NewsItem;
 import id.sch.kafila.catalog.service.NewsService;
 import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.models.PostResponse;
@@ -22,7 +23,6 @@ import lombok.SneakyThrows;
 public class AgendaFragment extends BaseFragment {
 
     private View view;
-    private NewsService newsService ;
     private LoadingDialog loadingDialog;
     private Button buttonLoadAgenda;
     LinearLayout agendaListLayout;
@@ -41,6 +41,7 @@ public class AgendaFragment extends BaseFragment {
     }
 
     private View.OnClickListener loadAgendaListener() {
+        buttonLoadAgenda.setText("Loading");
         Logs.log("loadAgendaListener");
         return new View.OnClickListener(){
 
@@ -59,7 +60,7 @@ public class AgendaFragment extends BaseFragment {
             public void run() {
 
                 getActivity().runOnUiThread(new Runnable() {
-                    @SneakyThrows
+
                     @Override
                     public void run() {
                         PostResponse response = NewsService.instance().getAgenda();
@@ -73,16 +74,12 @@ public class AgendaFragment extends BaseFragment {
 
     private void handleGetAgenda(PostResponse response){
         List<Post> agendas = response.getAgendas();
-        TextView info  = view.findViewById(R.id.agenda_count);
-        info.setText(String.valueOf(agendas.size()));
         agendaListLayout.removeAllViews();
-        for (Post post:
-             agendas) {
-            TextView title =new TextView(getContext());
-            title.setText(post.getTitle());
+        for (Post post: agendas) {
+            NewsItem title = new NewsItem(getActivity(),post);
             agendaListLayout.addView(title);
         }
-
+        buttonLoadAgenda.setText("Load Agenda");
     }
 
 

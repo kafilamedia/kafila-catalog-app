@@ -8,11 +8,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -26,21 +24,14 @@ import id.sch.kafila.catalog.util.MapUtil;
 public class NewsService {
 
     private static NewsService instance = null;
-    private ObjectMapper objectMapper = new CustomObjectMapper();
+    private ObjectMapper objectMapper = new ObjectMapper();
+    final RestTemplate restTemplate = new RestTemplate();
     private NewsService(){
         objectMapper.configure(JsonParser.Feature.AUTO_CLOSE_SOURCE, true);
 
-        REST_TEMPLATE.setErrorHandler(errorHandler());
-       // REST_TEMPLATE.setInterceptors(interceptors());
+        restTemplate.setErrorHandler(errorHandler());
     }
 
-    private List<ClientHttpRequestInterceptor> interceptors() {
-
-        List<ClientHttpRequestInterceptor> result = new ArrayList<>();
-        ClientHttpRequestInterceptor interceptor1 = new CustomInterceptor();
-        result.add(interceptor1);
-        return  result;
-    }
 
     private ResponseErrorHandler errorHandler() {
         return new CustomErrorHandler();
@@ -53,7 +44,7 @@ public class NewsService {
         return instance;
     }
 
-    public PostResponse getAgenda() throws Exception {
+    public PostResponse getAgenda()  {
         Logs.log("Call get agenda");
         PostResponse response = callGetAgenda();
 
@@ -75,7 +66,6 @@ public class NewsService {
         return response;
     }
 
-    final RestTemplate REST_TEMPLATE = new RestTemplate();
 
     HttpEntity<String> httpEntity() {
         HttpHeaders headers = new HttpHeaders();
@@ -90,13 +80,12 @@ public class NewsService {
 
     }
 
-    private PostResponse callGetAgenda() throws  Exception {
+    private PostResponse callGetAgenda()   {
         String endPoint = "http://kafila.sch.id/index.php/api/homepage/agenda";
         System.out.println("callGetAgenda to: "+endPoint);
         try {
-            ResponseEntity<PostResponse> response = REST_TEMPLATE.exchange(endPoint, HttpMethod.GET, httpEntity(),
+            ResponseEntity<PostResponse> response = restTemplate.exchange(endPoint, HttpMethod.GET, httpEntity(),
                     PostResponse.class);
-            Logs.log("PostResponse: ", response.getBody());
             return   response.getBody();
         }catch ( Exception ex){
             Logs.log("ERROR get agenda: ", ex);
@@ -109,7 +98,7 @@ public class NewsService {
 
         try{
 //        String endPoint = "http://192.168.0.103/kafila/get_news.json";
-        ResponseEntity<PostResponse> response = REST_TEMPLATE.exchange(endPoint, HttpMethod.GET, httpEntity(),
+        ResponseEntity<PostResponse> response = restTemplate.exchange(endPoint, HttpMethod.GET, httpEntity(),
                 PostResponse.class);
         return response.getBody();
     }catch (Exception ex){

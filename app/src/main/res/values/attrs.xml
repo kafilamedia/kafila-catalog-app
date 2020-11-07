@@ -17,6 +17,11 @@
         <attr name="imageLabelDrawableId" format="integer" />
         <attr name="imageLabelText" format="string" />
     </declare-styleable>
+    <declare-styleable name="NewsItem">
+        <attr name="newsItemThumbnail" format="integer" />
+        <attr name="newsItemTitle" format="string" />
+        <attr name="newsItemDate" format="string" />
+    </declare-styleable>
     <declare-styleable name="KafilaFooter">
     </declare-styleable>
     <declare-styleable name="KafilaHeader">
