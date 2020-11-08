@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
+import id.sch.kafila.catalog.service.SharedPreferenceUtil;
 import id.sch.kafila.catalog.util.AlertUtil;
 import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.Navigate;
@@ -123,6 +124,9 @@ public class CatalogFragment extends BaseFragment{
     private void exitApplication(){
         android.os.Process.killProcess(android.os.Process.myPid());
         try {
+            //clear news and agenda
+            SharedPreferenceUtil.storeAgendaData(sharedpreferences,null);
+            SharedPreferenceUtil.storeNewsData(sharedpreferences,null);
             getActivity().finishAffinity();
         }catch (Exception e){ }
         System.exit(1);

@@ -3,6 +3,7 @@ package id.sch.kafila.catalog.models;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,11 @@ public class ResponseCategory implements Serializable {/**
 	 */
 	private static final long serialVersionUID = 1195345208045522504L;
 	private String name, slug;
-	@JsonAlias("term_id")
+	@JsonProperty("term_id")
 	private String termId;
+	@JsonProperty("termId")
+	private void setTermIdJson(String t){
+		termId = t;
+	}
 
 }

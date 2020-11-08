@@ -3,9 +3,11 @@ package id.sch.kafila.catalog.models;
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import id.sch.kafila.catalog.util.ComponentUtil;
+import id.sch.kafila.catalog.util.Logs;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,10 +23,23 @@ public class PostResponse implements Serializable{/**
 	private static final long serialVersionUID = -2328541386817117984L;
 	private ResponseCategory category;
 	private int total;
-	@JsonAlias({"current_page", "currentPage"})
-	private int currentPage;
-	@JsonAlias({"perPage","per_page"})
+	@JsonProperty("currentPage")
+	private String currentPage;
+	@JsonProperty( "current_page")
+	public void setCurrentPageJson(Object currentPage){
+        Logs.log("JSON Set Current Page: ", currentPage);
+		this.currentPage = String.valueOf(currentPage);
+		this.currentPageInt = Integer.valueOf(currentPageInt);
+	}
+
+	private int currentPageInt;
+
+	@JsonProperty("per_page")
 	private int perPage;
+	@JsonProperty("perPage")
+	public void setPerPageJson(int perPage){
+		this.perPage = perPage;
+	}
 	
 	private Object posts;
 	
@@ -32,4 +47,23 @@ public class PostResponse implements Serializable{/**
 	private List<Post > agendas;
 //	@JsonIgnore
 	private NewsPost newsPost;
+
+	public List<Integer> displayedNavButtonValues(){
+	    Logs.log("per page: ", perPage," total: ", total);
+		return ComponentUtil.generateButtonValues(perPage,total,  getCurrentPageInt2());
+	}
+
+
+	@JsonIgnore
+	public int getCurrentPageInt2(){
+
+		if(null ==currentPage || currentPage.isEmpty()){
+			if(currentPageInt > 0){ return currentPageInt; }
+			setCurrentPage("1");
+		}
+
+		return Integer.valueOf(currentPage);
+	}
+
+
 }

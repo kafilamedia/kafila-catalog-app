@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import id.sch.kafila.catalog.activities.fragments.PostContentPage;
 import id.sch.kafila.catalog.models.PostResponse;
 
-public class GetPostOperation extends AsyncTask<String, Void, PostResponse> {
+public class GetPostOperation extends AsyncTask<Object, Void, PostResponse> {
     final PostContentPage parent;
     private  Exception getPostError;
 
@@ -13,9 +13,9 @@ public class GetPostOperation extends AsyncTask<String, Void, PostResponse> {
         this.parent = parent;
     }
     @Override
-    protected PostResponse doInBackground(String... strings) {
+    protected PostResponse doInBackground(Object... params) {
         try {
-            return parent.getPost();
+            return parent.getPost(params);
         }catch (Exception e){
             getPostError = e;
             return null;

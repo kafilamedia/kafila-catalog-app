@@ -129,7 +129,7 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
     }
 
     @Override
-    public PostResponse getPost() {
+    public PostResponse getPost(Object ...params) {
         PostResponse response = NewsService.instance().getAgenda();
         return response;
     }
@@ -152,7 +152,12 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
             try {
                 NewsItem title = new NewsItem(getActivity(), post);
                 agendaListLayout.addView(title);
-            }catch (Exception ex){  }
+            }catch (Exception ex){
+                Logs.log("error create news item: ",ex);
+            }
+        }
+        if(agendas.size() == 0){
+            handleErrorGetAgenda(new RuntimeException("Data is Empty"));
         }
         //fragmentLayout.removeView(buttonLoadAgenda);
     }

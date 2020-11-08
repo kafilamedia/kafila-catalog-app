@@ -17,6 +17,14 @@ public class CollectionUtil {
 
     }
 
+    public static <T> List<T> prepend(List<T> list, T value){
+
+        List<T> result = new ArrayList<>();
+        result.add(value);
+        result.addAll(list);
+        return result;
+    }
+
     public static void main(String[] args) {
 
     }

@@ -1,8 +1,11 @@
 package id.sch.kafila.catalog.activities.fragments;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +33,15 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
     private View view;
     private Button buttonLoadAgenda;
     private ProgressBar rollingLoader;
-    private LinearLayout agendaListLayout, fragmentLayout, infoLayout;
+    private LinearLayout agendaListLayout, infoLayout, navigationButtonsLayout;
     private String buttonLoadLabel = "Muat Berita";
-
+    private int currentPage = 1;
     private PostResponse newsData;
+    private int FIRST_PAGE = 1;
 
-    public NewsFragment(){  }
+    public NewsFragment() {
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,21 +57,22 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
     private void initDefaultAttributes() {
         agendaListLayout.removeAllViews();
         rollingLoader.setVisibility(View.INVISIBLE);
-        buttonLoadAgenda.setOnClickListener(loadAgendaListener());
+        //always load from 1st page
+        buttonLoadAgenda.setOnClickListener(loadAgendaListener(FIRST_PAGE));
         buttonLoadAgenda.setText(buttonLoadLabel);
         checkStoredAgendas();
 
     }
 
     private void checkStoredAgendas() {
-        if(SharedPreferenceUtil.isNewsExist(sharedpreferences)) {
+        if (SharedPreferenceUtil.isNewsExist(sharedpreferences)) {
             startLoading();
             newsLayoutConstructionOperation().execute("");
         }
     }
 
 
-    private void initComponents(){
+    private void initComponents() {
 
         sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, Activity.MODE_PRIVATE);
 
@@ -73,12 +80,12 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
         infoLayout = view.findViewById(R.id.news_info_wrapper);
         agendaListLayout = view.findViewById(R.id.news_list);
         buttonLoadAgenda = view.findViewById(R.id.news_btn_load);
-        fragmentLayout = view.findViewById(R.id.fragment_news_layout);
         rollingLoader = view.findViewById(R.id.news_loader);
+        navigationButtonsLayout = view.findViewById(R.id.news_navbar);
 
     }
 
-    private void populateInfo(String title, String message){
+    private void populateInfo(String title, String message) {
         infoLayout.removeAllViews();
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(R.drawable.exclamation);
@@ -98,95 +105,152 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
         infoLayout.addView(messageTextView);
     }
 
-    static void adjustLabelLayout(TextView v){
+    static void adjustLabelLayout(TextView v) {
         v.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         v.setGravity(Gravity.CENTER);
     }
 
-    private View.OnClickListener loadAgendaListener() {
-        return new View.OnClickListener(){
+    private View.OnClickListener loadAgendaListener(final int page) {
+        return new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getAgenda();
+                getAgenda(page);
             }
         };
     }
 
-    private void getAgenda() {
+    private void getAgenda(int page) {
         startLoading();
-        new GetPostOperation(this) .execute("");
+        this.currentPage = page;
+        new GetPostOperation(this).execute(page);
     }
 
-    private void startLoading(){
+    private void startLoading() {
         rollingLoader.setVisibility(View.VISIBLE);
         buttonLoadAgenda.setVisibility(View.INVISIBLE);
         infoLayout.removeAllViews();
         agendaListLayout.removeAllViews();
     }
 
-    private void stopLoading(){
+    private void stopLoading() {
         rollingLoader.setVisibility(View.INVISIBLE);
         buttonLoadAgenda.setVisibility(View.VISIBLE);
         buttonLoadAgenda.setText("Reload");
     }
 
     @Override
-    public PostResponse getPost() {
-        PostResponse response = NewsService.instance().getNews(getCurrentPage());
+    public PostResponse getPost(Object... params) {
+        int page;
+        try {
+            page = Integer.parseInt(params[0].toString());
+        } catch (Exception e) {
+            page = 1;
+        }
+        PostResponse response = NewsService.instance().getNews(page);
         return response;
     }
 
+
+    private void updateNavigationButton() {
+        if (null == newsData) return;
+
+        navigationButtonsLayout.removeAllViews();
+        final int _currentPage = getCurrentPage();
+        List<Integer> buttonValues = newsData.displayedNavButtonValues();
+        Logs.log("nav button pages: ", buttonValues, "current page: ", _currentPage);
+        if (null == buttonValues || buttonValues.size() == 0) {
+            return;
+        }
+        Integer prevPage = _currentPage > FIRST_PAGE ? _currentPage - 1 : FIRST_PAGE;
+        Button prevButton = createNavigationButton(prevPage, "Previous");
+        prevButton.setBackgroundColor(Color.YELLOW);
+        navigationButtonsLayout.addView(prevButton);
+
+        for (Integer buttonPage :
+                buttonValues) {
+            Button navigationButton = createNavigationButton(buttonPage, null);
+            navigationButtonsLayout.addView(navigationButton);
+        }
+
+        Integer nextPage = getCurrentPage() < buttonValues.get(buttonValues.size() - 1) ? _currentPage + 1 : _currentPage;
+        Button nextButton = createNavigationButton(nextPage, "Previous");
+        nextButton.setBackgroundColor(Color.YELLOW);
+        navigationButtonsLayout.addView(nextButton);
+        Logs.log("updated nav buttons");
+
+    }
+
     private int getCurrentPage() {
-
-        if(null!=newsData){
-            return newsData.getCurrentPage();
+        if (null == newsData) {
+            return currentPage;
         }
-        return 1;
+        return newsData.getCurrentPageInt2();
     }
 
-    private int getTotalData(){
-        if(null!=newsData){
-            return newsData.getTotal();
-        }
-        return 0;
-    }
+    private Button createNavigationButton(Integer buttonPage, String text) {
 
-    private int getDisplayedData(){
-        if(null!=newsData){
-            return newsData.getPerPage();
+        Button button = new Button(new ContextThemeWrapper(getContext(), R.style.NoPaddingButton), null, 0);
+        button.setText(text != null ? text : String.valueOf(buttonPage));
+        button.setTextColor(Color.rgb(200, 200, 200));
+        button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        if (buttonPage == getCurrentPage()) {
+            button.setBackgroundColor(Color.DKGRAY);
+        } else {
+            button.setBackgroundColor(Color.GRAY);
         }
-        return 0;
+        ViewGroup.LayoutParams params;
+        if (button.getLayoutParams() == null) {
+            params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        } else {
+            params = button.getLayoutParams();
+            params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        }
+        button.setLayoutParams(params);
+        button.setOnClickListener(loadAgendaListener(buttonPage));
+        return button;
     }
 
     @Override
-    public void handleGetPost(PostResponse response, Exception e){
+    public void handleGetPost(PostResponse response, Exception e) {
         stopLoading();
-        if(null!= e){
-            handleErrorGetAgenda( e);
+        if (null != e) {
+            handleErrorGetAgenda(e);
             return;
-        } else if(null == response.getNewsPost()){
+        } else if (null == response.getNewsPost()) {
             e = new RuntimeException("Post Not Found");
             handleErrorGetAgenda(e);
             return;
 
         }
+        response.setCurrentPageJson(response.getCurrentPageInt2() > 0 ? response.getCurrentPageInt2() : currentPage);
+        setNewsData(response);
+
+        updateNavigationButton();
         SharedPreferenceUtil.storeNewsData(sharedpreferences, response);
-        newsData = response;
-        Logs.log("newsData: ", newsData);
+
         List<Post> agendas = response.getNewsPost().getRemains();
         agendaListLayout.removeAllViews();
         infoLayout.removeAllViews();
-        for (Post post: agendas) {
+        for (Post post : agendas) {
             try {
                 NewsItem title = new NewsItem(getActivity(), post);
                 agendaListLayout.addView(title);
-            }catch (Exception ex){  }
+            } catch (Exception ex) {
+                Logs.log("error create news item: ", e);
+            }
+        }
+        Logs.log("news item size: ", agendas.size());
+        if (agendas.size() == 0) {
+            handleErrorGetAgenda(new RuntimeException("Data is Empty"));
         }
         //fragmentLayout.removeView(buttonLoadAgenda);
     }
 
     private void handleErrorGetAgenda(Exception webServiceError) {
+        currentPage = 1;
         populateInfo("Error Saat Memuat Berita", webServiceError.getMessage());
     }
 
@@ -194,9 +258,9 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
         final NewsFragment parent = this;
         return new AsyncTask<String, Void, PostResponse>() {
             @Override
-            protected PostResponse doInBackground (String...strings){
+            protected PostResponse doInBackground(String... strings) {
                 PostResponse agendaData = SharedPreferenceUtil.getNewsData(sharedpreferences);
-                if(null!=agendaData){
+                if (null != agendaData) {
                     return agendaData;
                 }
                 return null;
@@ -205,10 +269,10 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
             @Override
             protected void onPostExecute(PostResponse postResponse) {
                 stopLoading();
-                if(null!=postResponse) {
+                if (null != postResponse) {
                     handleGetPost(postResponse, null);
                 } else {
-                    populateInfo("Tidak ada berita untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda" );
+                    populateInfo("Tidak ada berita untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda");
                 }
 
             }
@@ -216,5 +280,8 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
     }
 
 
+    public void setNewsData(PostResponse newsData) {
+        this.newsData = newsData;
+    }
 }
 

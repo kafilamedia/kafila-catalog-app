@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,27 +13,28 @@ import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.models.PostResponse;
 import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.MapUtil;
+import id.sch.kafila.catalog.util.ThreadUtil;
 
 public class SharedPreferenceUtil {
 
     private static final String SHARED_AGENDA = "shared_agenda";
     private static final String SHARED_NEWS = "shared_news";
-    private static final String IS_EXIST_SHARED_AGENDA = "is_shared_agenda_exist";
-    private static final String IS_EXIST_SHARED_NEWS = "is_shared_news_exist";
-    private static final String EXIST = "EXIST";
+//    private static final String IS_EXIST_SHARED_AGENDA = "is_shared_agenda_exist";
+//    private static final String IS_EXIST_SHARED_NEWS = "is_shared_news_exist";
+//    private static final String EXIST = "EXIST";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     public static void storeAgendaData(SharedPreferences sharedPreferences, PostResponse agendaData){
         try {
-            putString(sharedPreferences, SHARED_AGENDA, agendaData == null ? "": objectMapper.writeValueAsString(agendaData));
-            putString(sharedPreferences, IS_EXIST_SHARED_AGENDA, EXIST);
+            putString(sharedPreferences, SHARED_AGENDA, agendaData == null ? null: objectMapper.writeValueAsString(agendaData));
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
     }
 
     public static boolean isAgendaExist(SharedPreferences sharedPreferences){
-        boolean exist = getValue(sharedPreferences, IS_EXIST_SHARED_AGENDA).equals(EXIST);
+        boolean exist =getValue(sharedPreferences, SHARED_AGENDA).equals("") == false;
         Logs.log("agenda exist in shared preference: ", exist);
         return exist;
     }
@@ -66,15 +66,16 @@ public class SharedPreferenceUtil {
     ///////////////////////////// NEWS//////////////////////////////
     public static void storeNewsData(SharedPreferences sharedPreferences, PostResponse agendaData){
         try {
-            putString(sharedPreferences, SHARED_NEWS,agendaData == null ? "": objectMapper.writeValueAsString(agendaData));
-            putString(sharedPreferences, IS_EXIST_SHARED_NEWS, EXIST);
+            Logs.log("storeNewsData page: ", agendaData.getCurrentPageInt2());
+            putString(sharedPreferences, SHARED_NEWS,agendaData == null ? null: objectMapper.writeValueAsString(agendaData));
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
     }
 
     public static boolean isNewsExist(SharedPreferences sharedPreferences){
-        boolean exist = getValue(sharedPreferences, IS_EXIST_SHARED_NEWS).equals(EXIST);
+        boolean exist = getValue(sharedPreferences, SHARED_NEWS).equals("") == false;
         Logs.log("news exist in shared preference: ", exist);
         return exist;
     }
@@ -92,6 +93,7 @@ public class SharedPreferenceUtil {
                 NewsPost newsPost = objectMapper.readValue(json, NewsPost.class);
                 response.setNewsPost(newsPost);
             }
+            Logs.log("getNewsData page: ", response.getCurrentPageInt2());
             return response;
         }catch (Exception e){
             Logs.log("ERROR get news from shared preferences: ", e);
@@ -105,11 +107,25 @@ public class SharedPreferenceUtil {
         return sharedPreferences.getString(key, "");
     }
 
+    /**
+     * put to shared reference, null value will remove key
+     * @param sharedPreferences
+     * @param key
+     * @param value
+     */
     private  static void putString(SharedPreferences sharedPreferences, String key, String value){
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        ThreadUtil.runAndStart(() -> {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            if (null == key) {//|| key.isEmpty()) {
+                editor.remove(key);
+                Logs.log("remove key: ", key);
+            }
+            Logs.log("PUT key: ", key);
+            editor.putString(key, value);
+            editor.commit();
 
-        editor.putString(key, value);
-        editor.commit();
+            Logs.log("end Put key: ", key);
+        });
 
     }
 }

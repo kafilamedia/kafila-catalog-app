@@ -1,6 +1,8 @@
 package id.sch.kafila.catalog.models;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 
@@ -31,8 +33,12 @@ public class Post implements Serializable{/**
     date,
     release;
 	// author_id
-	@JsonAlias("author_id")
+	@JsonProperty("author_id")
 	private String authorId;
+	@JsonProperty("authorId")
+	public void setAuthorIdJson(String id){
+		authorId = id;
+	}
 	private PostImage images;
 
 	public String newsLink(){

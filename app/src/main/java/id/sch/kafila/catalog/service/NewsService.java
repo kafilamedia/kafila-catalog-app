@@ -12,7 +12,6 @@ import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,8 +67,8 @@ public class NewsService {
                 String json = objectMapper.writeValueAsString(response.getPosts());
                 NewsPost newsPost = objectMapper.readValue(json, NewsPost.class);
                 response.setNewsPost(newsPost);
-                Logs.log("newsPost remains: ", newsPost.getRemains());
             }
+            Logs.log("current page: ", response.getCurrentPage());
         }}catch (Exception e){
 
         }
