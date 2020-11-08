@@ -42,7 +42,7 @@ public class SharedPreferenceUtil {
     public static PostResponse getAgendaData(SharedPreferences sharedPreferences){
         String rawValue = getValue(sharedPreferences, SHARED_AGENDA);
 
-        if("".equals(rawValue)){
+        if(null == rawValue || "".equals(rawValue.trim())){
             Logs.log("getAgendaData return null");
             return null;
         }
@@ -86,7 +86,7 @@ public class SharedPreferenceUtil {
     public static PostResponse getNewsData(SharedPreferences sharedPreferences){
         String rawValue = getValue(sharedPreferences, SHARED_NEWS);
 
-        if("".equals(rawValue)){
+        if(null == rawValue || "".equals(rawValue.trim())){
             Logs.log("getNewsData return null");
             return null;
         }
