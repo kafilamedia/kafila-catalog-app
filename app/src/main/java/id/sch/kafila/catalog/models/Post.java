@@ -1,5 +1,7 @@
 package id.sch.kafila.catalog.models;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import java.io.Serializable;
 
 import id.sch.kafila.catalog.util.Navigate;
@@ -29,6 +31,8 @@ public class Post implements Serializable{/**
     date,
     release;
 	// author_id
+	@JsonAlias("author_id")
+	private String authorId;
 	private PostImage images;
 
 	public String newsLink(){

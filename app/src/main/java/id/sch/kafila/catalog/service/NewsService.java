@@ -12,6 +12,7 @@ import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -59,9 +60,18 @@ public class NewsService {
 
     public PostResponse getNews(int page) {
         PostResponse response = callGetNews(page);
-        if (response.getPosts() instanceof Map) {
-            NewsPost newsPost = MapUtil.mapToObject((Map) response.getPosts(), NewsPost.class);
-            response.setNewsPost(newsPost);
+        try{if(null!= response.getPosts()) {
+
+            Logs.log("response.getPosts()", response.getPosts().getClass());
+            if (response.getPosts() instanceof Map  ) {
+
+                String json = objectMapper.writeValueAsString(response.getPosts());
+                NewsPost newsPost = objectMapper.readValue(json, NewsPost.class);
+                response.setNewsPost(newsPost);
+                Logs.log("newsPost remains: ", newsPost.getRemains());
+            }
+        }}catch (Exception e){
+
         }
         return response;
     }
@@ -95,14 +105,14 @@ public class NewsService {
 
     public PostResponse callGetNews(int page) {
         String endPoint = "http://kafila.sch.id/index.php/api/homepage/news?page=" + page;
-
+        Logs.log("call service get news ", endPoint);
         try{
 //        String endPoint = "http://192.168.0.103/kafila/get_news.json";
         ResponseEntity<PostResponse> response = restTemplate.exchange(endPoint, HttpMethod.GET, httpEntity(),
                 PostResponse.class);
         return response.getBody();
     }catch (Exception ex){
-        Logs.log("ERROR get agenda: ", ex);
+        Logs.log("ERROR get news: ", ex);
         throw ex;
     }
     }

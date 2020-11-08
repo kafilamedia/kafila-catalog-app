@@ -12,23 +12,25 @@ import java.util.HashMap;
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.util.Logs;
 import lombok.Data;
- 
+
 public class BaseFragment extends Fragment {
 
     protected Integer fragmentId = null;
     protected SharedPreferences sharedpreferences;
     private static HashMap<Integer, Class> customFragments = initCustomFragments();
-    public BaseFragment(){
+
+    public BaseFragment() {
     }
 
-    public static BaseFragment newInstance(int fragmentId){
+    public static BaseFragment newInstance(int fragmentId) {
         return newInstance(fragmentId, null);
     }
+
     public static BaseFragment newInstance(int fragmentId, Class<?> _class) {
-        if(_class == null && customFragments.get(fragmentId)!=null){
+        if (_class == null && customFragments.get(fragmentId) != null) {
             _class = customFragments.get(fragmentId);
         }
-        if(null == _class){
+        if (null == _class) {
             _class = BaseFragment.class;
         }
         BaseFragment myFragment = null;
@@ -46,19 +48,21 @@ public class BaseFragment extends Fragment {
         }
         return myFragment;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Logs.log("BaseFragment fragmentId: ", fragmentId);
-        return inflater.inflate(fragmentId == null ? R.layout.fragment_base:fragmentId, container, false);
+        return inflater.inflate(fragmentId == null ? R.layout.fragment_base : fragmentId, container, false);
     }
 
     private static HashMap<Integer, Class> initCustomFragments() {
         HashMap<Integer, Class> customFragments = new HashMap<Integer, Class>();
-        customFragments.put(R.layout.fragment_syarat_pendaftaran, SyaratPendaftaranFragment.class );
-        customFragments.put(R.layout.fragment_catalog, CatalogFragment.class );
-        customFragments.put(R.layout.fragment_program_pengembangan, ProgramPengembanganFragment.class );
-        customFragments.put(R.layout.fragment_agenda, AgendaFragment.class );
+        customFragments.put(R.layout.fragment_syarat_pendaftaran, SyaratPendaftaranFragment.class);
+        customFragments.put(R.layout.fragment_catalog, CatalogFragment.class);
+        customFragments.put(R.layout.fragment_program_pengembangan, ProgramPengembanganFragment.class);
+        customFragments.put(R.layout.fragment_agenda, AgendaFragment.class);
+        customFragments.put(R.layout.fragment_news, NewsFragment.class);
 
         return customFragments;
     }

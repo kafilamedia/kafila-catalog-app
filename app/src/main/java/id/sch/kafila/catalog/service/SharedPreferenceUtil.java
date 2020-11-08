@@ -5,8 +5,11 @@ import android.content.SharedPreferences;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
+import id.sch.kafila.catalog.models.NewsPost;
 import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.models.PostResponse;
 import id.sch.kafila.catalog.util.Logs;
@@ -23,7 +26,7 @@ public class SharedPreferenceUtil {
 
     public static void storeAgendaData(SharedPreferences sharedPreferences, PostResponse agendaData){
         try {
-            putString(sharedPreferences, SHARED_AGENDA, objectMapper.writeValueAsString(agendaData));
+            putString(sharedPreferences, SHARED_AGENDA, agendaData == null ? "": objectMapper.writeValueAsString(agendaData));
             putString(sharedPreferences, IS_EXIST_SHARED_AGENDA, EXIST);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
@@ -31,7 +34,9 @@ public class SharedPreferenceUtil {
     }
 
     public static boolean isAgendaExist(SharedPreferences sharedPreferences){
-        return getValue(sharedPreferences, IS_EXIST_SHARED_AGENDA).equals(EXIST);
+        boolean exist = getValue(sharedPreferences, IS_EXIST_SHARED_AGENDA).equals(EXIST);
+        Logs.log("agenda exist in shared preference: ", exist);
+        return exist;
     }
 
     public static PostResponse getAgendaData(SharedPreferences sharedPreferences){
@@ -50,7 +55,47 @@ public class SharedPreferenceUtil {
             }
             return response;
         }catch (Exception e){
-            Logs.log("ERROR get agenda: ", e);
+            Logs.log("ERROR get agenda from shared preferences: ", e);
+            storeAgendaData(sharedPreferences, null);
+        }
+
+        return null;
+    }
+
+
+    ///////////////////////////// NEWS//////////////////////////////
+    public static void storeNewsData(SharedPreferences sharedPreferences, PostResponse agendaData){
+        try {
+            putString(sharedPreferences, SHARED_NEWS,agendaData == null ? "": objectMapper.writeValueAsString(agendaData));
+            putString(sharedPreferences, IS_EXIST_SHARED_NEWS, EXIST);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean isNewsExist(SharedPreferences sharedPreferences){
+        boolean exist = getValue(sharedPreferences, IS_EXIST_SHARED_NEWS).equals(EXIST);
+        Logs.log("news exist in shared preference: ", exist);
+        return exist;
+    }
+
+    public static PostResponse getNewsData(SharedPreferences sharedPreferences){
+        String rawValue = getValue(sharedPreferences, SHARED_NEWS);
+
+        if("".endsWith(rawValue)){
+            return null;
+        }
+        try{
+            PostResponse response = objectMapper.readValue(rawValue, PostResponse.class);
+            if ( response.getPosts() instanceof Map) {
+                String json = objectMapper.writeValueAsString(response.getPosts());
+                NewsPost newsPost = objectMapper.readValue(json, NewsPost.class);
+                response.setNewsPost(newsPost);
+            }
+            return response;
+        }catch (Exception e){
+            Logs.log("ERROR get news from shared preferences: ", e);
+            storeNewsData(sharedPreferences, null);
         }
 
         return null;

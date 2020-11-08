@@ -42,6 +42,7 @@ public class HomeActivity extends FragmentActivity {
     private int currentFragment;
 
     private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,16 +63,16 @@ public class HomeActivity extends FragmentActivity {
     }
 
     protected void initComponent() {
-        bottomNavigationView= findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
     }
 
-    protected void initEvent(){
+    protected void initEvent() {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener() {
-        return new BottomNavigationView.OnNavigationItemSelectedListener(){
+        return new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -87,7 +88,8 @@ public class HomeActivity extends FragmentActivity {
                     case R.id.navigation_agenda:
                         switchFragment(R.layout.fragment_agenda);
                         break;
-                        case R.id.navigation_news:
+                    case R.id.navigation_news:
+                        switchFragment(R.layout.fragment_news);
                         break;
                 }
 
@@ -97,12 +99,12 @@ public class HomeActivity extends FragmentActivity {
         };
     }
 
-    private void switchFragment(int fragmentId){
+    private void switchFragment(int fragmentId) {
         Logs.log("switchFragment: ", fragmentId);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        BaseFragment fragment = BaseFragment.newInstance( fragmentId);
+        BaseFragment fragment = BaseFragment.newInstance(fragmentId);
 
         fragmentTransaction.replace(R.id.home_common_content_container, fragment);
         fragmentTransaction.commit();
@@ -115,7 +117,7 @@ public class HomeActivity extends FragmentActivity {
     public void onBackPressed() {
 
         //if in catalog
-        if(currentFragment == R.layout.fragment_catalog){
+        if (currentFragment == R.layout.fragment_catalog) {
             switchFragment(R.layout.fragment_catalog);
         }
 

@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_agenda_layout"
+    android:id="@+id/fragment_news_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.fragments.AgendaFragment">
+    tools:context=".activities.fragments.NewsFragment">
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textView21"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -18,7 +18,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
-        android:text="Agenda"
+        android:text="Berita"
         android:textColor="#4d454f"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <LinearLayout
-        android:id="@+id/agenda_list"
+        android:id="@+id/news_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -37,7 +37,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/agenda_info_wrapper"
+        android:id="@+id/news_info_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -50,16 +50,16 @@
             android:src="?android:attr/alertDialogIcon" />
 
         <TextView
-            android:id="@+id/agenda_info_title"
+            android:id="@+id/news_info_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center_horizontal"
-            android:text="Tidak ada agenda untuk ditampilkan"
+            android:text="Tidak ada berita untuk ditampilkan"
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/agenda_info"
+            android:id="@+id/news_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -73,7 +73,7 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/agenda_btn_load_agenda"
+            android:id="@+id/news_btn_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -81,11 +81,10 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:background="@android:color/darker_gray"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Tampilkan Agenda"
+            android:text="Tampilkan Berita"
             android:textColor="#ffffff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +93,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <ProgressBar
-        android:id="@+id/agenda_loader"
+        android:id="@+id/news_loader"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
