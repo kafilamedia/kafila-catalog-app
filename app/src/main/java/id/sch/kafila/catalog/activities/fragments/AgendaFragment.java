@@ -27,9 +27,7 @@ import id.sch.kafila.catalog.util.Logs;
 
 public class AgendaFragment extends PostFragment {
 
-    private View view;
-    LinearLayout infoLayout;
-    String buttonLoadLabel = "Muat Agenda";
+    private String buttonLoadLabel = "Muat Agenda";
 
     public AgendaFragment() {
     }
@@ -77,13 +75,7 @@ public class AgendaFragment extends PostFragment {
 
 
     private View.OnClickListener loadAgendaListener() {
-        return new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getAgenda();
-            }
-        };
+        return  (View v)-> {getAgenda();   };
     }
 
 

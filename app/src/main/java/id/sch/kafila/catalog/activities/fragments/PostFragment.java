@@ -96,7 +96,7 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
             protected void onPostExecute(PostResponse postResponse) {
                 stopLoading();
                 if (null != postResponse) {
-                    handleGetPost(postResponse, null);
+                    parent.handleGetPost(postResponse, null);
                 } else {
                     parent.populateInfo("Tidak ada agenda untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda");
                 }

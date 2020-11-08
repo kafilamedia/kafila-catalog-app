@@ -2,19 +2,14 @@ package id.sch.kafila.catalog.activities.fragments;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -84,16 +79,10 @@ public class NewsFragment extends PostFragment {
     }
 
     private View.OnClickListener loadAgendaListener(final int page) {
-        return new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getAgenda(page);
-            }
-        };
+        return (View v)->{ getNews(page); };
     }
 
-    private void getAgenda(int page) {
+    private void getNews(int page) {
         startLoading();
         this.currentPage = page;
         new GetPostOperation(this).execute(page);
@@ -141,7 +130,7 @@ public class NewsFragment extends PostFragment {
     private Button prevButton(int _currentPage, List<Integer> buttonValues) {
         Integer prevPage = _currentPage > FIRST_PAGE ? _currentPage - 1 : FIRST_PAGE;
         Button prevButton = createNavigationButton(prevPage, "Previous");
-        prevButton.setBackgroundColor(Color.GRAY);
+        prevButton.setBackgroundColor(Color.rgb(200,200,200));
         prevButton.setTextColor(Color.DKGRAY);
         return prevButton;
     }
@@ -149,7 +138,7 @@ public class NewsFragment extends PostFragment {
     private Button nextButton(int _currentPage, List<Integer> buttonValues) {
         Integer nextPage = getCurrentPage() < buttonValues.get(buttonValues.size() - 1) ? _currentPage + 1 : _currentPage;
         Button nextButton = createNavigationButton(nextPage, "Next");
-        nextButton.setBackgroundColor(Color.GRAY);
+        nextButton.setBackgroundColor(Color.rgb(200,200,200));
         nextButton.setTextColor(Color.DKGRAY);
         return nextButton;
     }
@@ -166,7 +155,7 @@ public class NewsFragment extends PostFragment {
         Button button = new Button(new ContextThemeWrapper(view.getContext(), R.style.NoPaddingButton), null, 0);
         button.setText(text != null ? text : String.valueOf(buttonPage));
         button.setTextColor(Color.rgb(200, 200, 200));
-        button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
         if (buttonPage == getCurrentPage()) {
             button.setBackgroundColor(Color.DKGRAY);
         } else {
