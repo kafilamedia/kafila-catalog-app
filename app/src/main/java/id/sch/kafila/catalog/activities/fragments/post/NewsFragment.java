@@ -1,4 +1,4 @@
-package id.sch.kafila.catalog.activities.fragments;
+package id.sch.kafila.catalog.activities.fragments.post;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import id.sch.kafila.catalog.R;
@@ -197,7 +198,12 @@ public class NewsFragment extends PostFragment {
         updateNavigationButton();
 
 
-        List<Post> agendas = response.getNewsPost().getRemains();
+        List<Post> agendas = new ArrayList<>();
+        if(null!=response.getNewsPost().getBegin()){
+            agendas.add(response.getNewsPost().getBegin());
+        }
+        agendas.addAll(response.getNewsPost().getRemains());
+
         postListLayout.removeAllViews();
         infoLayout.removeAllViews();
         for (Post post : agendas) {

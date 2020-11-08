@@ -1,17 +1,10 @@
-package id.sch.kafila.catalog.activities.fragments;
+package id.sch.kafila.catalog.activities.fragments.post;
 
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import java.util.List;
 

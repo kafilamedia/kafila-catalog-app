@@ -1,4 +1,4 @@
-package id.sch.kafila.catalog.activities.fragments;
+package id.sch.kafila.catalog.activities.fragments.post;
 
 import android.os.AsyncTask;
 import android.view.Gravity;
@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.models.PostResponse;
 import id.sch.kafila.catalog.service.SharedPreferenceUtil;
 import id.sch.kafila.catalog.util.Logs;

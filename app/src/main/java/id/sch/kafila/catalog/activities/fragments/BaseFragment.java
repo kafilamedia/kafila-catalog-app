@@ -10,8 +10,9 @@ import android.view.ViewGroup;
 import java.util.HashMap;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.activities.fragments.post.AgendaFragment;
+import id.sch.kafila.catalog.activities.fragments.post.NewsFragment;
 import id.sch.kafila.catalog.util.Logs;
-import lombok.Data;
 
 public class BaseFragment extends Fragment {
 

@@ -2,7 +2,7 @@ package id.sch.kafila.catalog.service;
 
 import android.os.AsyncTask;
 
-import id.sch.kafila.catalog.activities.fragments.PostContentPage;
+import id.sch.kafila.catalog.activities.fragments.post.PostContentPage;
 import id.sch.kafila.catalog.models.PostResponse;
 
 public class GetPostOperation extends AsyncTask<Object, Void, PostResponse> {
