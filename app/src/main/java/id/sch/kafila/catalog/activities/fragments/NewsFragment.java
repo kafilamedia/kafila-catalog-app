@@ -162,10 +162,7 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
         if (null == buttonValues || buttonValues.size() == 0) {
             return;
         }
-        Integer prevPage = _currentPage > FIRST_PAGE ? _currentPage - 1 : FIRST_PAGE;
-        Button prevButton = createNavigationButton(prevPage, "Previous");
-        prevButton.setBackgroundColor(Color.YELLOW);
-        navigationButtonsLayout.addView(prevButton);
+        navigationButtonsLayout.addView(prevButton(_currentPage, buttonValues));
 
         for (Integer buttonPage :
                 buttonValues) {
@@ -173,12 +170,24 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
             navigationButtonsLayout.addView(navigationButton);
         }
 
-        Integer nextPage = getCurrentPage() < buttonValues.get(buttonValues.size() - 1) ? _currentPage + 1 : _currentPage;
-        Button nextButton = createNavigationButton(nextPage, "Previous");
-        nextButton.setBackgroundColor(Color.YELLOW);
-        navigationButtonsLayout.addView(nextButton);
+        navigationButtonsLayout.addView(nextButton(_currentPage, buttonValues));
         Logs.log("updated nav buttons");
 
+    }
+
+
+
+    private Button prevButton(int _currentPage, List<Integer> buttonValues){
+        Integer prevPage = _currentPage > FIRST_PAGE ? _currentPage - 1 : FIRST_PAGE;
+        Button prevButton = createNavigationButton(prevPage, "Previous");
+        prevButton.setBackgroundColor(Color.YELLOW);
+        return prevButton;
+    }
+    private Button nextButton(int _currentPage, List<Integer> buttonValues){
+        Integer nextPage = getCurrentPage() < buttonValues.get(buttonValues.size() - 1) ? _currentPage + 1 : _currentPage;
+        Button nextButton = createNavigationButton(nextPage, "Next");
+        nextButton.setBackgroundColor(Color.YELLOW);
+        return nextButton;
     }
 
     private int getCurrentPage() {

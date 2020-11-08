@@ -42,10 +42,12 @@ public class SharedPreferenceUtil {
     public static PostResponse getAgendaData(SharedPreferences sharedPreferences){
         String rawValue = getValue(sharedPreferences, SHARED_AGENDA);
 
-        if("".endsWith(rawValue)){
+        if("".equals(rawValue)){
+            Logs.log("getAgendaData return null");
             return null;
         }
         try{
+            Logs.log("parsing agenda data");
             PostResponse response = objectMapper.readValue(rawValue, PostResponse.class);
             if (response.getPosts() instanceof List) {
                 List rawPosts = (List) response.getPosts();
@@ -53,6 +55,7 @@ public class SharedPreferenceUtil {
                 response.setAgendas(posts);
 
             }
+            Logs.log("success return agenda data");
             return response;
         }catch (Exception e){
             Logs.log("ERROR get agenda from shared preferences: ", e);
@@ -83,17 +86,19 @@ public class SharedPreferenceUtil {
     public static PostResponse getNewsData(SharedPreferences sharedPreferences){
         String rawValue = getValue(sharedPreferences, SHARED_NEWS);
 
-        if("".endsWith(rawValue)){
+        if("".equals(rawValue)){
+            Logs.log("getNewsData return null");
             return null;
         }
         try{
+            Logs.log("parsing news data");
             PostResponse response = objectMapper.readValue(rawValue, PostResponse.class);
             if ( response.getPosts() instanceof Map) {
                 String json = objectMapper.writeValueAsString(response.getPosts());
                 NewsPost newsPost = objectMapper.readValue(json, NewsPost.class);
                 response.setNewsPost(newsPost);
             }
-            Logs.log("getNewsData page: ", response.getCurrentPageInt2());
+            Logs.log("success return news data");
             return response;
         }catch (Exception e){
             Logs.log("ERROR get news from shared preferences: ", e);
