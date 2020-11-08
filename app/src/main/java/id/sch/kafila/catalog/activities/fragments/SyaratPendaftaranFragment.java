@@ -1,6 +1,7 @@
 package id.sch.kafila.catalog.activities.fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,7 @@ public class SyaratPendaftaranFragment extends BaseFragment {
     }
 
     private void adjustComponent() {
+        listViewUmum.setBackgroundColor(Color.YELLOW);
         listViewUmum.getLayoutParams().height = Dimension.getScreenHeight(view.getContext());
         listViewUmum.requestLayout();
     }
@@ -81,12 +83,12 @@ public class SyaratPendaftaranFragment extends BaseFragment {
             "Membayar biaya pendaftaran sebesar Rp 303.000 (Jalur Bea-siswa Mts) atau Rp 606.000 (Jalur MTs Reguler dan MA)"
     };
     static String[] mtsContents = new String[]{
-        "Usia maksimal per Juli 2021 adalah 14 tahun",
+        "Usia maksimal adalah 14 tahun",
         "Nilai rapor minimal: 7 (tujuh), pada mata pelajaran USBN/UN",
         "Mampu membaca Al Quran dengan baik dan benar"
     };
     static String[] maContents = new String[]{
-        "Usia maksimal per Juli 2021 adalah 17 tahun",
+        "Usia maksimal adalah 17 tahun",
         "Nilai rapor minimal: 7 (tujuh), pada mata pelajaran USBN/UN",
         "Hafal Al-Qur’an minimal 5 juz dengan bacaan yang baik dan benar"
     };

@@ -17,13 +17,33 @@
             android:textSize="30sp"></TextView>
 
         <!--<ScrollView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-        <ExpandableListView
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Informasi Selengkapnya"
+        android:textColor="#4d454f"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/psb_web_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:autoLink="all"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="https://psb.kafila.sch.id"
+        android:textColorLink="@android:color/background_dark" />
+
+    <ExpandableListView
             android:id="@+id/list_syarat_umum"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#ffffff"
             tools:listitem="@android:layout/list_content">
 

@@ -33,8 +33,18 @@ public class CustomExpandableListAdapter<T> extends BaseExpandableListAdapter {
             parent.collapseGroup(lastExpandedGroup);
         }
         lastExpandedGroup = groupPosition;
+//        parent.getLayoutParams().height = Dimension.getScreenHeight(parent.getContext());
+//        parent.requestLayout();
+
         super.onGroupExpanded(groupPosition);
 
+    }
+
+    @Override
+    public void onGroupCollapsed(int groupPosition) {
+//        parent.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+//        parent.requestLayout();
+        super.onGroupCollapsed(groupPosition);
     }
 
     @Override
