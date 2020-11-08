@@ -58,7 +58,7 @@ public class PostResponse implements Serializable{/**
 	public int getCurrentPageInt2(){
 
 		if(null ==currentPage || currentPage.isEmpty()){
-			if(currentPageInt > 0){ return currentPageInt; }
+			if(currentPageInt > 1){ return currentPageInt; }
 			setCurrentPage("1");
 		}
 

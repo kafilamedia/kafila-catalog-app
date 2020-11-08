@@ -234,11 +234,15 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
             return;
 
         }
-        response.setCurrentPageJson(response.getCurrentPageInt2() > 0 ? response.getCurrentPageInt2() : currentPage);
+        Logs.log("handle get post currentPage: ", currentPage);
+        if(response.getCurrentPageInt2() > 1) {
+            response.setCurrentPageJson( response.getCurrentPageInt2() );
+        } else {
+            response.setCurrentPageJson(currentPage);
+        }
         setNewsData(response);
-
         updateNavigationButton();
-        SharedPreferenceUtil.storeNewsData(sharedpreferences, response);
+
 
         List<Post> agendas = response.getNewsPost().getRemains();
         agendaListLayout.removeAllViews();
@@ -291,6 +295,7 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
 
     public void setNewsData(PostResponse newsData) {
         this.newsData = newsData;
+        SharedPreferenceUtil.storeNewsData(sharedpreferences, newsData);
     }
 }
 
