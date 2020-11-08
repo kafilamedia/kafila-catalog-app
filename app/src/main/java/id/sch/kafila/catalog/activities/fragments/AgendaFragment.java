@@ -95,7 +95,7 @@ public class AgendaFragment extends BaseFragment implements PostContentPage {
         infoLayout.addView(messageTextView);
     }
 
-    static void adjustLabelLayout(TextView v){
+    public static void adjustLabelLayout(TextView v){
         v.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         v.setGravity(Gravity.CENTER);
     }

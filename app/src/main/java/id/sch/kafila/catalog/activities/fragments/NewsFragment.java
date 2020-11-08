@@ -87,27 +87,22 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
 
     private void populateInfo(String title, String message) {
         infoLayout.removeAllViews();
-        ImageView imageView = new ImageView(getContext());
+        ImageView imageView = new ImageView(view.getContext());
         imageView.setImageResource(R.drawable.exclamation);
         imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 60));
 
-        TextView titleTextView = new TextView(getContext());
+        TextView titleTextView = new TextView(view.getContext());
         titleTextView.setText(title);
         titleTextView.setTextSize(17);
-        TextView messageTextView = new TextView(getContext());
+        TextView messageTextView = new TextView(view.getContext());
         messageTextView.setText(message);
 
-        adjustLabelLayout(titleTextView);
-        adjustLabelLayout(messageTextView);
+        AgendaFragment.adjustLabelLayout(titleTextView);
+        AgendaFragment.adjustLabelLayout(messageTextView);
 
         infoLayout.addView(imageView);
         infoLayout.addView(titleTextView);
         infoLayout.addView(messageTextView);
-    }
-
-    static void adjustLabelLayout(TextView v) {
-        v.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        v.setGravity(Gravity.CENTER);
     }
 
     private View.OnClickListener loadAgendaListener(final int page) {
@@ -180,13 +175,15 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
     private Button prevButton(int _currentPage, List<Integer> buttonValues){
         Integer prevPage = _currentPage > FIRST_PAGE ? _currentPage - 1 : FIRST_PAGE;
         Button prevButton = createNavigationButton(prevPage, "Previous");
-        prevButton.setBackgroundColor(Color.YELLOW);
+        prevButton.setBackgroundColor(Color.GRAY);
+        prevButton.setTextColor(Color.DKGRAY);
         return prevButton;
     }
     private Button nextButton(int _currentPage, List<Integer> buttonValues){
         Integer nextPage = getCurrentPage() < buttonValues.get(buttonValues.size() - 1) ? _currentPage + 1 : _currentPage;
         Button nextButton = createNavigationButton(nextPage, "Next");
-        nextButton.setBackgroundColor(Color.YELLOW);
+        nextButton.setBackgroundColor(Color.GRAY);
+        nextButton.setTextColor(Color.DKGRAY);
         return nextButton;
     }
 
@@ -199,7 +196,7 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
 
     private Button createNavigationButton(Integer buttonPage, String text) {
 
-        Button button = new Button(new ContextThemeWrapper(getContext(), R.style.NoPaddingButton), null, 0);
+        Button button = new Button(new ContextThemeWrapper(view.getContext(), R.style.NoPaddingButton), null, 0);
         button.setText(text != null ? text : String.valueOf(buttonPage));
         button.setTextColor(Color.rgb(200, 200, 200));
         button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
@@ -272,6 +269,7 @@ public class NewsFragment extends BaseFragment implements PostContentPage {
         return new AsyncTask<String, Void, PostResponse>() {
             @Override
             protected PostResponse doInBackground(String... strings) {
+                Logs.log("construct new doInBackground");
                 PostResponse agendaData = SharedPreferenceUtil.getNewsData(sharedpreferences);
                 if (null != agendaData) {
                     return agendaData;

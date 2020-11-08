@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import java.io.InputStream;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.util.ThreadUtil;
 
 public class ImageViewWithURL {
 
@@ -35,8 +36,10 @@ public class ImageViewWithURL {
 //            }catch (Exception e){ }
         }
         // show The Image in a ImageView
-        new DownloadImageTask(imageView)
-                .execute(url);
+        ThreadUtil.runAndStart(()->{
+            new DownloadImageTask(imageView)
+                    .execute(url);
+        });
     }
 
 
