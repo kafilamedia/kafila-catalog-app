@@ -23,6 +23,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="5dp"
+
             android:src="@drawable/kiis_stroke" />
 
         <LinearLayout
@@ -41,6 +42,7 @@
                 android:inputType="textMultiLine"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+
                 android:text="Kafila International Islamic School"
                 android:textSize="17sp" />
 
@@ -64,13 +66,69 @@
         android:background="@android:color/holo_blue_dark"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView8"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
             android:paddingLeft="10dp"
-            android:paddingRight="100dp"
-            android:src="@drawable/kafila_medias" />
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/yt" />
+
+            <TextView
+                android:id="@+id/header_yt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Kafila TV"
+                android:textColorLink="@android:color/background_light"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/fb" />
+
+            <TextView
+                android:id="@+id/header_fb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="KafilaSchool"
+                android:textColor="#ffffff"
+                android:textColorLink="@android:color/background_light"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ig" />
+
+            <TextView
+                android:id="@+id/header_ig"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="\@kafilajakarta"
+                android:textColorLink="@android:color/background_light"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
