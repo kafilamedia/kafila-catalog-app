@@ -112,10 +112,13 @@ public class NewsItem extends LinearLayout {
         newsDate = findViewById(R.id.news_date);
         buttonNewsLink = findViewById(R.id.news_item_options);
         buttonNewsLink.setImageResource( (android.R.drawable.ic_menu_info_details));
+
+
     }
 
     private void initEvents() {
         buttonNewsLink.setOnClickListener(showPopupMenu());
+        imageThumbnail.setImageResource(android.R.drawable.ic_menu_camera);
     }
 
     private OnClickListener showPopupMenu() {
