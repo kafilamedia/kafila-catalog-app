@@ -2,7 +2,9 @@ package id.sch.kafila.catalog.activities.fragments.post;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -55,6 +57,8 @@ public class NewsFragment extends PostFragment {
         buttonLoadAgenda.setOnClickListener(loadAgendaListener(FIRST_PAGE));
         buttonLoadAgenda.setText(buttonLoadLabel);
         checkStoredAgendas();
+        rollingLoader.getIndeterminateDrawable()
+                .setColorFilter(ContextCompat.getColor(view.getContext(), android.R.color.background_dark), PorterDuff.Mode.SRC_IN );
 
     }
 

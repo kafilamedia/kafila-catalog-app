@@ -1,7 +1,9 @@
 package id.sch.kafila.catalog.activities.fragments.post;
 
 import android.app.Activity;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +26,6 @@ public class AgendaFragment extends PostFragment {
 
     public AgendaFragment() {
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +50,8 @@ public class AgendaFragment extends PostFragment {
         buttonLoadAgenda.setOnClickListener(loadAgendaListener());
         buttonLoadAgenda.setText(buttonLoadLabel);
         checkStoredAgendas();
+        rollingLoader.getIndeterminateDrawable()
+                .setColorFilter(ContextCompat.getColor(view.getContext(), android.R.color.background_dark), PorterDuff.Mode.SRC_IN );
 
     }
 
