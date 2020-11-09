@@ -97,6 +97,7 @@
         android:id="@+id/agenda_loader"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
+        android:indeterminateDrawable="@drawable/progress_circular"
         android:layout_height="wrap_content" />
 
 </LinearLayout>
