@@ -1,5 +1,6 @@
 package id.sch.kafila.catalog.activities.fragments.post;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +60,35 @@ public class NewsFragmentView extends BaseFragment{
 
         tabLayout = view.findViewById(R.id.tab_news);
         tabLayout.setupWithViewPager(viewPager);
+        initEvents();
+    }
+
+    protected  void initEvents(){
+
+//        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                viewPager.setCurrentItem(tab.getPosition());
+//
+//                TextView text = (TextView) tab.getCustomView();
+//
+//                text.setTypeface(null, Typeface.BOLD);
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+////                TextView text = (TextView) tab.getCustomView();
+////                text.setTypeface(null, Typeface.NORMAL);
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//        });
+
 
     }
 

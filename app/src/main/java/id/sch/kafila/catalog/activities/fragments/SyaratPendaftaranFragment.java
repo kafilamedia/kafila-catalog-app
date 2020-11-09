@@ -45,7 +45,6 @@ public class SyaratPendaftaranFragment extends BaseFragment {
     }
 
     private void adjustComponent() {
-        listViewUmum.setBackgroundColor(Color.YELLOW);
         listViewUmum.getLayoutParams().height = Dimension.getScreenHeight(view.getContext());
         listViewUmum.requestLayout();
     }
