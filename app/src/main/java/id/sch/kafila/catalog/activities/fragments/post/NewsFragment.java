@@ -58,13 +58,6 @@ public class NewsFragment extends PostFragment {
 
     }
 
-    private void checkStoredAgendas() {
-        if (SharedPreferenceUtil.isNewsExist(sharedpreferences)) {
-            startLoading();
-            newsLayoutConstructionOperation(this).execute("");
-        }
-    }
-
 
     @Override
     protected void initComponents() {
@@ -99,6 +92,11 @@ public class NewsFragment extends PostFragment {
         }
         PostResponse response = NewsService.instance().getNews(page);
         return response;
+    }
+
+    @Override
+    protected   PostResponse getPostFromSharedPreferences(){
+       return SharedPreferenceUtil.getNewsData(sharedpreferences);
     }
 
 
@@ -208,8 +206,9 @@ public class NewsFragment extends PostFragment {
         infoLayout.removeAllViews();
         for (Post post : agendas) {
             try {
-                NewsItem title = new NewsItem(getActivity(), post);
-                postListLayout.addView(title);
+                NewsItem newsItem = new NewsItem(getActivity(), post, isLoadedFromSharedPreference()==false);
+                addTask(newsItem.getDownloadImageTask());
+                postListLayout.addView(newsItem);
             } catch (Exception ex) {
                 Logs.log("error create news item: ", e);
             }

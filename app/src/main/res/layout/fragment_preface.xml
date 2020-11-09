@@ -14,6 +14,17 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Kafila International Islamic School, merupakan pesantren modern dengan manhaj ahlussunnah wal jamaah yang memadukan kurikulum umum dan diniyah, serta tahfidz al quran."
+            android:textColor="#ffffff" />
+
+        <TextView
             android:id="@+id/preface3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

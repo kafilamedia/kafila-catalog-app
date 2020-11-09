@@ -109,7 +109,12 @@ public class SharedPreferenceUtil {
     }
 
     private static String getValue(SharedPreferences sharedPreferences, String key){
-        return sharedPreferences.getString(key, "");
+        try {
+            return sharedPreferences.getString(key, "");
+        }catch (Exception e){
+            Logs.log("Error get ", key," from sharedPreference");
+            return "";
+        }
     }
 
     /**

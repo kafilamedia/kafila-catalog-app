@@ -17,14 +17,12 @@ import android.view.ViewGroup;
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
-import id.sch.kafila.catalog.service.SharedPreferenceUtil;
 import id.sch.kafila.catalog.util.AlertUtil;
 import id.sch.kafila.catalog.util.Logs;
-import id.sch.kafila.catalog.util.Navigate;
 
 public class CatalogFragment extends BaseFragment{
     protected SharedPreferences sharedpreferences;
-    private MenuButton exitButton;
+    private MenuButton curriculumButton;
     private MenuButton navigateVisiMisi;
     private MenuButton navigateProgramPendidikan;
     private MenuButton navigateProgramPengembangan;
@@ -61,7 +59,7 @@ public class CatalogFragment extends BaseFragment{
     }
 
     private void initComponents() {
-        exitButton = findViewById(R.id.btn_home_exit2);
+        curriculumButton = findViewById(R.id.home_btn_kurikulum);
         navigateVisiMisi = findViewById(R.id.home_btn_visi_misi2);
         navigateProgramPendidikan = findViewById(R.id.home_btn_program_pendidikan2);
         navigateProgramPengembangan = findViewById(R.id.home_btn_program_pengembangan2);
@@ -73,7 +71,7 @@ public class CatalogFragment extends BaseFragment{
     }
 
     private void initEvents(){
-        exitButton.setOnClickListener(exit());
+        curriculumButton.setOnClickListener(gotoMenu(R.layout.fragment_kurikulum));
         navigateVisiMisi.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
         navigateProgramPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_program_pendidikan));
         navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
@@ -112,7 +110,7 @@ public class CatalogFragment extends BaseFragment{
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        exitApplication();
+//                        exitApplication();
                     }
                 };
                 AlertUtil.confirm(ctx, "Exit?", callback);
@@ -120,18 +118,6 @@ public class CatalogFragment extends BaseFragment{
             }
         };
     }
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    private void exitApplication(){
-        android.os.Process.killProcess(android.os.Process.myPid());
-        try {
-            //clear news and agenda
-            SharedPreferenceUtil.storeAgendaData(sharedpreferences,null);
-            SharedPreferenceUtil.storeNewsData(sharedpreferences,null);
-            getActivity().finishAffinity();
-        }catch (Exception e){ }
-        System.exit(1);
-    }
-
     private void switchFragment(int fragmentId){
         Logs.log("switchFragment: ", fragmentId);
 

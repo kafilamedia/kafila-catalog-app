@@ -28,28 +28,27 @@
             tools:layout_editor_absoluteY="722dp">
 
             <id.sch.kafila.catalog.components.MenuButton
-                android:id="@+id/home_btn_visi_misi2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="clip_horizontal"
-                app:buttonLabel="Visi Misi"
-                app:drawableId="@drawable/v1211" />
-
-            <id.sch.kafila.catalog.components.MenuButton
                 android:id="@+id/home_btn_nilai_unggul2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="clip_horizontal"
                 app:buttonLabel="Nilai Unggul"
-                app:drawableId="@drawable/nilai" />
+                app:drawableId="@drawable/ic_folder_special_black_24dp" />
 
             <id.sch.kafila.catalog.components.MenuButton
-                android:id="@+id/home_btn_program_pendidikan2"
+                android:id="@+id/home_btn_visi_misi2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="clip_horizontal"
-                app:buttonLabel="Program Pendidikan"
-                app:drawableId="@drawable/edu" />
+                app:buttonLabel="Visi Misi"
+                app:drawableId="@drawable/ic_account_balance_black_24dp" />
+
+            <id.sch.kafila.catalog.components.MenuButton
+                android:id="@+id/home_btn_kurikulum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:buttonLabel="Kurikulum"
+                app:drawableId="@drawable/ic_chrome_reader_mode_black_24dp" />
 
 
         </LinearLayout>
@@ -63,25 +62,29 @@
             tools:layout_editor_absoluteY="722dp">
 
             <id.sch.kafila.catalog.components.MenuButton
-                android:id="@+id/home_btn_fasilitas2"
+                android:id="@+id/home_btn_program_pendidikan2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:buttonLabel="Fasilitas"
-                app:drawableId="@drawable/resources" />
+                android:layout_height="match_parent"
+                android:gravity="clip_horizontal"
+                app:buttonLabel="Program Pendidikan"
+                app:drawableId="@drawable/ic_school_black_24dp" />
 
             <id.sch.kafila.catalog.components.MenuButton
                 android:id="@+id/home_btn_program_pengembangan2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:buttonLabel="Program Pengembangan"
-                app:drawableId="@drawable/dev" />
+                app:drawableId="@drawable/ic_group_add_black_24dp">
+
+            </id.sch.kafila.catalog.components.MenuButton>
 
             <id.sch.kafila.catalog.components.MenuButton
-                android:id="@+id/home_btn_biaya_pendidikan2"
+                android:id="@+id/home_btn_fasilitas2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:buttonLabel="Biaya Pendidikan"
-                app:drawableId="@drawable/env" />
+                android:layout_height="match_parent"
+                app:buttonLabel="Fasilitas"
+                app:drawableId="@drawable/ic_domain_black_24dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -92,11 +95,18 @@
             tools:layout_editor_absoluteY="722dp">
 
             <id.sch.kafila.catalog.components.MenuButton
+                android:id="@+id/home_btn_biaya_pendidikan2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:buttonLabel="Biaya Pendidikan"
+                app:drawableId="@drawable/ic_credit_card_black_24dp" />
+
+            <id.sch.kafila.catalog.components.MenuButton
                 android:id="@+id/home_btn_sebaran_alumni2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:buttonLabel="Sebaran Alumni"
-                app:drawableId="@drawable/alum" />
+                app:drawableId="@drawable/ic_public_black_24dp" />
 
 
             <id.sch.kafila.catalog.components.MenuButton
@@ -104,14 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:buttonLabel="Syarat Pendaftaran"
-                app:drawableId="@drawable/s1270" />
-
-            <id.sch.kafila.catalog.components.MenuButton
-                android:id="@+id/btn_home_exit2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:buttonLabel="Exit"
-                app:drawableId="@android:drawable/ic_lock_power_off" />
+                app:drawableId="@drawable/ic_assignment_black_24dp" />
 
         </LinearLayout>
 

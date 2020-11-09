@@ -98,7 +98,7 @@
             android:layout_height="20dp"
             android:layout_weight="1"
 
-            android:src="@drawable/loc" />
+            android:src="@android:drawable/ic_dialog_map" />
 
         <TextView
             android:id="@+id/footer_address_label"

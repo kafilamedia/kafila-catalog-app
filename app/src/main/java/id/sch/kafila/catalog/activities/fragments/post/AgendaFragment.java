@@ -47,12 +47,6 @@ public class AgendaFragment extends PostFragment {
 
     }
 
-    private void checkStoredAgendas() {
-        if (SharedPreferenceUtil.isAgendaExist(sharedpreferences)) {
-            startLoading();
-            newsLayoutConstructionOperation(this).execute("");
-        }
-    }
 
     @Override
     protected void initComponents() {
@@ -64,6 +58,11 @@ public class AgendaFragment extends PostFragment {
         postListLayout = view.findViewById(R.id.agenda_list);
         buttonLoadAgenda = view.findViewById(R.id.agenda_btn_load_agenda);
         rollingLoader = view.findViewById(R.id.agenda_loader);
+    }
+
+    @Override
+    protected   PostResponse getPostFromSharedPreferences(){
+        return SharedPreferenceUtil.getAgendaData(sharedpreferences);
     }
 
 
@@ -99,8 +98,9 @@ public class AgendaFragment extends PostFragment {
         infoLayout.removeAllViews();
         for (Post post : agendas) {
             try {
-                NewsItem title = new NewsItem(getActivity(), post);
-                postListLayout.addView(title);
+                NewsItem newsItem = new NewsItem(getActivity(), post, isLoadedFromSharedPreference()==false);
+                addTask(newsItem.getDownloadImageTask());
+                postListLayout.addView(newsItem);
             } catch (Exception ex) {
                 Logs.log("error create news item: ", ex);
             }

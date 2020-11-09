@@ -68,7 +68,7 @@ public class ProgramPengembanganFragment extends BaseFragment {
     }
 
     static String[] contentsEkstakulikuler = new String[]{
-            "Bela diri Thifan, Kepanduan/Pramuka",
+            "Bela diri Thifan", "Kepanduan/Pramuka",
             "Panahan", "Futsal", "Renang", "KINEMATIKA (Komunitas Studi Sains dan Matematika)",
             "IT Club (programming dan desain grafis)",
             "Lain-lain"

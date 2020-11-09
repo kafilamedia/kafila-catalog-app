@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import java.io.InputStream;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.util.Logs;
 import id.sch.kafila.catalog.util.ThreadUtil;
 
 public class ImageViewWithURL {
@@ -25,7 +26,7 @@ public class ImageViewWithURL {
         this.url = url;
     }
 
-    public void populate() {
+    public AsyncTask<String, Void, Bitmap> populate() {
 
         imageView.setImageResource(android.R.drawable.ic_menu_camera);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -36,10 +37,13 @@ public class ImageViewWithURL {
 //            }catch (Exception e){ }
         }
         // show The Image in a ImageView
-        ThreadUtil.runAndStart(()->{
-            new DownloadImageTask(imageView)
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            return new DownloadImageTask(imageView)
                     .execute(url);
-        });
+        }else {
+            return new DownloadImageTask(imageView)
+                    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url);
+        }
     }
 
 
@@ -62,6 +66,16 @@ public class ImageViewWithURL {
                 e.printStackTrace();
             }
             return mIcon11;
+        }
+
+        @Override
+        protected void onCancelled() {
+            Logs.log("Download Image CANCELED");
+        }
+
+        @Override
+        protected void onCancelled(Bitmap bitmap) {
+            Logs.log("Download Image CANCELED 2");
         }
 
         protected void onPostExecute(Bitmap result) {

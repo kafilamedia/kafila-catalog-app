@@ -65,7 +65,15 @@
     <string name="alumni_luar_negeri">Univ. Islam Madinah, Univ. Ummul Qura Makkah, Univ. Al Azhar Kairo, Eskisehir Osmangazi Universitasi Turki, Fatih Sultan Mehmet
         Universitesi Turki, International University of Africa Khartoum Sudan, International Islamic University of Malaysia (IIUM)</string>
 
-
+    <string name="curriculum_academic">
+        Dengan inovasi yang terus menerus, kami kreasikan kurikulum yang mengintegrasikan Ilmu-ilmu Kauniyah dan Diniyah untuk pembelajaran yang lebih mudah, menyenangkan dan tepat sasaran.
+    </string>
+    <string name="curriculum_tahfiz">
+        Program tahfidz Al Quran dengan metode halaqah (kelompok) dibawah bimbingan seorang musyrif, adalah untuk memastikan hafalan baik, benar dan sesuai dengan hukum tajwid dan qiroah.
+    </string>
+    <string name="curriculum_boarding">
+        Pembiasaan hidup displin, mandiri, peduli, bersih dan sehat, juga kesadaran untuk melaksanakan ibadah berdasarkan pemahaaman yang benar, adalah pola pembentukan karakter di pesantren.
+    </string>
     <string-array name="syarat_pendaftaran_umum">
         <item>Laki-laki</item>
         <item>Mengisi pendaftaran online dengan melengkapi data dan berkas berikut.</item>

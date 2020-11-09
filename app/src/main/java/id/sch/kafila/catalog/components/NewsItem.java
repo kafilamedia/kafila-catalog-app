@@ -3,6 +3,7 @@ package id.sch.kafila.catalog.components;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MenuItem;
@@ -27,16 +28,25 @@ public class NewsItem extends LinearLayout {
     private ImageView buttonNewsLink;
     private Post post;
 
-    public NewsItem(Context context, @Nullable AttributeSet attrs) {
+    private AsyncTask downloadImageTask;
+    final boolean loadImage;
+
+    public NewsItem(Context context, @Nullable AttributeSet attrs, boolean loadImage) {
         super(context, attrs);
+        this.loadImage = loadImage;
         init(context, attrs);
     }
 
-    public NewsItem(Context context, Post post) {
+    public NewsItem(Context context, Post post, boolean loadImage) {
         super(context);
+        this.loadImage = loadImage;
         init(context, null);
         this.post = post;
         populateContent(post);
+    }
+
+    public AsyncTask getDownloadImageTask() {
+        return downloadImageTask;
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -69,16 +79,25 @@ public class NewsItem extends LinearLayout {
     }
 
     public void populateContent(Post post) {
-        setImageUrl(post.getImages().getThumbnail());
+        if(isLoadImage())
+        {
+            loadImage();
+        }
         setTitle(post.getTitle());
         setNewsDate(post.getDate());
     }
 
-    public void setImageUrl(String url) {
-        ImageViewWithURL imageViewContents = new ImageViewWithURL(imageThumbnail, url);
-        imageViewContents.populate();
-    }
+    public void loadImage() {
+        if(null == post || null == post.getImages()){
+            return;
+        }
 
+        String url = post.getImages().getThumbnail();
+        Logs.log("START load image:", url);
+        ImageViewWithURL imageViewContents = new ImageViewWithURL(imageThumbnail, url);
+        downloadImageTask = imageViewContents.populate();
+        Logs.log("END load image:", url);
+    }
     public void setTitle(String title) {
         newsTitle.setText(title);
     }
@@ -141,5 +160,9 @@ public class NewsItem extends LinearLayout {
 
     private void shareLink() {
         Navigate.shareText(this.getContext(), post.getTitle()+" kunjungi link:"+ post.newsLink());
+    }
+
+    public boolean isLoadImage() {
+        return loadImage;
     }
 }
