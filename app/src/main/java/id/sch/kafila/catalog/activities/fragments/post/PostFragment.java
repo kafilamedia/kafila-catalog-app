@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.activities.HomeActivity;
 import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.models.PostResponse;
 import id.sch.kafila.catalog.service.SharedPreferenceUtil;
@@ -83,6 +84,12 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
 
     protected void startLoading() {
         try {
+
+            if(getActivity() instanceof HomeActivity){
+
+                ((HomeActivity) getActivity()).scrollToTop();
+            }
+
             rollingLoader.setVisibility(View.VISIBLE);
             buttonLoadAgenda.setVisibility(View.INVISIBLE);
             infoLayout.removeAllViews();

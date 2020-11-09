@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.components.MenuButton;
@@ -40,6 +41,7 @@ public class HomeActivity extends FragmentActivity {
     private int currentFragment;
 
     private BottomNavigationView bottomNavigationView;
+    private ScrollView mainScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,16 @@ public class HomeActivity extends FragmentActivity {
 
     protected void initComponent() {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        mainScrollView = findViewById(R.id.home_main_scroll);
+    }
 
+    public void scrollToTop(){
+        mainScrollView.post(new Runnable() {
+            public void run() {
+                Logs.log("Scroll to TOP");
+                mainScrollView.fullScroll(mainScrollView.FOCUS_UP);
+            }
+        });
     }
 
     protected void initEvent() {
