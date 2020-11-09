@@ -39,14 +39,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Last Updated" />
+            android:text="Last Updated"
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/txt_news_last_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:text="-" />
+            android:text="-"
+            android:textSize="10sp" />
     </LinearLayout>
 
     <HorizontalScrollView
