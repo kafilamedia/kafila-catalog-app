@@ -26,7 +26,7 @@
         android:padding="5dp"
         android:text="Child Item"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="15sp" />
+        android:textSize="12sp" />
 
 
 </RelativeLayout>

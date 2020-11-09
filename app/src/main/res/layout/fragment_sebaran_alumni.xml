@@ -52,7 +52,7 @@
                         android:padding="10dp"
                         android:text="@string/alumni_dalam_negeri"
                         android:textColor="#4d454f"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -84,7 +84,7 @@
                         android:padding="10dp"
                         android:text="@string/alumni_luar_negeri"
                         android:textColor="#4d454f"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
