@@ -66,6 +66,7 @@ public class AgendaFragment extends PostFragment {
         postListLayout = view.findViewById(R.id.agenda_list);
         buttonLoadAgenda = view.findViewById(R.id.agenda_btn_load_agenda);
         rollingLoader = view.findViewById(R.id.agenda_loader);
+        lastUpdatedLabel = view.findViewById(R.id.txt_agenda_last_update);
     }
 
     @Override
@@ -100,7 +101,7 @@ public class AgendaFragment extends PostFragment {
             handleErrorGetAgenda(new RuntimeException("Agenda Not Found"));
             return;
         }
-        SharedPreferenceUtil.storeAgendaData(sharedpreferences, response);
+        setPostData(response);
         List<Post> agendas = response.getAgendas();
         postListLayout.removeAllViews();
         infoLayout.removeAllViews();
@@ -122,6 +123,10 @@ public class AgendaFragment extends PostFragment {
     private void handleErrorGetAgenda(Exception webServiceError) {
         populateInfo("Error Saat Memuat Agenda", webServiceError.getMessage());
     }
-
+    @Override
+    public void setPostData(PostResponse postData) {
+        super.setPostData(postData);
+        SharedPreferenceUtil.storeAgendaData(sharedpreferences, postData);
+    }
 }
 

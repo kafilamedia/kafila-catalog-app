@@ -31,7 +31,6 @@ public class NewsFragment extends PostFragment {
     private LinearLayout navigationButtonsLayout;
     private String buttonLoadLabel = "Muat Berita";
     private int currentPage = 1;
-    private PostResponse newsData;
     private int FIRST_PAGE = 1;
 
     public NewsFragment() {
@@ -74,6 +73,7 @@ public class NewsFragment extends PostFragment {
         buttonLoadAgenda = view.findViewById(R.id.news_btn_load);
         rollingLoader = view.findViewById(R.id.news_loader);
         navigationButtonsLayout = view.findViewById(R.id.news_navbar);
+        lastUpdatedLabel = view.findViewById(R.id.txt_news_last_update);
     }
 
     private View.OnClickListener loadAgendaListener(final int page) {
@@ -109,11 +109,11 @@ public class NewsFragment extends PostFragment {
     }
 
     private void updateNavigationButton() {
-        if (null == newsData) return;
+        if (null == postData) return;
         try {
             navigationButtonsLayout.removeAllViews();
             final int _currentPage = getCurrentPage();
-            List<Integer> buttonValues = newsData.displayedNavButtonValues();
+            List<Integer> buttonValues = postData.displayedNavButtonValues();
             Logs.log("nav button pages: ", buttonValues, "current page: ", _currentPage);
             if (null == buttonValues || buttonValues.size() == 0) {
                 return;
@@ -151,10 +151,10 @@ public class NewsFragment extends PostFragment {
     }
 
     private int getCurrentPage() {
-        if (null == newsData) {
+        if (null == postData) {
             return currentPage;
         }
-        return newsData.getCurrentPageInt2();
+        return postData.getCurrentPageInt2();
     }
 
     private Button createNavigationButton(Integer buttonPage, String text) {
@@ -200,7 +200,7 @@ public class NewsFragment extends PostFragment {
         } else {
             response.setCurrentPageJson(currentPage);
         }
-        setNewsData(response);
+        setPostData(response);
         updateNavigationButton();
 
 
@@ -233,10 +233,10 @@ public class NewsFragment extends PostFragment {
         populateInfo("Error Saat Memuat Berita", webServiceError.getMessage());
     }
 
-
-    public void setNewsData(PostResponse newsData) {
-        this.newsData = newsData;
-        SharedPreferenceUtil.storeNewsData(sharedpreferences, newsData);
+    @Override
+    public void setPostData(PostResponse postData) {
+        super.setPostData(postData);
+        SharedPreferenceUtil.storeNewsData(sharedpreferences, postData);
     }
 }
 

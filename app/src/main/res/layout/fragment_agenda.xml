@@ -26,6 +26,30 @@
     <!--app:layout_constraintTop_toTopOf="parent"></TextView>-->
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Last Updated" />
+
+        <TextView
+            android:id="@+id/txt_agenda_last_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="-" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/agenda_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

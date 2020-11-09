@@ -26,6 +26,11 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
     protected Button buttonLoadAgenda;
     protected ProgressBar rollingLoader;
     protected LinearLayout postListLayout, infoLayout;
+    protected TextView lastUpdatedLabel;
+
+    protected PostResponse postData;
+
+    protected boolean loadingState;
 
     protected boolean loadedFromSharedPreference;
 
@@ -37,6 +42,13 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
 
     public String getTabName(){
         return getClass().getSimpleName();
+    }
+
+    public void setPostData(PostResponse postData) {
+        this.postData = postData;
+        if(null!=lastUpdatedLabel && postData.getLastUpdated()!=null){
+            lastUpdatedLabel.setText(postData.getLastUpdated().toString());
+        }
     }
 
     @Override
@@ -82,6 +94,14 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
         }
     }
 
+    public void setLoadingState(boolean loadingState) {
+        this.loadingState = loadingState;
+    }
+
+    public boolean isLoadingState() {
+        return loadingState;
+    }
+
     protected void startLoading() {
         try {
 
@@ -94,8 +114,10 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
             buttonLoadAgenda.setVisibility(View.INVISIBLE);
             infoLayout.removeAllViews();
             postListLayout.removeAllViews();
+            setLoadingState(true);
         } catch (Exception e) {
             Logs.log("Error start loading: ", e);
+            setLoadingState(false);
         }
     }
 
@@ -106,6 +128,8 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
             buttonLoadAgenda.setText("Reload");
         } catch (Exception e) {
             Logs.log("Error stop loading: ", e);
+        } finally {
+            setLoadingState(false);
         }
     }
 

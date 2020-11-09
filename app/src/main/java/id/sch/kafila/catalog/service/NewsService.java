@@ -12,6 +12,7 @@ import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -54,6 +55,7 @@ public class NewsService {
             response.setAgendas(posts);
 
         }
+        response.setLastUpdated(new Date());
         return response;
     }
 
@@ -72,6 +74,7 @@ public class NewsService {
         }}catch (Exception e){
 
         }
+        response.setLastUpdated(new Date());
         return response;
     }
 

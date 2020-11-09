@@ -1,6 +1,7 @@
 package id.sch.kafila.catalog.models;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,6 +34,8 @@ public class PostResponse implements Serializable{/**
 	}
 
 	private int currentPageInt;
+
+	private Date lastUpdated;
 
 	@JsonProperty("per_page")
 	private int perPage;
