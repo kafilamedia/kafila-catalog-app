@@ -2,8 +2,12 @@ package id.sch.kafila.catalog.components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleableRes;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -19,6 +23,7 @@ public class MenuButton extends RelativeLayout {
     int index1 = 1;
     private ImageView imageView;
     private TextView label;
+    private int drawableId =  R.drawable.ic_home_black_24dp;
     public MenuButton(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -33,8 +38,8 @@ public class MenuButton extends RelativeLayout {
             String attributeName = attrs.getAttributeName(i);
             switch (attributeName){
                 case "drawableId":
-                    int value = attrs.getAttributeResourceValue(i, R.drawable.ic_home_black_24dp);
-                    imageView.setImageResource( value);
+                    drawableId= attrs.getAttributeResourceValue(i, R.drawable.ic_home_black_24dp);
+                    imageView.setImageResource( drawableId);
                     break;
                 case "buttonLabel":
                     String labelText = attrs.getAttributeValue(i);
@@ -43,9 +48,22 @@ public class MenuButton extends RelativeLayout {
             }
             Logs.log(i," attr: ", attrs.getAttributeName(i),"=",attrs.getAttributeValue(i));
         }
-
+        setDefaultAttributes();
         typedArray.recycle();
     }
+
+    private void setDefaultAttributes() {
+        setImageTint();
+    }
+
+    private void setImageTint() {
+        //change image tint
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(getContext(), drawableId);
+        Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
+        DrawableCompat.setTint(wrappedDrawable, Color.rgb(0, 68, 69));//.rgb(81,38,74));
+        imageView.setImageDrawable(wrappedDrawable);
+    }
+
 
     public void setOnClickListener(OnClickListener listener){
         imageView.setOnClickListener(listener);
@@ -54,6 +72,8 @@ public class MenuButton extends RelativeLayout {
     private void initComponents() {
         imageView = (ImageView) findViewById(R.id.image_view);
         label = (TextView) findViewById(R.id.button_label);
+
+
 
     }
 }
