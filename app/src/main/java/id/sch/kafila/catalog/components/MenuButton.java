@@ -54,13 +54,22 @@ public class MenuButton extends RelativeLayout {
 
     private void setDefaultAttributes() {
         setImageTint();
+        setTextColor();
+    }
+
+    private int getImageAndTextColor(){
+        return Color.rgb(255,255,255);//.rgb(115,115,115);
+    }
+
+    private void setTextColor() {
+        label.setTextColor(getImageAndTextColor());
     }
 
     private void setImageTint() {
         //change image tint
         Drawable unwrappedDrawable = AppCompatResources.getDrawable(getContext(), drawableId);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
-        DrawableCompat.setTint(wrappedDrawable, Color.rgb(0, 68, 69));//.rgb(81,38,74));
+        DrawableCompat.setTint(wrappedDrawable, getImageAndTextColor());//.rgb(81,38,74));
         imageView.setImageDrawable(wrappedDrawable);
     }
 

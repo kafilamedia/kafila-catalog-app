@@ -27,17 +27,17 @@
         android:layout_height="match_parent">
 
         <id.sch.kafila.catalog.components.ImageLabel
-            android:id="@+id/imageLabel3"
+            android:id="@+id/fasilitas_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:imageLabelDrawableId="@drawable/library"
             app:imageLabelText="Perpustakaan"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageLabel"
-            app:layout_constraintTop_toBottomOf="@+id/imageLabel2" />
+            app:layout_constraintStart_toEndOf="@+id/fasilitas_3"
+            app:layout_constraintTop_toBottomOf="@+id/fasilitas_1" />
 
         <id.sch.kafila.catalog.components.ImageLabel
-            android:id="@+id/imageLabel2"
+            android:id="@+id/fasilitas_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:imageLabelDrawableId="@drawable/dorm"
@@ -48,37 +48,37 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <id.sch.kafila.catalog.components.ImageLabel
-            android:id="@+id/imageLabel"
+            android:id="@+id/fasilitas_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:imageLabelDrawableId="@drawable/_class"
             app:imageLabelText="Ruang Kelas Ber-AC"
-            app:layout_constraintEnd_toStartOf="@+id/imageLabel3"
+            app:layout_constraintEnd_toStartOf="@+id/fasilitas_2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageLabel2" />
+            app:layout_constraintTop_toBottomOf="@+id/fasilitas_1" />
 
         <id.sch.kafila.catalog.components.ImageLabel
-            android:id="@+id/imageLabel13"
+            android:id="@+id/fasilitas_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:imageLabelDrawableId="@drawable/lab_science"
             app:imageLabelText="Laboratorium IPA"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageLabel14"
-            app:layout_constraintTop_toBottomOf="@+id/imageLabel3" />
+            app:layout_constraintStart_toEndOf="@+id/fasilitas_5"
+            app:layout_constraintTop_toBottomOf="@+id/fasilitas_2" />
 
         <id.sch.kafila.catalog.components.ImageLabel
-            android:id="@+id/imageLabel14"
+            android:id="@+id/fasilitas_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:imageLabelDrawableId="@drawable/comp"
             app:imageLabelText="Laboratorium Komputer"
-            app:layout_constraintEnd_toStartOf="@+id/imageLabel13"
+            app:layout_constraintEnd_toStartOf="@+id/fasilitas_4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/fasilitas_3" />
 
         <id.sch.kafila.catalog.components.ImageLabel
-            android:id="@+id/imageLabel15"
+            android:id="@+id/fasilitas_6"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_marginBottom="8dp"
@@ -88,7 +88,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageLabel13" />
+            app:layout_constraintTop_toBottomOf="@+id/fasilitas_4" />
     </android.support.constraint.ConstraintLayout>
 
     <TextView

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark">
 
     <LinearLayout
 
@@ -32,6 +32,7 @@
                 android:id="@+id/home_btn_visi_misi2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:gravity="clip_horizontal"
                 app:buttonLabel="Visi Misi"
                 app:drawableId="@drawable/ic_account_balance_black_24dp" />
@@ -40,6 +41,7 @@
                 android:id="@+id/home_btn_nilai_unggul2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:gravity="clip_horizontal"
                 app:buttonLabel="Nilai Unggul"
                 app:drawableId="@drawable/ic_folder_special_black_24dp" />
@@ -48,6 +50,7 @@
                 android:id="@+id/home_btn_kurikulum"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 app:buttonLabel="Kurikulum"
                 app:drawableId="@drawable/ic_chrome_reader_mode_black_24dp" />
 
@@ -65,6 +68,7 @@
                 android:id="@+id/home_btn_program_pendidikan2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:gravity="clip_horizontal"
                 app:buttonLabel="Program Pendidikan"
                 app:drawableId="@drawable/ic_school_black_24dp" />
@@ -73,6 +77,7 @@
                 android:id="@+id/home_btn_program_pengembangan2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 app:buttonLabel="Program Pengembangan"
                 app:drawableId="@drawable/ic_group_add_black_24dp">
 
@@ -82,6 +87,7 @@
                 android:id="@+id/home_btn_fasilitas2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 app:buttonLabel="Fasilitas"
                 app:drawableId="@drawable/ic_domain_black_24dp" />
 
@@ -98,6 +104,7 @@
                 android:id="@+id/home_btn_biaya_pendidikan2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 app:buttonLabel="Biaya Pendidikan"
                 app:drawableId="@drawable/ic_credit_card_black_24dp" />
 
@@ -105,6 +112,7 @@
                 android:id="@+id/home_btn_sebaran_alumni2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 app:buttonLabel="Sebaran Alumni"
                 app:drawableId="@drawable/ic_public_black_24dp" />
 
@@ -113,10 +121,12 @@
                 android:id="@+id/home_btn_syarat_pendaftaran2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 app:buttonLabel="Syarat Pendaftaran"
                 app:drawableId="@drawable/ic_assignment_black_24dp" />
 
         </LinearLayout>
 
 
-    </LinearLayout> </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
