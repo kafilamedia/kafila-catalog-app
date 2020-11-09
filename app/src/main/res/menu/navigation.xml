@@ -9,10 +9,10 @@
     <item
         android:id="@+id/navigation_catalog"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Catalog" />
+        android:title="Menu" />
 
     <item
         android:id="@+id/navigation_agenda"
         android:icon="@drawable/ic_access_time_black_24dp"
-        android:title="Agenda" />
+        android:title="Feed" />
 </menu>
