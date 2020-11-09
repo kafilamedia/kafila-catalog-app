@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.activities.HomeActivity;
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.util.AlertUtil;
@@ -71,32 +72,27 @@ public class CatalogFragment extends BaseFragment{
     }
 
     private void initEvents(){
-        curriculumButton.setOnClickListener(gotoMenu(R.layout.fragment_kurikulum));
-        navigateVisiMisi.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi));
-        navigateProgramPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_program_pendidikan));
-        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
-        navigateNilaiUnggul.setOnClickListener(gotoMenu(R.layout.fragment_nilai_unggul));
-        navigateSebaranAlumni.setOnClickListener(gotoMenu(R.layout.fragment_sebaran_alumni));
-        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan));
-        navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_fasilitas));
-        navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_biaya_pendidikan));
-        navigateSyaratPendaftaran.setOnClickListener(gotoMenu(R.layout.fragment_syarat_pendaftaran));
+        curriculumButton.setOnClickListener(gotoMenu(R.layout.fragment_kurikulum, "Kurikulum"));
+        navigateVisiMisi.setOnClickListener(gotoMenu(R.layout.fragment_visi_misi, "Visi dan Misi"));
+        navigateProgramPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_program_pendidikan, "Program Pendidikan"));
+        navigateProgramPengembangan.setOnClickListener(gotoMenu(R.layout.fragment_program_pengembangan, "Program Pengembangan"));
+        navigateNilaiUnggul.setOnClickListener(gotoMenu(R.layout.fragment_nilai_unggul, "Nilai Unggul"));
+        navigateSebaranAlumni.setOnClickListener(gotoMenu(R.layout.fragment_sebaran_alumni, "Sebaran Alumni"));
+        navigateFasilitas.setOnClickListener(gotoMenu(R.layout.fragment_fasilitas, "Fasilitas"));
+        navigateBiayaPendidikan.setOnClickListener(gotoMenu(R.layout.fragment_biaya_pendidikan, "Biaya Pendidikan"));
+        navigateSyaratPendaftaran.setOnClickListener(gotoMenu(R.layout.fragment_syarat_pendaftaran, "Syarat Pendaftaran"));
 
         Logs.log("Catalog Fragment initEvents");
     }
-    private View.OnClickListener gotoMenu(final int fragmentId) {
+    private View.OnClickListener gotoMenu(final int fragmentId){
+        return gotoMenu(fragmentId, null);
+    }
+    private View.OnClickListener gotoMenu(final int fragmentId, final String breadCumbLabel) {
         final Context context = this.getContext();
         return new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                switchFragment(fragmentId);
-//
-//                Logs.log("gotoMenu fragmentId: ", fragmentId);
-//                SharedPreferences.Editor editor = sharedpreferences.edit();
-//                editor.putString(SharedPreferencesConstants.KEY_CONTENT, String.valueOf(fragmentId));
-//
-//                editor.commit();
-//                Navigate.navigate(context ,CommonContent.class);
+                switchFragment(fragmentId, breadCumbLabel);
             }
         };
     }
@@ -118,15 +114,17 @@ public class CatalogFragment extends BaseFragment{
             }
         };
     }
-    private void switchFragment(int fragmentId){
+    private void switchFragment(int fragmentId, String breadCumbLabel){
         Logs.log("switchFragment: ", fragmentId);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        BaseFragment fragment = BaseFragment.newInstance( fragmentId);
+        BaseFragment fragment = BaseFragment.newInstance( fragmentId, null ,breadCumbLabel );
 
         fragmentTransaction.replace(R.id.home_common_content_container, fragment);
         fragmentTransaction.commit();
 
+
     }
+
 }

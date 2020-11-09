@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.components.MenuButton;
@@ -42,6 +43,7 @@ public class HomeActivity extends FragmentActivity {
 
     private BottomNavigationView bottomNavigationView;
     private ScrollView mainScrollView;
+    private TextView breadCumb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +67,22 @@ public class HomeActivity extends FragmentActivity {
     protected void initComponent() {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         mainScrollView = findViewById(R.id.home_main_scroll);
+        breadCumb = findViewById(R.id.home_breadcumb);
     }
 
-    public void scrollToTop(){
+    public void setBreadCumbText(String text) {
+        breadCumb.setText(text);
+        if (null != breadCumb  && text != null) {
+            breadCumb.setVisibility(VISIBLE);
+            Logs.log("setBreadCumbText ",text);
+        }else{
+            breadCumb.setVisibility(GONE);
+            Logs.log("NOT setBreadCumbText ",text);
+        }
+
+    }
+
+    public void scrollToTop() {
         mainScrollView.post(new Runnable() {
             public void run() {
                 Logs.log("Scroll to TOP");
@@ -78,6 +93,7 @@ public class HomeActivity extends FragmentActivity {
 
     protected void initEvent() {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener());
+        setBreadCumbText(null);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener() {

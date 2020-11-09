@@ -7,18 +7,42 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
+    <TextView
+        android:id="@+id/home_breadcumb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:text="breadcumb"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kafilaHeaderWrapper" />
+
     <LinearLayout
+        android:id="@+id/kafilaHeaderWrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="10dp"
         android:orientation="vertical"
-        android:id="@+id/kafilaHeaderWrapper"
-        android:elevation="10dp">
+        app:layout_constraintBottom_toTopOf="@+id/home_breadcumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <id.sch.kafila.catalog.components.KafilaHeader
             android:id="@+id/kafilaHeader"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content">
+
+        </id.sch.kafila.catalog.components.KafilaHeader>
+
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,12 +50,11 @@
         android:id="@+id/frameLayout"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kafilaHeaderWrapper"
+        app:layout_constraintTop_toBottomOf="@+id/home_breadcumb"
         tools:context="id.sch.kafila.catalog.activities.HomeActivity">
 
 
@@ -60,12 +83,12 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:labelVisibilityMode="labeled"
         app:menu="@menu/navigation" />
 </android.support.constraint.ConstraintLayout>

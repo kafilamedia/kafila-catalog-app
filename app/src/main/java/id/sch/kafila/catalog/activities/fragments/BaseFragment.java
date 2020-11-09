@@ -1,5 +1,6 @@
 package id.sch.kafila.catalog.activities.fragments;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import java.util.HashMap;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.activities.HomeActivity;
 import id.sch.kafila.catalog.activities.fragments.post.AgendaFragment;
 import id.sch.kafila.catalog.activities.fragments.post.NewsFragment;
 import id.sch.kafila.catalog.activities.fragments.post.NewsFragmentView;
@@ -20,27 +22,43 @@ public class BaseFragment extends Fragment {
     protected Integer fragmentId = null;
     protected SharedPreferences sharedpreferences;
     private static HashMap<Integer, Class> customFragments = initCustomFragments();
+    private String breadCumbLabel = null;
 
     public BaseFragment() {
     }
 
-    @Override
-    public void onStart() {
-        Logs.log("Fragment on Start: ", getClass().getSimpleName());
-        super.onStart();
+    public final String getBreadCumbLabel(){
+        return breadCumbLabel;
+    }
+
+    public void setBreadCumbLabel(String breadCumbLabel) {
+        this.breadCumbLabel = breadCumbLabel;
     }
 
     @Override
-    public void onStop() {
-        Logs.log("Fragment on Start: ", getClass().getSimpleName());
-        super.onStop();
+    public void onAttach(Context context) {
+        if(getActivity() instanceof HomeActivity){
+            ((HomeActivity) getActivity()).setBreadCumbText(getBreadCumbLabel());
+        }
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onDetach() {
+//        if(getActivity() instanceof HomeActivity){
+//            ((HomeActivity) getActivity()).setBreadCumbText(null);
+//        }
+        super.onDetach();
     }
 
     public static BaseFragment newInstance(int fragmentId) {
         return newInstance(fragmentId, null);
     }
 
-    public static BaseFragment newInstance(int fragmentId, Class<?> _class) {
+    public static BaseFragment newInstance(int fragmentId, Class<?> _class){
+        return newInstance(fragmentId, _class, null);
+    }
+    public static BaseFragment newInstance(int fragmentId, Class<?> _class, String breadCumbLabel) {
         if (_class == null && customFragments.get(fragmentId) != null) {
             _class = customFragments.get(fragmentId);
         }
@@ -52,9 +70,10 @@ public class BaseFragment extends Fragment {
             myFragment = (BaseFragment) _class.newInstance();
             Bundle args = new Bundle();
             args.putInt("fragmentId", fragmentId);
+            args.putString("breadCumbLabel", breadCumbLabel);
             myFragment.setArguments(args);
             myFragment.setFragmentId(fragmentId);
-
+            myFragment.setBreadCumbLabel(breadCumbLabel);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (java.lang.InstantiationException e) {
