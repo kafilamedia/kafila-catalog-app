@@ -28,20 +28,20 @@
             tools:layout_editor_absoluteY="722dp">
 
             <id.sch.kafila.catalog.components.MenuButton
-                android:id="@+id/home_btn_nilai_unggul2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="clip_horizontal"
-                app:buttonLabel="Nilai Unggul"
-                app:drawableId="@drawable/ic_folder_special_black_24dp" />
-
-            <id.sch.kafila.catalog.components.MenuButton
                 android:id="@+id/home_btn_visi_misi2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="clip_horizontal"
                 app:buttonLabel="Visi Misi"
                 app:drawableId="@drawable/ic_account_balance_black_24dp" />
+
+            <id.sch.kafila.catalog.components.MenuButton
+                android:id="@+id/home_btn_nilai_unggul2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="clip_horizontal"
+                app:buttonLabel="Nilai Unggul"
+                app:drawableId="@drawable/ic_folder_special_black_24dp" />
 
             <id.sch.kafila.catalog.components.MenuButton
                 android:id="@+id/home_btn_kurikulum"

@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="11sp"
+        android:textSize="10sp"
         tools:text="Button Label" />
 
 

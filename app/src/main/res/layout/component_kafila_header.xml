@@ -16,9 +16,12 @@
             android:id="@+id/imageView7"
             android:layout_width="38dp"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:paddingTop="5dp"
             android:src="@drawable/kiis_stroke" />
 
         <LinearLayout

@@ -25,6 +25,7 @@ public class AgendaFragment extends PostFragment {
     public AgendaFragment() {
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +36,11 @@ public class AgendaFragment extends PostFragment {
         setDefaultAttributes();
 
         return view;
+    }
+
+    @Override
+    public String getTabName() {
+        return "Agenda";
     }
 
     @Override

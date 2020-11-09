@@ -12,6 +12,7 @@ import java.util.HashMap;
 import id.sch.kafila.catalog.R;
 import id.sch.kafila.catalog.activities.fragments.post.AgendaFragment;
 import id.sch.kafila.catalog.activities.fragments.post.NewsFragment;
+import id.sch.kafila.catalog.activities.fragments.post.NewsFragmentView;
 import id.sch.kafila.catalog.util.Logs;
 
 public class BaseFragment extends Fragment {
@@ -21,6 +22,18 @@ public class BaseFragment extends Fragment {
     private static HashMap<Integer, Class> customFragments = initCustomFragments();
 
     public BaseFragment() {
+    }
+
+    @Override
+    public void onStart() {
+        Logs.log("Fragment on Start: ", getClass().getSimpleName());
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        Logs.log("Fragment on Start: ", getClass().getSimpleName());
+        super.onStop();
     }
 
     public static BaseFragment newInstance(int fragmentId) {
@@ -64,6 +77,7 @@ public class BaseFragment extends Fragment {
         customFragments.put(R.layout.fragment_program_pengembangan, ProgramPengembanganFragment.class);
         customFragments.put(R.layout.fragment_agenda, AgendaFragment.class);
         customFragments.put(R.layout.fragment_news, NewsFragment.class);
+        customFragments.put(R.layout.fragment_base_news, NewsFragmentView.class);
 
         return customFragments;
     }

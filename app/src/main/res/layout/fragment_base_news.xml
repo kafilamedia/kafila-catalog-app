@@ -1,75 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_visi_misi_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activities.fragments.post.NewsFragmentView">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
-                android:background="@android:color/holo_blue_dark"
-                android:gravity="center_horizontal"
-                android:text="Visi"
-                android:textColor="#ffffff"
-                android:textSize="25sp"></TextView>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="5dp"
-                android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang"
-                android:textColor="#4d454f"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="0dp"
-                android:background="@android:color/holo_blue_dark"
-                android:gravity="center_horizontal"
-                android:text="Misi"
-                android:textColor="#ffffff"
-                android:textSize="25sp"></TextView>
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="5dp"
-                android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global"
-                android:textColor="#4d454f"
-                android:textSize="15sp" />
-        </LinearLayout></androidx.cardview.widget.CardView>
-
+    <android.support.v4.view.ViewPager
+        android:id="@+id/news_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -15,8 +15,4 @@
         android:id="@+id/navigation_agenda"
         android:icon="@drawable/ic_access_time_black_24dp"
         android:title="Agenda" />
-    <item
-        android:id="@+id/navigation_news"
-        android:icon="@drawable/ic_description_black_24dp"
-        android:title="Berita" />
 </menu>

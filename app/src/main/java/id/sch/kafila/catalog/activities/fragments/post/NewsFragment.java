@@ -99,6 +99,10 @@ public class NewsFragment extends PostFragment {
        return SharedPreferenceUtil.getNewsData(sharedpreferences);
     }
 
+    @Override
+    public String getTabName() {
+        return "Berita";
+    }
 
     private void updateNavigationButton() {
         if (null == newsData) return;

@@ -83,8 +83,12 @@ dependencies {
     implementation group: 'io.netty', name: 'netty-all', version: '4.1.19.Final'
     // https://mvnrepository.com/artifact/javax.xml/jaxp-api
     implementation group: 'javax.xml', name: 'jaxp-api', version: '1.4.2'
-    implementation 'com.mcxiaoke.volley:library:1.0.19'
     implementation 'com.android.support:multidex:1.0.3'
+    // https://mvnrepository.com/artifact/com.google.android.material/material
+    //implementation group: 'com.google.android.material', name: 'material', version: '1.0.0-alpha1'
+// https://mvnrepository.com/artifact/androidx.viewpager/viewpager
+    //implementation group: 'androidx.viewpager', name: 'viewpager', version: '1.0.0'
+
 // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
 
 }

@@ -84,10 +84,7 @@ public class HomeActivity extends FragmentActivity {
                         break;
 
                     case R.id.navigation_agenda:
-                        switchFragment(R.layout.fragment_agenda);
-                        break;
-                    case R.id.navigation_news:
-                        switchFragment(R.layout.fragment_news);
+                        switchFragment(R.layout.fragment_base_news);
                         break;
                 }
 

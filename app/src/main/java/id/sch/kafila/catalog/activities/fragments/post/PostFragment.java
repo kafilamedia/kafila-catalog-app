@@ -34,6 +34,10 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
         tasks.add(task);
     }
 
+    public String getTabName(){
+        return getClass().getSimpleName();
+    }
+
     @Override
     public void onAttach(Context context) {
         tasks.clear();
