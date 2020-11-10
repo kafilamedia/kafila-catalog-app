@@ -41,7 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
+                android:background="@android:color/background_light"
+                android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="Komitmen untuk peningkatan mutu yang terus-menerus" />
         </LinearLayout>
@@ -71,7 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
+                android:background="@android:color/background_light"
+                android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="Amal jama'i sebagai metode mewujudkan visi dan misi" />
         </LinearLayout>
@@ -101,7 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
+                android:background="@android:color/background_light"
+                android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="Future Oriented dalam pengembangan program pendidikan" />
         </LinearLayout>
@@ -131,7 +134,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
+                android:background="@android:color/background_light"
+                android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="Inovasi dalam pengajaran dan pembentukan karakter" />
         </LinearLayout>
@@ -161,7 +165,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
+                android:background="@android:color/background_light"
+                android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="Learning sebagai budaya seluruh warga pesantren" />
         </LinearLayout>
@@ -194,7 +199,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
+                android:background="@android:color/background_light"
+                android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="Amar Ma'ruf, Nahiy Munkar untuk menguatkan organisasi" />
         </LinearLayout>
