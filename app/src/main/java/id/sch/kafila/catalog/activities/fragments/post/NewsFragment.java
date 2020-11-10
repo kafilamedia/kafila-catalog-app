@@ -53,7 +53,8 @@ public class NewsFragment extends PostFragment {
         postListLayout.removeAllViews();
         rollingLoader.setVisibility(View.INVISIBLE);
         //always load from 1st page
-        buttonLoadAgenda.setOnClickListener(loadAgendaListener(FIRST_PAGE));
+        buttonLoadAgenda.setOnClickListener(loadPostCurrentPage());
+        clickSyncNow.setOnClickListener(loadPostCurrentPage());
         buttonLoadAgenda.setText(buttonLoadLabel);
         checkStoredAgendas();
         rollingLoader.getIndeterminateDrawable()
@@ -74,9 +75,14 @@ public class NewsFragment extends PostFragment {
         rollingLoader = view.findViewById(R.id.news_loader);
         navigationButtonsLayout = view.findViewById(R.id.news_navbar);
         lastUpdatedLabel = view.findViewById(R.id.txt_news_last_update);
+        clickSyncNow = view.findViewById(R.id.click_sync_news_now);
+    }
+    private View.OnClickListener loadPostCurrentPage() {
+        final NewsFragment parent = this;
+        return (View v)->{ getNews(parent.getCurrentPage()); };
     }
 
-    private View.OnClickListener loadAgendaListener(final int page) {
+    private View.OnClickListener loadPostListener(final int page) {
         return (View v)->{ getNews(page); };
     }
 
@@ -178,7 +184,7 @@ public class NewsFragment extends PostFragment {
             params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         }
         button.setLayoutParams(params);
-        button.setOnClickListener(loadAgendaListener(buttonPage));
+        button.setOnClickListener(loadPostListener(buttonPage));
         return button;
     }
 

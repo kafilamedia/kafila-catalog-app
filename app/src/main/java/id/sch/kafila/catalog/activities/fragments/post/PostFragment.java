@@ -27,6 +27,7 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
     protected ProgressBar rollingLoader;
     protected LinearLayout postListLayout, infoLayout;
     protected TextView lastUpdatedLabel;
+    protected LinearLayout clickSyncNow;
 
     protected PostResponse postData;
 
@@ -74,6 +75,11 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
 
     public void setLoadedFromSharedPreference(boolean loadedFromSharedPreference){
         this.loadedFromSharedPreference = loadedFromSharedPreference;
+        if(null!=clickSyncNow){
+            clickSyncNow.setVisibility(View.VISIBLE);
+        } else {
+            clickSyncNow.setVisibility(View.GONE);
+        }
     }
 
     public boolean isLoadedFromSharedPreference(){
@@ -87,6 +93,8 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
     protected abstract PostResponse getPostFromSharedPreferences();
 
     protected void checkStoredAgendas() {
+        if(null!=clickSyncNow)
+            clickSyncNow.setVisibility(View.GONE);
         if (SharedPreferenceUtil.isAgendaExist(sharedpreferences)) {
             setLoadedFromSharedPreference(true);
             startLoading();

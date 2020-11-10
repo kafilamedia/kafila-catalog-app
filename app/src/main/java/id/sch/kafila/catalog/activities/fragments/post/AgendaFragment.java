@@ -48,6 +48,7 @@ public class AgendaFragment extends PostFragment {
         postListLayout.removeAllViews();
         rollingLoader.setVisibility(View.INVISIBLE);
         buttonLoadAgenda.setOnClickListener(loadAgendaListener());
+        clickSyncNow.setOnClickListener(loadAgendaListener());
         buttonLoadAgenda.setText(buttonLoadLabel);
         checkStoredAgendas();
         rollingLoader.getIndeterminateDrawable()
@@ -67,6 +68,7 @@ public class AgendaFragment extends PostFragment {
         buttonLoadAgenda = view.findViewById(R.id.agenda_btn_load_agenda);
         rollingLoader = view.findViewById(R.id.agenda_loader);
         lastUpdatedLabel = view.findViewById(R.id.txt_agenda_last_update);
+        clickSyncNow = view.findViewById(R.id.click_sync_agenda_now);
     }
 
     @Override
