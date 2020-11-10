@@ -96,23 +96,6 @@
         <!--android:layout_height="wrap_content"></id.sch.kafila.catalog.components.NewsItem>-->
 
     </LinearLayout>
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp">
-
-        <LinearLayout
-            android:id="@+id/news_navbar"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="5dp">
-
-        </LinearLayout>
-    </HorizontalScrollView>
 
     <LinearLayout
         android:id="@+id/news_info_wrapper"
@@ -177,5 +160,23 @@
         android:layout_height="wrap_content"
         android:indeterminateTint="@android:color/background_dark"
        />
-<!-- android:indeterminateDrawable="@drawable/progress_circular"-->
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            android:id="@+id/news_navbar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <!-- android:indeterminateDrawable="@drawable/progress_circular"-->
 </LinearLayout>
