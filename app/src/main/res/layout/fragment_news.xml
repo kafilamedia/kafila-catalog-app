@@ -84,6 +84,18 @@
         </LinearLayout>
     </LinearLayout>
 
+
+
+    <LinearLayout
+        android:id="@+id/news_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--<id.sch.kafila.catalog.components.NewsItem-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"></id.sch.kafila.catalog.components.NewsItem>-->
+
+    </LinearLayout>
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,17 +113,6 @@
 
         </LinearLayout>
     </HorizontalScrollView>
-
-    <LinearLayout
-        android:id="@+id/news_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <!--<id.sch.kafila.catalog.components.NewsItem-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"></id.sch.kafila.catalog.components.NewsItem>-->
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/news_info_wrapper"

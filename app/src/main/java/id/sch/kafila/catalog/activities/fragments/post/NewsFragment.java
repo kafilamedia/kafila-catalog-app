@@ -89,6 +89,7 @@ public class NewsFragment extends PostFragment {
     private void getNews(int page) {
         startLoading();
         this.currentPage = page;
+        showClickSyncNow(false);
         new GetPostOperation(this).execute(page);
     }
 

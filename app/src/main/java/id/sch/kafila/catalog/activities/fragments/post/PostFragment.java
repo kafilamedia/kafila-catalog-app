@@ -75,11 +75,7 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
 
     public void setLoadedFromSharedPreference(boolean loadedFromSharedPreference){
         this.loadedFromSharedPreference = loadedFromSharedPreference;
-        if(null!=clickSyncNow){
-            clickSyncNow.setVisibility(View.VISIBLE);
-        } else {
-            clickSyncNow.setVisibility(View.GONE);
-        }
+
     }
 
     public boolean isLoadedFromSharedPreference(){
@@ -93,12 +89,20 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
     protected abstract PostResponse getPostFromSharedPreferences();
 
     protected void checkStoredAgendas() {
-        if(null!=clickSyncNow)
-            clickSyncNow.setVisibility(View.GONE);
+
         if (SharedPreferenceUtil.isAgendaExist(sharedpreferences)) {
             setLoadedFromSharedPreference(true);
             startLoading();
             newsLayoutConstructionOperation(this).execute("");
+            showClickSyncNow(true);
+        } else {
+            showClickSyncNow(false);
+        }
+    }
+
+    protected void showClickSyncNow(boolean visible){
+        if(null!=clickSyncNow  ){
+            clickSyncNow.setVisibility(visible?View.VISIBLE:View.INVISIBLE);
         }
     }
 
@@ -190,6 +194,7 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
                 stopLoading();
                 if (null != postResponse) {
                     parent.handleGetPost(postResponse, null);
+                    showClickSyncNow(true);
                     parent.setLoadedFromSharedPreference(false);
                 } else {
                     parent.populateInfo("Tidak ada agenda untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda");

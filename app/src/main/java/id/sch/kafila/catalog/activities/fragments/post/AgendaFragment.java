@@ -84,6 +84,7 @@ public class AgendaFragment extends PostFragment {
 
     private void getAgenda() {
         startLoading();
+        showClickSyncNow(false);
         new GetPostOperation(this).execute("");
     }
 
