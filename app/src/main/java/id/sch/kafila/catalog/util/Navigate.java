@@ -4,11 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import java.io.Serializable;
+
 public class Navigate {
 
     public static void navigate(Context c, Class className) {
         Intent i = new Intent(c, className);
         c.startActivity(i);
+    } public static void navigate(Context c, Class className, Object extrasKey, Serializable extras) {
+        Intent i = new Intent(c, className);
+        i.putExtra(extrasKey.toString()
+                , extras);
+
+        c.startActivity(i);
+
     }
 
     public static void openLink(String link, Context c){

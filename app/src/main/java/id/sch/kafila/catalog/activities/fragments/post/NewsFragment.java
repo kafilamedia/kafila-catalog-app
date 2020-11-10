@@ -66,7 +66,7 @@ public class NewsFragment extends PostFragment {
     @Override
     protected void initComponents() {
         setParentFragment();
-        sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, Activity.MODE_PRIVATE);
+        sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT.value, Activity.MODE_PRIVATE);
 
 
         infoLayout = view.findViewById(R.id.news_info_wrapper);

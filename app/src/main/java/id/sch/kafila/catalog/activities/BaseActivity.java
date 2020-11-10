@@ -29,7 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
             setContentView(LAYOUT_ID);
-            sharedpreferences = getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, MODE_PRIVATE);
+            sharedpreferences = getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT.value, MODE_PRIVATE);
 
             initComponent();
             initEvent();

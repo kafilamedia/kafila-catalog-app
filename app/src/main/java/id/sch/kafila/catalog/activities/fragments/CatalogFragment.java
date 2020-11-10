@@ -42,7 +42,7 @@ public class CatalogFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_catalog, container, false);
-        sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, Context.MODE_PRIVATE);
+        sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT.value, Context.MODE_PRIVATE);
         initComponents();
         initEvents();
         Logs.log("Catalog Fragment onCreateView");

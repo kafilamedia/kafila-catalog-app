@@ -32,6 +32,7 @@ import java.util.Map;
 
 import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.components.MenuButton;
+import id.sch.kafila.catalog.constants.Extras;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
 import id.sch.kafila.catalog.contents.Dimension;
 import id.sch.kafila.catalog.util.AlertUtil;
@@ -55,7 +56,7 @@ public class HomeActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
+//        startActivityForResult(getIntent(), TheApplication.REQUEST_CODE.value);
         StrictMode.setThreadPolicy(policy);
         Logs.log("ONCREATE....");
         setContentView(R.layout.activity_home);
@@ -113,6 +114,7 @@ public class HomeActivity extends FragmentActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_preface:
                         switchFragment(R.layout.fragment_preface);
+
                         break;
                     case R.id.navigation_catalog:
                         switchFragment(R.layout.fragment_catalog);
@@ -122,6 +124,8 @@ public class HomeActivity extends FragmentActivity {
                         switchFragment(R.layout.fragment_base_news);
                         break;
                 }
+
+                setInsideCatalogPage(false);
                 return false;
             }
         };
@@ -167,7 +171,7 @@ public class HomeActivity extends FragmentActivity {
     }
 
     private void exitApplication() {
-        System.exit(0);
+        Navigate.navigate(this, WelcomingScreenActivity.class, Extras.EXIT_APP_KEY.value, Extras.EXIT_APP_VALUE);
     }
 
     public void setInsideCatalogPage(boolean insideCatalogPage) {
