@@ -156,11 +156,18 @@ public class HomeActivity extends FragmentActivity {
         if (isInsideCatalogPage()) {
             setInsideCatalogPage(false);
             bottomNavigationView.setSelectedItemId(R.id.navigation_catalog);
+            
         } else if(currentFragment != R.layout.fragment_preface) {
             switchFragment(R.layout.fragment_preface);
             bottomNavigationView.setSelectedItemId(R.id.navigation_preface);
+        } else if(currentFragment == R.layout.fragment_preface){
+            exitApplication();
         }
 
+    }
+
+    private void exitApplication() {
+        System.exit(0);
     }
 
     public void setInsideCatalogPage(boolean insideCatalogPage) {
