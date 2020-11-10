@@ -1,194 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.fragments.BaseFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <LinearLayout
-        android:id="@+id/K"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/letter_k"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ff8d33"
-            android:gravity="center_vertical|center_horizontal"
-            android:padding="10dp"
-            android:text="K"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#cccccc"
-            android:padding="5dp"
-            android:text="Komitmen untuk peningkatan mutu yang terus-menerus" />
-    </LinearLayout>
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
 
     <LinearLayout
-        android:id="@+id/A1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:paddingBottom="50dp"
+        tools:context=".activities.fragments.BaseFragment">
 
-        <TextView
-            android:id="@+id/letter_a1"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_light"
-            android:gravity="fill_vertical|center_horizontal"
-            android:padding="10dp"
-            android:text="A"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+        <!-- TODO: Update blank fragment layout -->
 
-        <TextView
-            android:id="@+id/textView10"
+        <LinearLayout
+            android:id="@+id/K"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#cccccc"
-            android:padding="5dp"
-            android:text="Amal jama'i sebagai metode mewujudkan visi dan misi" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/F"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/letter_f"
-            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ff8d33"
-            android:gravity="fill_vertical|center_horizontal"
-            android:padding="10dp"
-            android:text="F"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView11"
+            <TextView
+                android:id="@+id/letter_k"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff8d33"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="K"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#cccccc"
+                android:padding="5dp"
+                android:text="Komitmen untuk peningkatan mutu yang terus-menerus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/A1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#cccccc"
-            android:padding="5dp"
-            android:text="Future Oriented dalam pengembangan program pendidikan" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/I"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/letter_i"
-            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_light"
-            android:gravity="fill_vertical|center_horizontal"
-            android:padding="10dp"
-            android:text="I"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView12"
+            <TextView
+                android:id="@+id/letter_a1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:gravity="fill_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="A"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#cccccc"
+                android:padding="5dp"
+                android:text="Amal jama'i sebagai metode mewujudkan visi dan misi" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/F"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#cccccc"
-            android:padding="5dp"
-            android:text="Inovasi dalam pengajaran dan pembentukan karakter" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/L"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/letter_L"
-            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#ff8d33"
-            android:gravity="fill_vertical|center_horizontal"
-            android:padding="10dp"
-            android:text="L"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView13"
+            <TextView
+                android:id="@+id/letter_f"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff8d33"
+                android:gravity="fill_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="F"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#cccccc"
+                android:padding="5dp"
+                android:text="Future Oriented dalam pengembangan program pendidikan" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/I"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#cccccc"
-            android:padding="5dp"
-            android:text="Learning sebagai budaya seluruh warga pesantren" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/A2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/letter_a2"
-            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_light"
-            android:gravity="fill_vertical|center_horizontal"
-            android:padding="10dp"
-            android:text="A"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView14"
+            <TextView
+                android:id="@+id/letter_i"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:gravity="fill_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="I"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#cccccc"
+                android:padding="5dp"
+                android:text="Inovasi dalam pengajaran dan pembentukan karakter" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/L"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#cccccc"
-            android:padding="5dp"
-            android:text="Amar Ma'ruf, Nahiy Munkar untuk menguatkan organisasi" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/letter_L"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff8d33"
+                android:gravity="fill_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="L"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#cccccc"
+                android:padding="5dp"
+                android:text="Learning sebagai budaya seluruh warga pesantren" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/A2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/letter_a2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:gravity="fill_vertical|center_horizontal"
+                android:padding="10dp"
+                android:text="A"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#cccccc"
+                android:padding="5dp"
+                android:text="Amar Ma'ruf, Nahiy Munkar untuk menguatkan organisasi" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

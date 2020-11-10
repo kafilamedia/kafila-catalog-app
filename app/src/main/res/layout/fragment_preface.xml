@@ -1,68 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
     android:orientation="vertical"
-    tools:context=".activities.fragments.BaseFragment">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
 
     <LinearLayout
-        android:id="@+id/preface_content2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@android:color/holo_blue_dark"
+        android:orientation="vertical"
+        tools:context=".activities.fragments.BaseFragment">
 
-        <TextView
-            android:id="@+id/textView17"
+        <LinearLayout
+            android:id="@+id/preface_content2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Kafila International Islamic School, merupakan pesantren modern dengan manhaj ahlussunnah wal jamaah yang memadukan kurikulum umum dan diniyah, serta tahfidz al quran."
-            android:textColor="#ffffff" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/preface3"
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Kafila International Islamic School, merupakan pesantren modern dengan manhaj ahlussunnah wal jamaah yang memadukan kurikulum umum dan diniyah, serta tahfidz al quran."
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/preface3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/home_preface3"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/preface2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/home_preface2"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/preface"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/home_preface1"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <id.sch.kafila.catalog.components.KafilaFooter
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/home_preface3"
-            android:textColor="#ffffff" />
 
-        <TextView
-            android:id="@+id/preface2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/home_preface2"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/preface"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/home_preface1"
-            android:textColor="#ffffff" />
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
-
-    <id.sch.kafila.catalog.components.KafilaFooter
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp" />
-</LinearLayout>
+</ScrollView>
