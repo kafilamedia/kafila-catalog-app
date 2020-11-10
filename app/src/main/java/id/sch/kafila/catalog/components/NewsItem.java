@@ -1,8 +1,10 @@
 package id.sch.kafila.catalog.components;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -16,6 +18,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import id.sch.kafila.catalog.R;
+import id.sch.kafila.catalog.activities.HomeActivity;
 import id.sch.kafila.catalog.models.Post;
 import id.sch.kafila.catalog.service.ImageViewWithURL;
 import id.sch.kafila.catalog.util.Logs;
@@ -30,16 +33,27 @@ public class NewsItem extends LinearLayout {
 
     private AsyncTask downloadImageTask;
     final boolean loadImage;
+    final HomeActivity parentActivity;
 
-    public NewsItem(Context context, @Nullable AttributeSet attrs, boolean loadImage) {
+    public NewsItem(Context context, @Nullable AttributeSet attrs, boolean loadImage, Activity parentActivity) {
         super(context, attrs);
         this.loadImage = loadImage;
+        if (parentActivity instanceof HomeActivity){
+            this.parentActivity = (HomeActivity) parentActivity;
+        }else {
+            this.parentActivity = null;
+        }
         init(context, attrs);
     }
 
-    public NewsItem(Context context, Post post, boolean loadImage) {
+    public NewsItem(Context context, Post post, boolean loadImage, Activity parentActivity) {
         super(context);
         this.loadImage = loadImage;
+        if (parentActivity instanceof HomeActivity){
+            this.parentActivity = (HomeActivity) parentActivity;
+        }else {
+            this.parentActivity = null;
+        }
         init(context, null);
         this.post = post;
         populateContent(post);
@@ -79,25 +93,41 @@ public class NewsItem extends LinearLayout {
     }
 
     public void populateContent(Post post) {
-        if(isLoadImage())
-        {
+        if (isLoadImage()) {
             loadImage();
         }
+        if (parentActivity != null && parentActivity.getPostBitmap(post.getId()) != null) {
+            imageThumbnail.setImageBitmap(parentActivity.getPostBitmap(post.getId()));
+        }
+
         setTitle(post.getTitle());
         setNewsDate(post.getDate());
     }
 
     public void loadImage() {
-        if(null == post || null == post.getImages()){
+        if (null == post || null == post.getImages()) {
             return;
         }
 
         String url = post.getImages().getThumbnail();
         Logs.log("START load image:", url);
-        ImageViewWithURL imageViewContents = new ImageViewWithURL(imageThumbnail, url);
+        ImageViewWithURL imageViewContents = new ImageViewWithURL(imageThumbnail, url, bitmapHandler());
         downloadImageTask = imageViewContents.populate();
         Logs.log("END load image:", url);
+
     }
+
+    private ImageViewWithURL.HandleBitmapResult bitmapHandler() {
+
+        return new ImageViewWithURL.HandleBitmapResult() {
+            @Override
+            public void handleBitmap(Bitmap bitmap) {
+                if (null != parentActivity)
+                    parentActivity.addPostBitmap(post.getId(), bitmap);
+            }
+        };
+    }
+
     public void setTitle(String title) {
         newsTitle.setText(title);
     }
@@ -111,7 +141,7 @@ public class NewsItem extends LinearLayout {
         newsTitle = findViewById(R.id.news_title);
         newsDate = findViewById(R.id.news_date);
         buttonNewsLink = findViewById(R.id.news_item_options);
-        buttonNewsLink.setImageResource( (android.R.drawable.ic_menu_info_details));
+        buttonNewsLink.setImageResource((android.R.drawable.ic_menu_info_details));
 
 
     }
@@ -135,8 +165,8 @@ public class NewsItem extends LinearLayout {
         };
     }
 
-    private void openLink(){
-        if(null == post){
+    private void openLink() {
+        if (null == post) {
             return;
         }
         Navigate.openLink(post.newsLink(), getContext());
@@ -162,7 +192,7 @@ public class NewsItem extends LinearLayout {
     }
 
     private void shareLink() {
-        Navigate.shareText(this.getContext(), post.getTitle()+" kunjungi link:"+ post.newsLink());
+        Navigate.shareText(this.getContext(), post.getTitle() + " kunjungi link:" + post.newsLink());
     }
 
     public boolean isLoadImage() {

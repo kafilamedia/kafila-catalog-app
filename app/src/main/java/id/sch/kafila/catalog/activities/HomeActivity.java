@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -26,6 +27,9 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import id.sch.kafila.catalog.activities.fragments.BaseFragment;
 import id.sch.kafila.catalog.components.MenuButton;
 import id.sch.kafila.catalog.constants.SharedPreferencesConstants;
@@ -45,6 +49,8 @@ public class HomeActivity extends FragmentActivity {
     private ScrollView mainScrollView;
     private TextView breadCumb;
 
+    private Map<Object, Bitmap> postBitmaps = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +62,18 @@ public class HomeActivity extends FragmentActivity {
         initComponent();
         initEvent();
 
+    }
+    public void clearPostBitmaps(){
+        postBitmaps.clear();
+    }
+
+
+    public void addPostBitmap(Object postId, Bitmap bitmap){
+        postBitmaps.put(postId, bitmap);
+    }
+
+    public Bitmap getPostBitmap(Object postId){
+        return postBitmaps.get(postId);
     }
 
     @Override

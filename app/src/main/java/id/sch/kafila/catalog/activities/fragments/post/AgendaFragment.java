@@ -110,7 +110,7 @@ public class AgendaFragment extends PostFragment {
         infoLayout.removeAllViews();
         for (Post post : agendas) {
             try {
-                NewsItem newsItem = new NewsItem(getActivity(), post, isLoadedFromSharedPreference()==false);
+                NewsItem newsItem = new NewsItem(getActivity(), post, isLoadedFromSharedPreference()==false, getActivity());
                 addTask(newsItem.getDownloadImageTask());
                 postListLayout.addView(newsItem);
             } catch (Exception ex) {

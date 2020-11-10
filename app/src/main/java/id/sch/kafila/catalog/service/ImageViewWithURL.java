@@ -20,10 +20,12 @@ public class ImageViewWithURL {
 
     private final String url;
     private final ImageView imageView;
+    final HandleBitmapResult handleBitmapResult;
 
-    public ImageViewWithURL(ImageView imageView, String url){
+    public ImageViewWithURL(ImageView imageView, String url, HandleBitmapResult handleBitmapResult){
         this.imageView = imageView;
         this.url = url;
+        this.handleBitmapResult = handleBitmapResult;
     }
 
     public AsyncTask<String, Void, Bitmap> populate() {
@@ -81,9 +83,16 @@ public class ImageViewWithURL {
         protected void onPostExecute(Bitmap result) {
             if(null!=result) {
                 bmImage.setImageBitmap(result);
+                if(null != handleBitmapResult){
+                    handleBitmapResult.handleBitmap(result);
+                }
             }else{
                 bmImage.setImageResource(+android.R.drawable.ic_menu_camera);
             }
         }
+    }
+
+    public static interface  HandleBitmapResult{
+        void handleBitmap(Bitmap bitmap);
     }
 }
