@@ -10,6 +10,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class MenuButton extends RelativeLayout {
     int index1 = 1;
     private ImageView imageView;
     private TextView label;
+    private LinearLayout layout;
     private int drawableId =  R.drawable.ic_home_black_24dp;
     public MenuButton(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -75,14 +77,13 @@ public class MenuButton extends RelativeLayout {
 
 
     public void setOnClickListener(OnClickListener listener){
-        imageView.setOnClickListener(listener);
+        layout.setOnClickListener(listener);
     }
 
     private void initComponents() {
-        imageView = (ImageView) findViewById(R.id.image_view);
-        label = (TextView) findViewById(R.id.button_label);
-
-
+        imageView = findViewById(R.id.image_view);
+        label = findViewById(R.id.button_label);
+        layout = findViewById(R.id.image_button_layout);
 
     }
 }

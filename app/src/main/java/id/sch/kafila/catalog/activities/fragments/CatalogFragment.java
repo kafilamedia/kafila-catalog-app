@@ -88,13 +88,10 @@ public class CatalogFragment extends BaseFragment{
         return gotoMenu(fragmentId, null);
     }
     private View.OnClickListener gotoMenu(final int fragmentId, final String breadCumbLabel) {
-        final Context context = this.getContext();
-        return new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                switchFragment(fragmentId, breadCumbLabel);
-            }
-        };
+
+        return  (View v)-> {
+                    switchFragment(fragmentId, breadCumbLabel);
+            };
     }
     private View.OnClickListener exit() {
         final Context ctx = this.getContext();
@@ -115,15 +112,14 @@ public class CatalogFragment extends BaseFragment{
         };
     }
     private void switchFragment(int fragmentId, String breadCumbLabel){
-        Logs.log("switchFragment: ", fragmentId);
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        BaseFragment fragment = BaseFragment.newInstance( fragmentId, null ,breadCumbLabel );
-
-        fragmentTransaction.replace(R.id.home_common_content_container, fragment);
-        fragmentTransaction.commit();
-
+        HomeActivity parentActivity = null;
+        if(getActivity() instanceof HomeActivity){
+            parentActivity = (HomeActivity) getActivity();
+        } else{
+            return;
+        }
+        parentActivity.switchFragmentInCatalogPage(fragmentId, breadCumbLabel);
 
     }
 

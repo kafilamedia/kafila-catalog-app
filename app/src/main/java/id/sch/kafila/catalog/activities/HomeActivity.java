@@ -47,6 +47,7 @@ public class HomeActivity extends FragmentActivity {
 
     private BottomNavigationView bottomNavigationView;
     private TextView breadCumb;
+    private boolean insideCatalogPage;
 
     private Map<Object, Bitmap> postBitmaps = new HashMap<>();
 
@@ -98,8 +99,6 @@ public class HomeActivity extends FragmentActivity {
 
     }
 
-
-
     protected void initEvent() {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener());
         setBreadCumbText(null);
@@ -123,34 +122,52 @@ public class HomeActivity extends FragmentActivity {
                         switchFragment(R.layout.fragment_base_news);
                         break;
                 }
-
                 return false;
-
             }
         };
     }
 
-    private void switchFragment(int fragmentId) {
+    public void switchFragmentInCatalogPage(int fragmentId, String breadCumbLabel){
+        setInsideCatalogPage(true);
+        switchFragment(fragmentId, breadCumbLabel);
+    }
+
+    public void switchFragment(int fragmentId){
+        switchFragment(fragmentId, null);
+    }
+
+    public void switchFragment(int fragmentId, String breadCumbLabel) {
         Logs.log("switchFragment: ", fragmentId);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        BaseFragment fragment = BaseFragment.newInstance(fragmentId);
+        BaseFragment fragment = BaseFragment.newInstance( fragmentId, null ,breadCumbLabel );
 
         fragmentTransaction.replace(R.id.home_common_content_container, fragment);
         fragmentTransaction.commit();
 
         currentFragment = fragmentId;
-
     }
 
     @Override
     public void onBackPressed() {
 
         //if in catalog
-        if (currentFragment == R.layout.fragment_catalog) {
-            switchFragment(R.layout.fragment_catalog);
+        if (isInsideCatalogPage()) {
+            setInsideCatalogPage(false);
+            bottomNavigationView.setSelectedItemId(R.id.navigation_catalog);
+        } else if(currentFragment != R.layout.fragment_preface) {
+            switchFragment(R.layout.fragment_preface);
+            bottomNavigationView.setSelectedItemId(R.id.navigation_preface);
         }
 
+    }
+
+    public void setInsideCatalogPage(boolean insideCatalogPage) {
+        this.insideCatalogPage = insideCatalogPage;
+    }
+
+    public boolean isInsideCatalogPage() {
+        return insideCatalogPage;
     }
 }
