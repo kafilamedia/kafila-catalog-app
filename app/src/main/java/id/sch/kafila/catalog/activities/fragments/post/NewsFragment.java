@@ -39,7 +39,7 @@ public class NewsFragment extends PostFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Logs.log("layout.fragment_news on create view");
+        Logs.log("layout.fragment_news on create view, parent fragment:", getParentFragment().getClass());
         view = inflater.inflate(R.layout.fragment_news, container, false);
 
         initComponents();
@@ -65,7 +65,7 @@ public class NewsFragment extends PostFragment {
 
     @Override
     protected void initComponents() {
-
+        setParentFragment();
         sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, Activity.MODE_PRIVATE);
 
 

@@ -59,7 +59,7 @@ public class AgendaFragment extends PostFragment {
 
     @Override
     protected void initComponents() {
-
+        setParentFragment();
         sharedpreferences = getActivity().getSharedPreferences(SharedPreferencesConstants.SHARED_CONTENT, Activity.MODE_PRIVATE);
 
 

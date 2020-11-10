@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class NewsFragmentView extends BaseFragment{
     private View view;
     private TabLayout tabLayout;
     private List<PostFragment> postFragments = new ArrayList<>();
+    protected ScrollView mainScrollView;
 
     public NewsFragmentView(){
     }
@@ -35,6 +37,16 @@ public class NewsFragmentView extends BaseFragment{
         postFragments.clear();
         addChildFragment(new AgendaFragment());
         addChildFragment(new NewsFragment());
+    }
+
+    public void scrollToTop() {
+        if(null!=mainScrollView)
+            mainScrollView.post(new Runnable() {
+                public void run() {
+                    Logs.log("Scroll to TOP");
+                    mainScrollView.fullScroll(mainScrollView.FOCUS_UP);
+                }
+            });
     }
 
     private void addChildFragment(PostFragment postFragment) {
@@ -60,6 +72,7 @@ public class NewsFragmentView extends BaseFragment{
 
         tabLayout = view.findViewById(R.id.tab_news);
         tabLayout.setupWithViewPager(viewPager);
+        mainScrollView = view.findViewById(R.id.post_scroll_view);
         initEvents();
     }
 

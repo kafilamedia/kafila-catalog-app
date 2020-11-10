@@ -46,7 +46,6 @@ public class HomeActivity extends FragmentActivity {
     private int currentFragment;
 
     private BottomNavigationView bottomNavigationView;
-    private ScrollView mainScrollView;
     private TextView breadCumb;
 
     private Map<Object, Bitmap> postBitmaps = new HashMap<>();
@@ -84,7 +83,6 @@ public class HomeActivity extends FragmentActivity {
 
     protected void initComponent() {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        mainScrollView = findViewById(R.id.home_main_scroll);
         breadCumb = findViewById(R.id.home_breadcumb);
     }
 
@@ -100,14 +98,7 @@ public class HomeActivity extends FragmentActivity {
 
     }
 
-    public void scrollToTop() {
-        mainScrollView.post(new Runnable() {
-            public void run() {
-                Logs.log("Scroll to TOP");
-                mainScrollView.fullScroll(mainScrollView.FOCUS_UP);
-            }
-        });
-    }
+
 
     protected void initEvent() {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener());

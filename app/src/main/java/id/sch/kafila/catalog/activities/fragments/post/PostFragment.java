@@ -2,6 +2,7 @@ package id.sch.kafila.catalog.activities.fragments.post;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,6 +30,9 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
     protected LinearLayout postListLayout, infoLayout;
     protected TextView lastUpdatedLabel;
     protected LinearLayout clickSyncNow;
+    protected ScrollView mainScrollView;
+
+    protected NewsFragmentView parentFragment;
 
     protected PostResponse postData;
 
@@ -49,6 +54,19 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
         this.postData = postData;
         if(null!=lastUpdatedLabel && postData.getLastUpdated()!=null){
             lastUpdatedLabel.setText(postData.getLastUpdated().toString());
+        }
+    }
+
+    protected void setParentFragment(){
+        Fragment fragment = getParentFragment();
+        if(fragment instanceof  NewsFragmentView){
+            parentFragment = (NewsFragmentView) fragment;
+        }
+    }
+
+    protected  void scrollToTop(){
+        if(null != parentFragment){
+            parentFragment.scrollToTop();
         }
     }
 
@@ -114,14 +132,12 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
         return loadingState;
     }
 
+
+
     protected void startLoading() {
         try {
 
-            if(getActivity() instanceof HomeActivity){
-
-                ((HomeActivity) getActivity()).scrollToTop();
-            }
-
+            scrollToTop();
             rollingLoader.setVisibility(View.VISIBLE);
             buttonLoadAgenda.setVisibility(View.INVISIBLE);
             infoLayout.removeAllViews();
