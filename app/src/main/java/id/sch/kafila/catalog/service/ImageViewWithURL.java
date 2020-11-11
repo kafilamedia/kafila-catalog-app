@@ -10,6 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+
 import java.io.InputStream;
 
 import id.sch.kafila.catalog.R;
@@ -28,7 +34,7 @@ public class ImageViewWithURL {
         this.handleBitmapResult = handleBitmapResult;
     }
 
-    public AsyncTask<String, Void, Bitmap> populate() {
+    public void populate() {
 
         imageView.setImageResource(android.R.drawable.ic_menu_camera);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -39,17 +45,43 @@ public class ImageViewWithURL {
 //            }catch (Exception e){ }
         }
         // show The Image in a ImageView
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            return new DownloadImageTask(imageView)
-                    .execute(url);
-        }else {
-            return new DownloadImageTask(imageView)
-                    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url);
-        }
+        Glide.with(imageView.getContext())
+                .load(url)
+                .asBitmap()
+                .thumbnail(0.5f)
+
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .listener(glideListener())
+                .into(imageView);
+
+//            return new DownloadImageTask(imageView)
+//                    .execute(url);
+
+//            return new DownloadImageTask(imageView)
+//                    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url);
+         
+    }
+
+    private RequestListener< String,Bitmap> glideListener() {
+        return new RequestListener< String,Bitmap>(){
+
+            @Override
+            public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
+                imageView.setImageResource(+android.R.drawable.ic_menu_camera);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                imageView.setImageBitmap(resource);
+                handleBitmapResult.handleBitmap(resource);
+                return true;
+            }
+        };
     }
 
 
-
+    @Deprecated
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 

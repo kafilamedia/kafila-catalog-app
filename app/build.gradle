@@ -84,6 +84,7 @@ dependencies {
     // https://mvnrepository.com/artifact/javax.xml/jaxp-api
     implementation 'javax.xml:jaxp-api:1.4.2'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     // https://mvnrepository.com/artifact/com.google.android.material/material
     //implementation group: 'com.google.android.material', name: 'material', version: '1.0.0-alpha1'
     // https://mvnrepository.com/artifact/androidx.viewpager/viewpager

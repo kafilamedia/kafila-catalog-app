@@ -112,7 +112,8 @@ public class NewsItem extends LinearLayout {
         String url = post.getImages().getThumbnail();
         Logs.log("START load image:", url);
         ImageViewWithURL imageViewContents = new ImageViewWithURL(imageThumbnail, url, bitmapHandler());
-        downloadImageTask = imageViewContents.populate();
+//        downloadImageTask =
+                imageViewContents.populate();
         Logs.log("END load image:", url);
 
     }
