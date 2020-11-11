@@ -167,7 +167,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:scrollbarThumbHorizontal="@android:color/transparent">
 
         <LinearLayout
             android:id="@+id/news_navbar"

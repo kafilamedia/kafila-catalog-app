@@ -87,6 +87,7 @@ public class HomeActivity extends FragmentActivity {
     protected void initComponent() {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         breadCumb = findViewById(R.id.home_breadcumb);
+
     }
 
     public void setBreadCumbText(String text) {
@@ -103,7 +104,7 @@ public class HomeActivity extends FragmentActivity {
 
     protected void initEvent() {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener());
-        setBreadCumbText(null);
+        switchHomePage();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener() {
@@ -114,7 +115,7 @@ public class HomeActivity extends FragmentActivity {
                 menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_preface:
-                        switchFragment(R.layout.fragment_preface);
+                       switchHomePage();
 
                         break;
                     case R.id.navigation_catalog:
@@ -122,7 +123,7 @@ public class HomeActivity extends FragmentActivity {
                         break;
 
                     case R.id.navigation_agenda:
-                        switchFragment(R.layout.fragment_base_news);
+                        switchFragment(R.layout.fragment_base_news, null ,false);
                         break;
                 }
 
@@ -130,6 +131,10 @@ public class HomeActivity extends FragmentActivity {
                 return false;
             }
         };
+    }
+
+    private void switchHomePage() {
+        switchFragment(R.layout.fragment_preface, "Home");
     }
 
     public void switchFragmentInCatalogPage(int fragmentId, String breadCumbLabel) {
@@ -142,24 +147,36 @@ public class HomeActivity extends FragmentActivity {
     }
 
     public void switchFragment(int fragmentId, String breadCumbLabel) {
+        switchFragment(fragmentId, breadCumbLabel, true);
+    }
+
+    public void switchFragment(int fragmentId, String breadCumbLabel, boolean withAnimation) {
+        if (currentFragment == fragmentId) {
+            return;
+        }
         Logs.log("switchFragment: ", fragmentId);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().
-                setCustomAnimations( //https://developer.android.com/training/basics/fragments/animate
-                        R.anim.anim_slide_in,  // enter
-                        R.anim.anim_fade_out,  // exit
-                        R.anim.anim_fade_in,   // popEnter
-                        R.anim.anim_slide_out  // popExit
-                );
-        /**
-         *
-         * R.anim.slide_in,  // enter
-         R.anim.fade_out,  // exit
-         R.anim.fade_in,   // popEnter
-         R.anim.slide_out
-         *
-         */
+        FragmentTransaction fragmentTransaction;
+        if(withAnimation) {
+            fragmentTransaction = fragmentManager.beginTransaction().
+                    setCustomAnimations( //https://developer.android.com/training/basics/fragments/animate
+                            R.anim.anim_slide_in,  // enter
+                            R.anim.anim_fade_out,  // exit
+                            R.anim.anim_fade_in,   // popEnter
+                            R.anim.anim_slide_out  // popExit
+                    );
+            /**
+             *
+             * R.anim.slide_in,  // enter
+             R.anim.fade_out,  // exit
+             R.anim.fade_in,   // popEnter
+             R.anim.slide_out
+             *
+             */
+        }else {
+            fragmentTransaction = fragmentManager.beginTransaction();
+        }
 
         BaseFragment fragment = BaseFragment.newInstance(fragmentId, null, breadCumbLabel);
 
@@ -181,7 +198,7 @@ public class HomeActivity extends FragmentActivity {
             switchFragment(R.layout.fragment_preface);
             bottomNavigationView.setSelectedItemId(R.id.navigation_preface);
         } else if (currentFragment == R.layout.fragment_preface) {
-            AlertUtil.confirm(this, "Exit Application?",this::exitApplication);
+            AlertUtil.confirm(this, "Exit Application?", this::exitApplication);
         }
 
     }
