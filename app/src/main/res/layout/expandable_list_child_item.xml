@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:gravity="center_vertical|center_horizontal"
+        android:gravity="center_vertical"
         android:inputType="textMultiLine"
         android:padding="5dp"
         android:text="Child Item Child Item Child Item Child Item Child Item Child Item Child Item Child Item Child Item"
