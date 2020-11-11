@@ -64,16 +64,17 @@ public class HomeActivity extends FragmentActivity {
         initEvent();
 
     }
-    public void clearPostBitmaps(){
+
+    public void clearPostBitmaps() {
         postBitmaps.clear();
     }
 
 
-    public void addPostBitmap(Object postId, Bitmap bitmap){
+    public void addPostBitmap(Object postId, Bitmap bitmap) {
         postBitmaps.put(postId, bitmap);
     }
 
-    public Bitmap getPostBitmap(Object postId){
+    public Bitmap getPostBitmap(Object postId) {
         return postBitmaps.get(postId);
     }
 
@@ -90,12 +91,12 @@ public class HomeActivity extends FragmentActivity {
 
     public void setBreadCumbText(String text) {
         breadCumb.setText(text);
-        if (null != breadCumb  && text != null) {
+        if (null != breadCumb && text != null) {
             breadCumb.setVisibility(VISIBLE);
-            Logs.log("setBreadCumbText ",text);
-        }else{
+            Logs.log("setBreadCumbText ", text);
+        } else {
             breadCumb.setVisibility(GONE);
-            Logs.log("NOT setBreadCumbText ",text);
+            Logs.log("NOT setBreadCumbText ", text);
         }
 
     }
@@ -131,12 +132,12 @@ public class HomeActivity extends FragmentActivity {
         };
     }
 
-    public void switchFragmentInCatalogPage(int fragmentId, String breadCumbLabel){
+    public void switchFragmentInCatalogPage(int fragmentId, String breadCumbLabel) {
         setInsideCatalogPage(true);
         switchFragment(fragmentId, breadCumbLabel);
     }
 
-    public void switchFragment(int fragmentId){
+    public void switchFragment(int fragmentId) {
         switchFragment(fragmentId, null);
     }
 
@@ -144,8 +145,15 @@ public class HomeActivity extends FragmentActivity {
         Logs.log("switchFragment: ", fragmentId);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        BaseFragment fragment = BaseFragment.newInstance( fragmentId, null ,breadCumbLabel );
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().
+                setCustomAnimations( //https://developer.android.com/training/basics/fragments/animate
+                        R.anim.anim_fade_in,  // enter
+                        R.anim.anim_fade_out,  // exit
+                        R.anim.anim_fade_in,   // popEnter
+                        R.anim.anim_fade_out  // popExit
+                );
+
+        BaseFragment fragment = BaseFragment.newInstance(fragmentId, null, breadCumbLabel);
 
         fragmentTransaction.replace(R.id.home_common_content_container, fragment);
         fragmentTransaction.commit();
@@ -160,11 +168,11 @@ public class HomeActivity extends FragmentActivity {
         if (isInsideCatalogPage()) {
             setInsideCatalogPage(false);
             bottomNavigationView.setSelectedItemId(R.id.navigation_catalog);
-            
-        } else if(currentFragment != R.layout.fragment_preface) {
+
+        } else if (currentFragment != R.layout.fragment_preface) {
             switchFragment(R.layout.fragment_preface);
             bottomNavigationView.setSelectedItemId(R.id.navigation_preface);
-        } else if(currentFragment == R.layout.fragment_preface){
+        } else if (currentFragment == R.layout.fragment_preface) {
             exitApplication();
         }
 
