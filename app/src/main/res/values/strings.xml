@@ -59,11 +59,11 @@
     <string name="fasilitas">Asrama , Ruang Kelas ber-AC, Perpustakaan,
             Laboratorium IPA, Laboratorium Bahasa, Laboratorium
             Komputer, Kantin, UKS, Lapangan Olahraga.</string>
-    <string name="alumni_dalam_negeri">Institut Teknologi Bandung (ITB), Univ. Indonesia (UI), Univ. Gadjah Mada (UGM), Institut Pertanian Bogor (IPB), Univ. Diponegoro
-        (UNDIP), Universitas Sebelas Maret (UNS), Univ. Brawijaya (UB), Institut Teknologi Sepuluh Nopember (ITS), Univ. Airlangga (UNAIR),
-        Universitas Islam Negeri Syarif Hidayatullah, STAN, Univ. Telkom, Univ. PERTAMINA, LIPIA dan sebagainya.</string>
-    <string name="alumni_luar_negeri">Univ. Islam Madinah, Univ. Ummul Qura Makkah, Univ. Al Azhar Kairo, Eskisehir Osmangazi Universitasi Turki, Fatih Sultan Mehmet
-        Universitesi Turki, International University of Africa Khartoum Sudan, International Islamic University of Malaysia (IIUM)</string>
+    <string name="alumni_dalam_negeri">Institut Teknologi Bandung (ITB), Universitas Indonesia (UI), Universitas Gadjah Mada (UGM), Institut Pertanian Bogor (IPB), Universitas Diponegoro
+        (UNDIP), Universitas Sebelas Maret (UNS), Universitas Brawijaya (UB), Institut Teknologi Sepuluh Nopember (ITS), Universitas Airlangga (UNAIR),
+        Universitas Islam Negeri Syarif Hidayatullah, STAN, Universitas Telkom, Universitas Pertamina, Sekolah Tinggi Akuntansi Negara (STAN), LIPIA dan sebagainya.</string>
+    <string name="alumni_luar_negeri">Universitas Islam Madinah, Universitas Ummul Qura Makkah, Universitas Al Azhar Kairo, Eskisehir Osmangazi Universitasi Turki, Fatih Sultan Mehmet
+        Universitesi Turki, International University of Africa Khartoum Sudan, International Islamic University of Malaysia (IIUM) dan sebagainya.</string>
 
     <string name="curriculum_academic">
         Dengan inovasi yang terus menerus, kami kreasikan kurikulum yang mengintegrasikan Ilmu-ilmu Kauniyah dan Diniyah untuk pembelajaran yang lebih mudah, menyenangkan dan tepat sasaran.

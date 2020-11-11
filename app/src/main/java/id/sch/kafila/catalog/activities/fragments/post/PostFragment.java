@@ -197,17 +197,12 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
             protected PostResponse doInBackground(String... strings) {
                 Logs.log("construct new doInBackground ", parent.getClass());
                 PostResponse agendaData = parent.getPostFromSharedPreferences();
-                if (null != agendaData) {
-                    return agendaData;
-                }
 
-                return null;
+                return agendaData;
+
             }
 
-
-            @Override
-            protected void onPostExecute(PostResponse postResponse) {
-                stopLoading();
+            private void handle(PostResponse postResponse){
                 if (null != postResponse) {
                     parent.handleGetPost(postResponse, null);
                     showClickSyncNow(true);
@@ -215,6 +210,12 @@ public abstract class PostFragment extends BaseFragment implements PostContentPa
                 } else {
                     parent.populateInfo("Tidak ada agenda untuk ditampilkan", "Cek koneksi internet Anda sebelum memuat agenda");
                 }
+            }
+
+            @Override
+            protected void onPostExecute(PostResponse postResponse) {
+                stopLoading();
+                handle(postResponse);
 
             }
         };
