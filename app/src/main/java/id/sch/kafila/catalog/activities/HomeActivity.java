@@ -118,7 +118,7 @@ public class HomeActivity extends FragmentActivity {
 
                         break;
                     case R.id.navigation_catalog:
-                        switchFragment(R.layout.fragment_catalog);
+                        switchFragment(R.layout.fragment_catalog, "Menu");
                         break;
 
                     case R.id.navigation_agenda:
@@ -147,11 +147,19 @@ public class HomeActivity extends FragmentActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().
                 setCustomAnimations( //https://developer.android.com/training/basics/fragments/animate
-                        R.anim.anim_fade_in,  // enter
+                        R.anim.anim_slide_in,  // enter
                         R.anim.anim_fade_out,  // exit
                         R.anim.anim_fade_in,   // popEnter
-                        R.anim.anim_fade_out  // popExit
+                        R.anim.anim_slide_out  // popExit
                 );
+        /**
+         *
+         * R.anim.slide_in,  // enter
+         R.anim.fade_out,  // exit
+         R.anim.fade_in,   // popEnter
+         R.anim.slide_out
+         *
+         */
 
         BaseFragment fragment = BaseFragment.newInstance(fragmentId, null, breadCumbLabel);
 
