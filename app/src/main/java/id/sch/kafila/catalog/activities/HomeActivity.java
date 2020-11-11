@@ -173,12 +173,13 @@ public class HomeActivity extends FragmentActivity {
             switchFragment(R.layout.fragment_preface);
             bottomNavigationView.setSelectedItemId(R.id.navigation_preface);
         } else if (currentFragment == R.layout.fragment_preface) {
-            exitApplication();
+            AlertUtil.confirm(this, "Exit Application?",this::exitApplication);
         }
 
     }
 
-    private void exitApplication() {
+
+    private void exitApplication(DialogInterface dialog, int which) {
         Navigate.navigate(this, WelcomingScreenActivity.class, Extras.EXIT_APP_KEY.value, Extras.EXIT_APP_VALUE);
     }
 
