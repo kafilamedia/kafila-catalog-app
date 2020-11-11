@@ -98,6 +98,7 @@ public class BaseFragment extends Fragment {
         customFragments.put(R.layout.fragment_news, NewsFragment.class);
         customFragments.put(R.layout.fragment_base_news, NewsFragmentView.class);
         customFragments.put(R.layout.fragment_fasilitas, FasilitasFragment.class);
+        customFragments.put(R.layout.fragment_visi_misi, VisiMisiFragment.class);
 
         return customFragments;
     }

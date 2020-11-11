@@ -20,11 +20,19 @@ public class CustomExpandableListAdapter<T> extends BaseExpandableListAdapter {
     private ArrayList<ListGroupInfo> requirementGroups;
     private ExpandableListView parent;
     int lastExpandedGroup = -1;
+    final boolean withNumber;
 
+    public CustomExpandableListAdapter(Context context, ArrayList<ListGroupInfo> requirementGroups, ExpandableListView listView, boolean withNumber) {
+        this.context = context;
+        this.requirementGroups = requirementGroups;
+        this.parent = listView;
+        this.withNumber = withNumber;
+    }
     public CustomExpandableListAdapter(Context context, ArrayList<ListGroupInfo> requirementGroups, ExpandableListView listView) {
         this.context = context;
         this.requirementGroups = requirementGroups;
         this.parent = listView;
+        this.withNumber = true;
     }
 
     @Override
@@ -65,12 +73,21 @@ public class CustomExpandableListAdapter<T> extends BaseExpandableListAdapter {
         ListChildInfo detailInfo = (ListChildInfo) getChild(groupPosition, childPosition);
         if (view == null) {
             LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = infalInflater.inflate(R.layout.expandable_list_child_item, null);
+            if(withNumber) {
+                view = infalInflater.inflate(R.layout.expandable_list_child_item_with_number, null);
+            } else {
+                view = infalInflater.inflate(R.layout.expandable_list_child_item, null);
+            }
         }
-        TextView numbering = (TextView) view.findViewById(R.id.expandable_list_child_item_number);
-        TextView childItem = (TextView) view.findViewById(R.id.expandable_list_child_item);
+        TextView childItem;
+        if(withNumber) {
+            TextView numbering = view.findViewById(R.id.expandable_list_child_item_number);
+            numbering.setText(String.valueOf(detailInfo.getNumber()));
+            childItem = view.findViewById(R.id.expandable_list_child_item);
+        }else{
+            childItem = view.findViewById(R.id.expandable_list_child_item_label);
+        }
 
-        numbering.setText(String.valueOf(detailInfo.getNumber()));
         childItem.setText(detailInfo.getName().trim());
         childItem.getLayoutParams().width = Dimension.getScreenWidth(context)*4/5;
         childItem.requestLayout();

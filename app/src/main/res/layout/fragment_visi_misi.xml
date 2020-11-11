@@ -2,83 +2,129 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.fragments.VisiMisiFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/fragment_visi_misi_parent"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#d6d7d7"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".activities.fragments.VisiMisiFragment">
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/kiis_building" />
 
         <!-- TODO: Update blank fragment layout -->
+        <!--<androidx.cardview.widget.CardView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="20dp">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="0dp"-->
+        <!--android:background="@android:color/holo_blue_dark"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="Visi"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="15sp"></TextView>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/textView2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:padding="5dp"-->
+        <!--android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang"-->
+        <!--android:textColor="#4d454f"-->
+        <!--android:textSize="12sp" />-->
+        <!--</LinearLayout>-->
+
+        <!--</androidx.cardview.widget.CardView>-->
+
+        <!--<androidx.cardview.widget.CardView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="0dp"-->
+        <!--android:background="@android:color/holo_blue_dark"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="Misi"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="15sp"></TextView>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:padding="5dp"-->
+        <!--android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global"-->
+        <!--android:textColor="#4d454f"-->
+        <!--android:textSize="12sp" />-->
+        <!--</LinearLayout>-->
+        <!--</androidx.cardview.widget.CardView>-->
+
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:id="@+id/cardViewVisiMisi"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp">
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="0dp"
-                    android:background="@android:color/holo_blue_dark"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_horizontal"
-                    android:text="Visi"
-                    android:textColor="#ffffff"
-                    android:textSize="15sp"></TextView>
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:padding="5dp"
-                    android:text="Menjadi lembaga pendidikan Islam internasional yang unggul, maju dan terpandang"
+                    android:text="Visi dan Misi"
                     android:textColor="#4d454f"
-                    android:textSize="12sp" />
-            </LinearLayout>
+                    android:textSize="20sp"></TextView>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
+                <ExpandableListView
+                    android:id="@+id/list_visi_misi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="0dp"
-                    android:background="@android:color/holo_blue_dark"
-                    android:gravity="center_horizontal"
-                    android:text="Misi"
-                    android:textColor="#ffffff"
-                    android:textSize="15sp"></TextView>
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:padding="5dp"
-                    android:text="Mencetak generasi ahlussunnah wal jama’ah yang berjiwa wirausaha dan berwawasan global"
-                    android:textColor="#4d454f"
-                    android:textSize="12sp" />
+                    android:layout_height="match_parent"
+                    android:background="#ffffff" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>
